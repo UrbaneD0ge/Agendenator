@@ -12,5 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.2"
   }
 }
