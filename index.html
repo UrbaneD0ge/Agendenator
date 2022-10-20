@@ -16,11 +16,11 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container">
   <header>
-    <div class="container">
+    <div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10 text-center">
           <h1>AGENDENATOR</h1>
         </div>
       </div>
@@ -69,6 +69,16 @@
       </legend>
     </fieldset>
   </div>
+  <article id='article'>
+    <div>
+      <div class="row">
+        <div class="col-md-10 text-center">
+          <h2>NPU-<span id='NPUletter'>${npu.value}</span></h2>
+          <h3><span id='datePlc'>date</span></h3>
+        </div>
+      </div>
+    </div>
+  </article>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

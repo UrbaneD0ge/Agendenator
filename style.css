@@ -1,3 +1,7 @@
-* {
+body.container {
   background-color: goldenrod;
+}
+
+#article {
+  background-color: #fff;
 }
