@@ -54,9 +54,16 @@ h6 {
   margin: 20px;
 }
 
+p {
+  font-family: Calibri;
+  font-size: 10pt;
+  line-height: 1 !important;
+  padding: 1%;
+}
+
 table {
   margin: 0 30px 30px 30px;
-  width: 90%;
+  width: 95%;
 }
 table, th, td {
   text-align: center;
