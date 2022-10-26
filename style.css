@@ -5,4 +5,73 @@ body.container {
 #article {
   background-color: #fff;
   font: 1.2em, Arial, sans-serif;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Century Gothic';
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 0.5em 0;
+  font-family: 'Tungsten Semibold';
+}
+
+h3 {
+  font-size: 12pt;
+  font-family: 'Century Gothic';
+  color: teal;
+}
+
+h4 {
+  text-align: center;
+  font-family: 'Century Gothic';
+}
+
+h5 {
+  font-family: 'Century Gothic';
+  text-align: left;
+  line-height: .8 !important;
+  font-size: 10.5pt;
+}
+
+h5 a{
+  text-align: left;
+  font-family: 'Century Gothic';
+  color: black;
+  text-decoration: underline;
+}
+
+h6 {
+  font-family: 'Century Gothic';
+  text-align: center;
+  size: 10pt;
+  margin: 20px;
+}
+
+table {
+  margin: 0 30px 30px 30px;
+  width: 90%;
+}
+table, th, td {
+  text-align: center;
+  font-family: Arial;
+  size: 10pt;
+  /* border-collapse: collapse; */
+  border: 1px solid rgb(105, 105, 105);
+}
+
+thead > tr:first-child {
+  background-color: palegoldenrod;
+}
+
+#bylawsBox {
+  display: block !important;
+  border: 5px double #000;
+  margin: 30px;
 }
