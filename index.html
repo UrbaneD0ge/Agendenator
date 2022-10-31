@@ -100,7 +100,7 @@
           </select>
         </formGroup>
       </legend>
-      <button>SUBMIT</button>
+      <button id='submit' type='submit'>SUBMIT</button>
     </fieldset>
   </div><br><br>
   <article id='article'>
@@ -108,7 +108,7 @@
       <div>
         <div class="col-md-10 text-center">
           <h2>NEIGHBORHOOD PLANNING UNIT-<span class='NPUletter'></span></h2>
-          <h3><span id='datePlc'></span></h3>
+          <h3><span data-npu="NPUletter" id='datePlc'></span></h3>
           <h4>Register in advance by clicking <a href='www.atlantaga.gov' noopener><span id='zInfo'>here</span></a></h4>
           <br>
           <h5><strong>CONTACT INFORMATION</strong></h5>
@@ -219,13 +219,34 @@
             </tbody>
           </table>
         </div>
-        <div id='R&C'>
+        <div class='rc' id='R&C'>
           <br>
           <h4>MATTERS FOR REVIEW AND COMMENT</h4>
           <h6>Members can review subdivision applications and provide comments to be forwarded to the Subdivision Review
             Committee (SRC). Other applications may be presented to an NPU for review and comment when the address is
             within a 300-foot radius of the NPU’s boundary. The Code of Ordinances does not require these applicants to
             attend NPU meetings. </h6>
+        </div>
+        <div>
+          <table>
+            <thead class='rc'>
+              <tr>
+                <th colspan='3'>Board of Zoning Adjustment Applications (BZA)</th>
+              </tr>
+              <tr>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href='www.google.com'>Z-22-72</a></td>
+                <td>2060 Peachtree Rd</td>
+                <td>December 1 or 8, 2022</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

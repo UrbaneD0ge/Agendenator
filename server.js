@@ -1,4 +1,3 @@
-// Server code!
 // import express
 const express = require('express');
 // import body-parser
@@ -19,7 +18,7 @@ app.use(bodyParser.json())
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
-mongoose.connect(dbConfig.url, {
+mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true
 }).then(() => {
   console.log("Successfully connected to the database");
@@ -33,8 +32,21 @@ app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
 
-// define a simple route
-app.get('/', (req, res) => {
-  res.json({ "message": "AGENDENATORRR!" });
-});
+// insert form data as a new document in the database
+app.post('/form', (req, res) => {
+  // create a new agenda item
+  const agenda = new Agenda({
+    NPU: req.body.NPU,
+    date: req.body.date,
+    type: req.body.type,
+    descr: req.body.descr,
+    adjNPU: req.body.adjNPU
+  });
 
+
+
+
+  // define a simple route
+  app.get('/', (req, res) => {
+    res.json({ "message": "AGENDENATORRR!" });
+  });

@@ -77,6 +77,10 @@ thead > tr:first-child {
   background-color: palegoldenrod;
 }
 
+.rc > tr:first-child {
+  background-color: rgb(200, 200, 200) !important;
+}
+
 #bylawsBox {
   display: block !important;
   border: 5px double #000;

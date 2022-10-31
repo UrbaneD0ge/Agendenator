@@ -41,16 +41,21 @@ window.onload = function () {
   };
 };
 
-// on submit, add form data to the letter
-document.getElementById('form').addEventListener('submit', function (e) {
+// on submit, add form data to the table of the same type
+document.getElementById('submit').addEventListener('submit', function (e) {
   e.preventDefault();
   let type = document.getElementById('type').value;
   let descr = document.getElementById('descr').value;
   let adjNPU = document.getElementById('adjacent').value;
 
-  // create a new div for the item type
-  let newType = document.createElement('div');
-  newType.setAttribute('class', 'type');
-  newType.innerText = type;
-  document.getElementById('letter').appendChild(newType);
+  let table = document.getElementById(type);
+  let row = table.insertRow(1);
+  let cell1 = row.insertCell(0);
+  let cell2 = row.insertCell(1);
+  let cell3 = row.insertCell(2);
+  cell1.innerHTML = descr;
+  cell2.innerHTML = adjNPU;
+  cell3.innerHTML = `<button type="button" class="btn btn-danger">Delete</button>`;
 });
+
+

@@ -1,2 +1,2 @@
 Language: javascript
-Path: config\database.config.js
+Path: './config/database.config.js'
