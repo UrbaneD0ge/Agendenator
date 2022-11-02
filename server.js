@@ -42,11 +42,12 @@ app.post('/form', (req, res) => {
     descr: req.body.descr,
     adjNPU: req.body.adjNPU
   });
+});
 
 
 
 
-  // define a simple route
-  app.get('/', (req, res) => {
-    res.json({ "message": "AGENDENATORRR!" });
-  });
+// define a simple route
+app.get('/', (req, res) => {
+  res.json({ "message": "AGENDENATORRR!" });
+});
