@@ -26,6 +26,24 @@ router.get('/new', (req, res) => {
   res.render('applications/new');
 });
 
+router.get('/:id', (req, res) => {
+});
 
+router.post('/', async (req, res) => {
+  const application = new Application({
+    NPU: req.body.NPU,
+    adjacent: req.body.adjacent,
+    date: req.body.date,
+    address: req.body.address,
+    type: req.body.type,
+    descr: req.body.descr
+  })
+  try {
+    application = await application.save()
+    res.redirect(`applications/${application.id}`)
+  } catch (err) {
+    res.render('applications/new', { application: application })
+  }
+})
 
 module.exports = router;

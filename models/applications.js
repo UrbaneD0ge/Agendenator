@@ -6,7 +6,8 @@ const applicationSchema = new mongoose.Schema({
   address: String,
   type: String,
   descr: String,
-  adjNPU: String
+  adjNPU: String,
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Application", applicationSchema);

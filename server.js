@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const applicationRouter = require('./routes/applications');
 const Application = require('./models/applications');
@@ -9,8 +9,8 @@ app.listen(3000, () => {
 });
 
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
 
-app.use('/applications', applicationRouter);
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 // Connecting to the database
 mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mongodb.net/?retryWrites=true&w=majority", {
-  useNewUrlParser: true
+  useNewUrlParser: true, useUnifiedTopology: true
 }).then(() => {
   console.log("Successfully connected to the database");
 }).catch(err => {
@@ -36,3 +36,5 @@ async function run() {
     });
   });
 }
+
+app.use('/applications', applicationRouter);
