@@ -1,11 +1,32 @@
-<body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class='container'>
+  <header>
+    <div>
+      <div>
+        <div class="col-md-10 text-center">
+          <h1><a href='/applications'>AGENDENATOR</a></h1>
+        </div>
+      </div>
+    </div>
+  </header>
   <table>
     <thead>
       <tr>
         <th>Application ID</th>
-        <th>Application Name</th>
-        <th>Application Description</th>
-        <th>Application Status</th>
+        <th>NPU</th>
+        <th>Description</th>
+        <th>Hearing Date</th>
+        <th>Adjacent NPU</th>
       </tr>
     </thead>
 
@@ -15,17 +36,18 @@
           <%= application.id %>
         </td>
         <td>
-          <%= application.id %>
+          <%= application.NPU %>
         </td>
         <td>
-          <%= application.name %>
+          <%= application.descr %>
         </td>
         <td>
-          <%= application.description %>
+          <%= application.date %>
         </td>
         <td>
-          <%= application.status %>
+          <%= application.adjacent %>
         </td>
       </tr>
+      <% }) %>
   </table>
 </body>

@@ -28,8 +28,11 @@ mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mon
 
 // run()
 async function run() {
-  Application.findOneAndDelete({ NPU: 'Q' }, function (err, doc) {
+  Application.find({ NPU: 'Q' }, function (err, doc) {
     if (err) return handleError(err);
-    console.log(doc);
-  })
+    Object.keys(doc).forEach(function (key) {
+      var val = doc[key];
+      console.log(val);
+    });
+  });
 }
