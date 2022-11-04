@@ -19,7 +19,11 @@ router.get('/', (req, res) => {
     type: 'BZA',
     descr: 'Applicant seeks a variance to reduce the rear-yard setback.',
   }]
-  res.render('applications', { applications: applications });
+  res.render('applications/applications', { applications: applications });
+});
+
+router.get('/new', (req, res) => {
+  res.render('applications/new');
 });
 
 
