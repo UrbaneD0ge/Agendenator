@@ -1,21 +1,20 @@
-// import express
-const express = require('express');
-// import body-parser
-const bodyParser = require('body-parser');
-// import mongoose
 const mongoose = require('mongoose');
-
-// create express app
+const express = require('express');
 const app = express();
+const applicationRouter = require('./routes/applications');
+const Application = require('./models/applications');
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
-// parse requests of content-type - application/json
-app.use(bodyParser.json())
+app.listen(3000, () => {
+  console.log('Listening on port 3000');
+});
 
-// Configuring the database
-// const dbConfig = require('./');
-mongoose.Promise = global.Promise;
+app.set('view engine', 'ejs');
+
+app.use('/applications', applicationRouter);
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 // Connecting to the database
 mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mongodb.net/?retryWrites=true&w=majority", {
@@ -27,27 +26,10 @@ mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mon
   process.exit();
 });
 
-// set port, listen for requests
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
-});
-
-// insert form data as a new document in the database
-app.post('/form', (req, res) => {
-  // create a new agenda item
-  const agenda = new Agenda({
-    NPU: req.body.NPU,
-    date: req.body.date,
-    type: req.body.type,
-    descr: req.body.descr,
-    adjNPU: req.body.adjNPU
-  });
-});
-
-
-
-
-// define a simple route
-app.get('/', (req, res) => {
-  res.json({ "message": "AGENDENATORRR!" });
-});
+// run()
+async function run() {
+  Application.findOneAndDelete({ NPU: 'Q' }, function (err, doc) {
+    if (err) return handleError(err);
+    console.log(doc);
+  })
+}

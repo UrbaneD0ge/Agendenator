@@ -1,0 +1,31 @@
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Application ID</th>
+        <th>Application Name</th>
+        <th>Application Description</th>
+        <th>Application Status</th>
+      </tr>
+    </thead>
+
+    <% applications.forEach(application=> { %>
+      <tr>
+        <td>
+          <%= application.id %>
+        </td>
+        <td>
+          <%= application.id %>
+        </td>
+        <td>
+          <%= application.name %>
+        </td>
+        <td>
+          <%= application.description %>
+        </td>
+        <td>
+          <%= application.status %>
+        </td>
+      </tr>
+  </table>
+</body>
