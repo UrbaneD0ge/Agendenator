@@ -4,24 +4,8 @@ const Application = require('../models/applications');
 
 // define agenda route
 router.get('/', async (req, res) => {
-  // const applications = [{
-  //   NPU: 'A',
-  //   adjacent: 'B',
-  //   date: 'January 1 or 8, 2023',
-  //   address: '1199 Merlin Ave SE',
-  //   type: 'SD',
-  //   title: 'SD-01-234',
-  //   descr: 'Applicant seeks to subdivide the property into 3 lots.',
-  // },
-  // {
-  //   NPU: 'B',
-  //   date: 'January 1 or 8, 2023',
-  //   address: '1207 South Main St NE',
-  //   type: 'BZA',
-  //   title: 'V-22-123',
-  //   descr: 'Applicant seeks a variance to reduce the rear-yard setback.',
-  // }]
-  await res.render('applications/applications');
+  const applications = await Application.find().sort({ createdAt: 'desc' });
+  await res.render('applications/applications', { applications: applications });
 });
 
 router.get('/new', (req, res) => {
@@ -32,6 +16,18 @@ router.get('/:id', async (req, res) => {
   const application = await Application.findById(req.params.id)
   if (application == null) res.redirect('/')
   res.render('applications/show', { application: application });
+});
+
+router.get('/edit/:id', async (req, res) => {
+  const application = await Application.findById(req.params.id)
+  if (application == null) res.redirect('/')
+  res.render('applications/edit', { application: application });
+});
+
+router.get('/save/:id', async (req, res) => {
+  const application = await Application.findById(req.params.id)
+  if (application == null) res.redirect('/')
+  res.render('applications/save', { application: application });
 });
 
 router.post('/', async (req, res) => {
@@ -50,6 +46,24 @@ router.post('/', async (req, res) => {
   } catch (err) {
     console.log(err)
     res.render('applications/new', { application: application })
+  }
+})
+
+router.put('/save/:id', async (req, res) => {
+  let application = await Application.findById(req.params.id)
+  application.NPU = req.body.NPU
+  application.adjacent = req.body.adjacent
+  application.date = req.body.date
+  application.address = req.body.address
+  application.type = req.body.type
+  application.title = req.body.title
+  application.descr = req.body.descr
+  try {
+    application = await application.save()
+    res.redirect(`/applications/${application.id}`)
+  } catch (err) {
+    console.log(err)
+    res.render('applications/edit', { application: application })
   }
 })
 
