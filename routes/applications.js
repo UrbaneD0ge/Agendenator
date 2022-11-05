@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
   })
   try {
     application = await application.save()
-    res.redirect(`applications/${application.slug}`, { application: application })
+    res.redirect(`applications/${application.slug}`)
   } catch (err) {
     console.log(err)
     res.render('applications/new', { application: application })
@@ -68,7 +68,7 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-  await Application.findByIdAndDelete(req.params.id)
+  await Application.findOneAndDelete(req.params.slug)
   res.redirect('/applications')
 })
 
