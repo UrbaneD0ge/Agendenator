@@ -12,8 +12,9 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const applications = await Application.find().sort({ createdAt: 'desc' });
+  res.render('index', { applications: applications });
 });
 
 // Connecting to the database

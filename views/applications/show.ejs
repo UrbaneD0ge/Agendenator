@@ -15,6 +15,11 @@
       <div>
         <div class="col-md-10 text-center">
           <h1><a href='/'>AGENDENATOR</a></h1>
+          <h2>
+            <%= application.title %>
+          </h2>
+          <a class="btn btn-secondary" href="/applications">View All</a>
+          <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">Edit</a>
         </div>
       </div>
     </div>
@@ -25,37 +30,30 @@
         <th>NPU</th>
         <th>Adjacent</th>
         <th>Type</th>
-        <th>Title</th>
         <th>Description</th>
         <th>Address</th>
         <th>Hearing Date</th>
       </tr>
     </thead>
-
-    <% applications.forEach(application=> { %>
-      <tr>
-        <td>
-          <%= application.NPU %>
-        </td>
-        <td>
-          <%= application.adjacent %>
-        </td>
-        <td>
-          <%= application.type %>
-        </td>
-        <td>
-          <%= application.title %>
-        </td>
-        <td>
-          <%= application.descr %>
-        </td>
-        <td>
-          <%= application.address %>
-        </td>
-        <td>
-          <%= application.date %>
-        </td>
-      </tr>
-      <% }) %>
+    <tr>
+      <td>
+        <%= application.NPU %>
+      </td>
+      <td>
+        <%= application.adjacent %>
+      </td>
+      <td>
+        <%= application.type %>
+      </td>
+      <td>
+        <%= application.descr %>
+      </td>
+      <td>
+        <%= application.address %>
+      </td>
+      <td>
+        <%= application.date %>
+      </td>
+    </tr>
   </table>
 </body>

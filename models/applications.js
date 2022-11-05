@@ -5,6 +5,7 @@ const applicationSchema = new mongoose.Schema({
   date: String,
   address: String,
   type: String,
+  title: String,
   descr: String,
   adjNPU: String,
   createdAt: { type: Date, default: Date.now },
