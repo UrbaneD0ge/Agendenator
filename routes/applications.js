@@ -4,7 +4,7 @@ const Application = require('../models/applications');
 
 // define agenda route
 router.get('/', async (req, res) => {
-  const applications = await Application.find().sort({ createdAt: 'desc' });
+  const applications = await Application.find().sort({ NPU: 'asc' });
   await res.render('applications/applications', { applications: applications });
 });
 
@@ -12,23 +12,23 @@ router.get('/new', (req, res) => {
   res.render('applications/new', { applications: new Application() });
 });
 
-router.get('/:id', async (req, res) => {
-  const application = await Application.findById(req.params.id)
-  if (application == null) res.redirect('/')
+router.get('/:slug', async (req, res) => {
+  const application = await Application.find({ slug: req.params.slug });
+  if (application == null) res.redirect('/');
   res.render('applications/show', { application: application });
 });
 
 router.get('/edit/:id', async (req, res) => {
-  const application = await Application.findById(req.params.id)
+  const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
   res.render('applications/edit', { application: application });
 });
 
-router.get('/save/:id', async (req, res) => {
-  const application = await Application.findById(req.params.id)
-  if (application == null) res.redirect('/')
-  res.render('applications/save', { application: application });
-});
+// router.get('/save/:slug', async (req, res) => {
+//   const application = await Application.findOne({ slug: req.params.slug });
+//   if (application == null) res.redirect('/')
+//   res.render('applications/save', { application: application });
+// });
 
 router.post('/', async (req, res) => {
   let application = new Application({
@@ -42,14 +42,14 @@ router.post('/', async (req, res) => {
   })
   try {
     application = await application.save()
-    res.redirect(`applications/${application.id}`)
+    res.redirect(`applications/${application.slug}`, { application: application })
   } catch (err) {
     console.log(err)
     res.render('applications/new', { application: application })
   }
 })
 
-router.put('/save/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   let application = await Application.findById(req.params.id)
   application.NPU = req.body.NPU
   application.adjacent = req.body.adjacent
@@ -60,11 +60,16 @@ router.put('/save/:id', async (req, res) => {
   application.descr = req.body.descr
   try {
     application = await application.save()
-    res.redirect(`/applications/${application.id}`)
+    res.redirect(`/applications/${application.slug}`)
   } catch (err) {
     console.log(err)
     res.render('applications/edit', { application: application })
   }
+})
+
+router.delete('/:id', async (req, res) => {
+  await Application.findByIdAndDelete(req.params.id)
+  res.redirect('/applications')
 })
 
 module.exports = router;

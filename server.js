@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const applicationRouter = require('./routes/applications');
 const Application = require('./models/applications');
+const methodOverride = require('method-override');
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');
@@ -10,7 +11,7 @@ app.listen(3000, () => {
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
-
+app.use(methodOverride('_method'));
 
 app.get('/', async (req, res) => {
   const applications = await Application.find().sort({ createdAt: 'desc' });
