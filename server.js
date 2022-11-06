@@ -5,7 +5,7 @@ const applicationRouter = require('./routes/applications');
 const Application = require('./models/applications');
 const methodOverride = require('method-override');
 
-app.listen(3000, () => {
+app.listen(3000 || process.env, () => {
   console.log('Listening on port 3000');
 });
 
