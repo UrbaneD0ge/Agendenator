@@ -6,8 +6,8 @@ router.get('/new', (req, res) => {
   res.render('applications/new', { applications: new Application() });
 });
 
-router.get('/edit/:id', async (req, res) => {
-  const application = await Application.findById(req.params.id);
+router.get('/edit/:slug', async (req, res) => {
+  const application = await Application.findById({ slug: req.params.slug });
   if (application == null) res.redirect('/')
   res.render('applications/edit', { application: application });
 });
