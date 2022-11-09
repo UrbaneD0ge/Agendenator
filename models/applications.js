@@ -8,7 +8,7 @@ const applicationSchema = new mongoose.Schema({
   type: String,
   title: String,
   descr: String,
-  adjNPU: String,
+  adjacent: String,
   createdAt: { type: Date, default: Date.now },
   slug: {
     type: String,

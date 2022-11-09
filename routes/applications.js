@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res, next) => {
   req.application = new Application()
   next()
-}, saveAndRedirect('show'))
+}, saveAndRedirect('/applications/show'));
 
 router.put('/:id', async (req, res, next) => {
   req.application = await Application.findById(req.params.id)
@@ -34,7 +34,7 @@ router.put('/:id', async (req, res, next) => {
 }, saveAndRedirect('edit'))
 
 router.delete('/:id', async (req, res) => {
-  await Application.findOneAndDelete(req.params.slug)
+  await Application.findByIdAndDelete(req.params.id)
   res.redirect('/applications')
 })
 
