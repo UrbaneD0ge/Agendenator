@@ -46,6 +46,9 @@
         <%= application.type %>
       </td>
       <td>
+        <%= application.title %>
+      </td>
+      <td>
         <%= application.descr %>
       </td>
       <td>
@@ -53,6 +56,9 @@
       </td>
       <td>
         <%= application.date %>
+      </td>
+      <td>
+        <%= application.createdAt %>
       </td>
       <td>
         <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
