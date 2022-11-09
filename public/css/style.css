@@ -3,6 +3,12 @@ body.container {
 }
 
 #article {
+  width: 8.5in;
+  /* height: 11in; */
+  margin: 0.5in;
+  padding: 0.5in;
+  background-color: white;
+  border: 1px solid black;
   background-color: #fff;
   font: 1.2em, Arial, sans-serif;
   margin: 50px auto;

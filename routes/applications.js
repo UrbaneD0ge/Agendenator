@@ -6,23 +6,23 @@ router.get('/new', (req, res) => {
   res.render('applications/new', { applications: new Application() });
 });
 
-// router.get('/edit/:slug', async (req, res) => {
-//   const application = await Application.findById({ slug: req.params.slug });
-//   if (application == null) res.redirect('/')
-//   res.render('applications/edit', { application: application });
-// });
+router.get('/edit/:slug', async (req, res) => {
+  const application = await Application.findOne({ slug: req.params.slug });
+  if (application == null) res.redirect('/')
+  res.render('applications/edit', { application: application });
+});
 
 router.get('/:slug', async (req, res) => {
-  const application = await Application.find({ slug: req.params.slug });
+  const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
   res.render('applications/show', { application: application });
 });
 
-router.get('/show/:slug', async (req, res) => {
-  const application = await Application.find({ slug: req.params.slug });
-  if (application == null) res.redirect('/')
-  res.render('/show', { application: application });
-});
+// router.get('/show/:slug', async (req, res) => {
+//   const application = await Application.findOne({ slug: req.params.slug });
+//   if (application == null) res.redirect('/')
+//   res.render('/show', { application: application });
+// });
 
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });
