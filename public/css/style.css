@@ -92,3 +92,7 @@ thead > tr:first-child {
   border: 5px double #000;
   margin: 30px;
 }
+
+input[type=checkbox] {
+  margin: 5px;
+}
