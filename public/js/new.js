@@ -16,13 +16,51 @@ window.onload = function () {
   let dateString = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
   console.log(dateString);
   document.getElementById('date').value = today.toISOString().slice(0, 10);
-
-  // on change, replace the date in the letter
-  date.addEventListener('change', dateid);
-
-  function dateid() {
-    console.log(date.value);
-    document.getElementById('datePlc').
-      innerText = dateString;
-  };
 };
+
+// on item type change, prefill the application name
+document.querySelector('#type').addEventListener('change', function () {
+  switch (document.querySelector('#type').value) {
+    case 'MOSE':
+      title.setAttribute('placeholder', 'Applicant Name');
+      title.value = ('');
+      break;
+    case 'LRB':
+      title.setAttribute('placeholder', 'Applicant Name');
+      title.value = ('');
+      break;
+    case 'ZRB':
+      title.value = 'Z-22-';
+      title.setAttribute('placeholder', 'Z-');
+      break;
+    case 'SUP':
+      title.value = 'U-22-';
+      title.setAttribute('placeholder', 'U-');
+      break;
+    case 'BZA':
+      title.value = 'V-22-';
+      title.setAttribute('placeholder', 'V-');
+      break;
+    case 'Text Amendment':
+      title.value = 'Z-22-';
+      title.setAttribute('placeholder', 'Z-');
+      break;
+    case 'CDP':
+      title.value = 'CDP-22-';
+      title.setAttribute('placeholder', 'CDP-');
+      break;
+    case 'SD':
+      title.value = 'SD-22-';
+      title.setAttribute('placeholder', 'SD-')
+      break;
+    case 'LOR':
+      title.value = 'LOR-22-';
+      title.setAttribute('placeholder', 'LOR-')
+      // title.setAttribute('type', 'number');
+      break;
+    case 'N/A':
+      title.value = '';
+      title.removeAttribute('placeholder');
+      break;
+  }
+});

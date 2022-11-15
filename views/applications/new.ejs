@@ -53,55 +53,82 @@
       <br>
       <fieldset>
         <legend>Adjacent</legend>
-        <input type='checkbox' name='adjacent' value='A'>A</input>
-        <input type='checkbox' name='adjacent' value='B'>B</input>
-        <input type='checkbox' name='adjacent' value='C'>C</input>
-        <input type='checkbox' name='adjacent' value='D'>D</input>
-        <input type='checkbox' name='adjacent' value='E'>E</input>
-        <input type='checkbox' name='adjacent' value='F'>F</input>
-        <input type='checkbox' name='adjacent' value='G'>G</input>
-        <input type='checkbox' name='adjacent' value='H'>H</input>
-        <input type='checkbox' name='adjacent' value='I'>I</input>
-        <input type='checkbox' name='adjacent' value='J'>J</input>
-        <input type='checkbox' name='adjacent' value='K'>K</input>
-        <input type='checkbox' name='adjacent' value='L'>L</input>
-        <input type='checkbox' name='adjacent' value='M'>M</input>
+        <input type='checkbox' name='adjacent' value='A' id='A'></input>
+        <label for='A'>A</label>
+        <input type='checkbox' name='adjacent' value='B' id='B'></input>
+        <label for='B'>B</label>
+        <input type='checkbox' name='adjacent' value='C' id='C'></input>
+        <label for='C'>C</label>
+        <input type='checkbox' name='adjacent' value='D' id='D'></input>
+        <label for='D'>D</label>
+        <input type='checkbox' name='adjacent' value='E' id='E'></input>
+        <label for='E'>E</label>
+        <input type='checkbox' name='adjacent' value='F' id='F'></input>
+        <label for='F'>F</label>
+        <input type='checkbox' name='adjacent' value='G' id='G'></input>
+        <label for='G'>G</label>
+        <input type='checkbox' name='adjacent' value='H' id='H'></input>
+        <label for='H'>H</label>
+        <input type='checkbox' name='adjacent' value='I' id='I'></input>
+        <label for='I'>I</label>
+        <input type='checkbox' name='adjacent' value='J' id='J'></input>
+        <label for='J'>J</label>
+        <input type='checkbox' name='adjacent' value='K' id='K'></input>
+        <label for='K'>K</label>
+        <input type='checkbox' name='adjacent' value='L' id='L'></input>
+        <label for='L'>L</label>
+        <input type='checkbox' name='adjacent' value='M' id='M'></input>
+        <label for='M'>M</label>
         <br>
-        <input type='checkbox' name='adjacent' value='N'>N</input>
-        <input type='checkbox' name='adjacent' value='O'>O</input>
-        <input type='checkbox' name='adjacent' value='P'>P</input>
-        <input type='checkbox' name='adjacent' value='Q'>Q</input>
-        <input type='checkbox' name='adjacent' value='R'>R</input>
-        <input type='checkbox' name='adjacent' value='S'>S</input>
-        <input type='checkbox' name='adjacent' value='T'>T</input>
-        <input type='checkbox' name='adjacent' value='V'>V</input>
-        <input type='checkbox' name='adjacent' value='W'>W</input>
-        <input type='checkbox' name='adjacent' value='X'>X</input>
-        <input type='checkbox' name='adjacent' value='Y'>Y</input>
-        <input type='checkbox' name='adjacent' value='Z'>Z</input>
+        <input type='checkbox' name='adjacent' value='N' id='N'></input>
+        <label for='N'>N</label>
+        <input type='checkbox' name='adjacent' value='O' id='O'></input>
+        <label for='O'>O</label>
+        <input type='checkbox' name='adjacent' value='P' id='P'></input>
+        <label for='P'>P</label>
+        <input type='checkbox' name='adjacent' value='Q' id='Q'></input>
+        <label for='Q'>Q</label>
+        <input type='checkbox' name='adjacent' value='R' id='R'></input>
+        <label for='R'>R</label>
+        <input type='checkbox' name='adjacent' value='S' id='S'></input>
+        <label for='S'>S</label>
+        <input type='checkbox' name='adjacent' value='T' id='T'></input>
+        <label for='T'>T</label>
+        <input type='checkbox' name='adjacent' value='V' id='V'></input>
+        <label for='V'>V</label>
+        <input type='checkbox' name='adjacent' value='W' id='W'></input>
+        <label for='W'>W</label>
+        <input type='checkbox' name='adjacent' value='X' id='X'></input>
+        <label for='X'>X</label>
+        <input type='checkbox' name='adjacent' value='Y' id='Y'></input>
+        <label for='Y'>Y</label>
+        <input type='checkbox' name='adjacent' value='Z' id='Z'></input>
+        <label for='Z'>Z</label>
       </fieldset>
       <br>
       <label for="date">Date</label>
       <input type="date" name="date" id="date" required><br>
-      <label for="Address">Address</label>
-      <input type="text" name="Address" id="address"><br>
       <label for="type">Type</label>
       <select name="type" id="type" required>
         <option value='MOSE'>MOSE</option>
         <option value='LRB'>LRB</option>
         <option value='BZA'>BZA</option>
         <option value='ZRB'>ZRB</option>
-        <option value='CDP'>CDP</option>
+        <option value='Text Amendment'>Text Amendment</option>
+        <option value='CDP'>CDP Amendment</option>
         <option value='SD'>SD</option>
         <option value='LOR'>LOR</option>
-      </select>
+        <option value='N/A'>Other...</option>
+      </select><br>
       <label for="title">Title</label>
       <input type="text" name="title" id="title" placeholder="ApplName" required><br>
+      <label for="Address">Address</label>
+      <input type="text" name="address" id="address"><br>
       <textarea name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
       <br><br>
-      <textarea type='text' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
-      <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
+      <textarea name='notes' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
       <br><br>
+      <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
     </form>
   </fieldset>
 </body>

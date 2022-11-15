@@ -19,6 +19,12 @@ router.get('/edit/:id', async (req, res) => {
   res.render('applications/edit', { application: application });
 });
 
+router.put('edit/:id', async (req, res, next) => {
+  req.application = await Application.findById(req.params.id)
+  if (application == null) res.redirect('/applications/show')
+  next()
+}, saveAndRedirect('/applications/show'));
+
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });
   await res.render('applications/applications', { applications: applications });
@@ -27,13 +33,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res, next) => {
   req.application = new Application()
   next()
-}, saveAndRedirect('/applications/show'));
-
-router.put('/:id', async (req, res, next) => {
-  req.application = await Application.findById(req.params.id)
-  if (application == null) res.redirect('/applications/show')
-  next()
-}, saveAndRedirect('/applications/show'));
+}, saveAndRedirect('/show'));
 
 router.delete('/:id', async (req, res) => {
   await Application.findByIdAndDelete(req.params.id)

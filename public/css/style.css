@@ -1,5 +1,9 @@
-body.container {
+body {
   background-color: goldenrod;
+  /* max-width: 100% !important; */
+}
+
+body.tablePage {
   max-width: 100% !important;
 }
 
