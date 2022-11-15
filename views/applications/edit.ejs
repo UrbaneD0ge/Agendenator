@@ -67,21 +67,19 @@
         <input type="text" name="address" value="<%= application.address %>">
       </td>
       <td>
-        <input type="date" name="date" value="<%= application.hearingDate %>">
+        <input type="text" name="date" value="<%= application.hearingDate %>">
       </td>
       <td>
         <%= application.createdAt.toISOString().substring(0,10) %>
       </td>
       <td>
         <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-danger">Delete
-          </button>
+          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </td>
       <td>
-        <form action="/show/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
-          <button type="submit" class="btn btn-success ">Save
-          </button>
+        <form action="/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
+          <button type="submit" class="btn btn-success ">Save</button>
         </form>
       </td>
     </tr>
