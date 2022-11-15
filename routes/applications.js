@@ -1,3 +1,4 @@
+const { application } = require('express');
 const express = require('express');
 const router = express.Router();
 const Application = require('../models/applications');
@@ -5,12 +6,6 @@ const Application = require('../models/applications');
 router.get('/new', (req, res) => {
   res.render('applications/new', { applications: new Application() });
 });
-
-// router.get('/edit/:slug', async (req, res) => {
-//   const application = await Application.findOne({ slug: req.params.slug });
-//   if (application == null) res.redirect('/')
-//   res.render('applications/edit', { application: application });
-// });
 
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
@@ -29,14 +24,14 @@ router.get('/', async (req, res) => {
   await res.render('applications/applications', { applications: applications });
 });
 
-router.put('/edit/:id', async (req, res, next) => {
-  req.application = await Application.findByIdAndUpdate(req.params.id)
-  next()
-}, saveAndRedirect('edit'));
-
-
 router.post('/', async (req, res, next) => {
   req.application = new Application()
+  next()
+}, saveAndRedirect('/applications/show'));
+
+router.put('/:id', async (req, res, next) => {
+  req.application = await Application.findById(req.params.id)
+  if (application == null) res.redirect('/applications/show')
   next()
 }, saveAndRedirect('/applications/show'));
 
@@ -55,11 +50,13 @@ function saveAndRedirect(path) {
     application.type = req.body.type
     application.title = req.body.title
     application.descr = req.body.descr
+    application.notes = req.body.notes
     try {
       application = await application.save()
-      res.redirect(`/applications/${application.slug}`)
+      res.redirect(`/ applications / ${application.id}`)
     } catch (err) {
-      res.render(`applications/${path}`, { application: application })
+      console.log(err)
+      res.render(`applications / ${path}`, { application: application })
     }
   }
 }

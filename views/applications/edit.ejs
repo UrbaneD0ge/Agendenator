@@ -38,27 +38,35 @@
         <th>Save</th>
       </tr>
     </thead>
-    <tr contenteditable='true'>
+    <tr>
       <td>
-        <%= application.NPU %>
+        <input type="text" name="NPU" value="<%= application.NPU %>">
       </td>
       <td>
         <%= application.adjacent %>
       </td>
       <td>
-        <%= application.type %>
+        <select name='type' id='type' value="<%= application.type %>">
+          <option value='MOSE'>MOSE</option>
+          <option value='LRB'>LRB</option>
+          <option value='BZA'>BZA</option>
+          <option value='ZRB'>ZRB</option>
+          <option value='CDP'>CDP</option>
+          <option value='SD'>SD</option>
+          <option value='LOR'>LOR</option>
+        </select>
       </td>
       <td>
-        <%= application.title %>
+        <input type="text" name="title" value="<%= application.title %>">
       </td>
       <td>
-        <%= application.descr %>
+        <input type='text' id='descr' value='<%= application.descr %>'>
       </td>
       <td>
-        <%= application.address %>
+        <input type="text" name="address" value="<%= application.address %>">
       </td>
       <td>
-        <%= application.date %>
+        <input type="date" name="date" value="<%= application.hearingDate %>">
       </td>
       <td>
         <%= application.createdAt.toISOString().substring(0,10) %>
@@ -70,10 +78,15 @@
         </form>
       </td>
       <td>
-        <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
+        <form action="/applications/edit/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
           <button type="submit" class="btn btn-success ">Save
           </button>
         </form>
+      </td>
+    </tr>
+    <tr>
+      <td class='notes' colspan='10'>
+        <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
       </td>
     </tr>
   </table>

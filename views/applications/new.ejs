@@ -19,7 +19,7 @@
       </div>
     </div>
   </header>
-  <fieldset>
+  <fieldset style='width: 30%;'>
     <h2>Add Agenda Item</h2>
     <form action="/applications" method="POST">
       <label for="NPU">NPU</label>
@@ -99,7 +99,9 @@
       <input type="text" name="title" id="title" placeholder="ApplName" required><br>
       <textarea name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
       <br><br>
+      <textarea type='text' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
       <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
+      <br><br>
     </form>
   </fieldset>
 </body>

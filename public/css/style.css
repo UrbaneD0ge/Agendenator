@@ -1,5 +1,6 @@
 body.container {
   background-color: goldenrod;
+  max-width: 100% !important;
 }
 
 #article {
@@ -95,4 +96,21 @@ thead > tr:first-child {
 
 input[type=checkbox] {
   margin: 5px;
+}
+
+.NPU {
+  font-weight: bolder;
+}
+
+.descr {
+  text-align: left;
+}
+
+.notes {
+  text-align: left;
+  width: 100%;
+}
+
+td > textarea {
+  width: 100%;
 }
