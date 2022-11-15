@@ -6,11 +6,11 @@ router.get('/new', (req, res) => {
   res.render('applications/new', { applications: new Application() });
 });
 
-router.get('/edit/:slug', async (req, res) => {
-  const application = await Application.findOne({ slug: req.params.slug });
-  if (application == null) res.redirect('/')
-  res.render('applications/edit', { application: application });
-});
+// router.get('/edit/:slug', async (req, res) => {
+//   const application = await Application.findOne({ slug: req.params.slug });
+//   if (application == null) res.redirect('/')
+//   res.render('applications/edit', { application: application });
+// });
 
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
@@ -18,26 +18,27 @@ router.get('/:slug', async (req, res) => {
   res.render('applications/show', { application: application });
 });
 
-// router.get('/show/:slug', async (req, res) => {
-//   const application = await Application.findOne({ slug: req.params.slug });
-//   if (application == null) res.redirect('/')
-//   res.render('/show', { application: application });
-// });
+router.get('/edit/:id', async (req, res) => {
+  const application = await Application.findById(req.params.id);
+  if (application == null) res.redirect('/')
+  res.render('applications/edit', { application: application });
+});
 
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });
   await res.render('applications/applications', { applications: applications });
 });
 
+router.put('/edit/:id', async (req, res, next) => {
+  req.application = await Application.findByIdAndUpdate(req.params.id)
+  next()
+}, saveAndRedirect('edit'));
+
+
 router.post('/', async (req, res, next) => {
   req.application = new Application()
   next()
 }, saveAndRedirect('/applications/show'));
-
-router.put('/:id', async (req, res, next) => {
-  req.application = await Application.findById(req.params.id)
-  next()
-}, saveAndRedirect('edit'))
 
 router.delete('/:id', async (req, res) => {
   await Application.findByIdAndDelete(req.params.id)

@@ -61,7 +61,7 @@
         <%= application.date %>
       </td>
       <td>
-        <%= application.createdAt %>
+        <%= application.createdAt.toISOString().substring(0,10) %>
       </td>
       <td>
         <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">

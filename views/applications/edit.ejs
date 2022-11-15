@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link type="text/css" rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body class='container'>
@@ -19,9 +19,6 @@
             <%= application.title %>
           </h2>
           <a class="btn btn-secondary" href="/applications">View All</a>
-          <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
-            <button type="submit" class="btn btn-succcess">Save
-            </button></form>
         </div>
       </div>
     </div>
@@ -32,9 +29,13 @@
         <th>NPU</th>
         <th>Adjacent</th>
         <th>Type</th>
+        <th>Title</th>
         <th>Description</th>
         <th>Address</th>
         <th>Hearing Date</th>
+        <th>Creation Date</th>
+        <th>Delete</th>
+        <th>Save</th>
       </tr>
     </thead>
     <tr contenteditable='true'>
@@ -48,6 +49,9 @@
         <%= application.type %>
       </td>
       <td>
+        <%= application.title %>
+      </td>
+      <td>
         <%= application.descr %>
       </td>
       <td>
@@ -56,6 +60,22 @@
       <td>
         <%= application.date %>
       </td>
+      <td>
+        <%= application.createdAt.toISOString().substring(0,10) %>
+      </td>
+      <td>
+        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete
+          </button>
+        </form>
+      </td>
+      <td>
+        <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
+          <button type="submit" class="btn btn-success ">Save
+          </button>
+        </form>
+      </td>
     </tr>
   </table>
+
 </body>

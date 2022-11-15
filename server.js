@@ -42,3 +42,4 @@ async function run() {
 
 app.use('/applications', applicationRouter);
 app.use('/show', applicationRouter);
+app.use('/edit', applicationRouter);
