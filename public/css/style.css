@@ -100,6 +100,7 @@ thead > tr:first-child {
 
 input[type=checkbox] {
   margin: 5px;
+  font-size: larger;
 }
 
 .NPU {
