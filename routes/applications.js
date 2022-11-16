@@ -38,10 +38,10 @@ router.get('/', async (req, res) => {
   await res.render('applications/applications', { applications: applications });
 });
 
-router.get('/desc', async (req, res) => {
-  const applications = await Application.find().sort({ NPU: 'desc' });
-  await res.render('applications/applications', { applications: applications });
-});
+// router.get('/desc', async (req, res) => {
+//   const applications = await Application.find().sort({ NPU: 'desc' });
+//   await res.render('applications/applications', { applications: applications });
+// });
 
 function saveAndRedirect(path) {
   return async (req, res) => {
