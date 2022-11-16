@@ -3,6 +3,7 @@ const slugify = require('slugify');
 
 const applicationSchema = new mongoose.Schema({
   NPU: String,
+  month: String,
   date: String,
   address: String,
   type: String,

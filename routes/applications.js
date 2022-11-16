@@ -49,6 +49,7 @@ function saveAndRedirect(path) {
     application.NPU = req.body.NPU
     application.adjacent = req.body.adjacent
     application.date = req.body.date
+    application.month = req.body.month
     application.address = req.body.address
     application.type = req.body.type
     application.title = req.body.title
