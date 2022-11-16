@@ -1,0 +1,52 @@
+<table>
+  <thead>
+    <tr>
+      <th><a href='/desc' style='color: black;'>NPU 🔼</a></th>
+      <th>Adjacent</th>
+      <th>Type</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Hearing Date</th>
+      <th>Creation Date</th>
+      <th>View/Edit</th>
+    </tr>
+  </thead>
+  <% applications.forEach(application=> { %>
+    <tr>
+      <td class='NPU'>
+        <%= application.NPU %>
+      </td>
+      <td>
+        <%= application.adjacent %>
+      </td>
+      <td>
+        <%= application.type %>
+      </td>
+      <td>
+        <%= application.title %>
+      </td>
+      <td class='descr'>
+        <%= application.descr %>
+      </td>
+      <td>
+        <%= application.address %>
+      </td>
+      <td>
+        <%= application.date %>
+      </td>
+      <td>
+        <%= application.createdAt.toISOString().substring(0,10) %>
+      </td>
+      <td>
+        <a class="btn btn-secondary" href="/show/<%= application.slug %>">View</a>
+      </td>
+      <!-- <td>
+        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete
+          </button>
+        </form>
+      </td> -->
+    </tr>
+    <% }) %>
+</table>
