@@ -33,15 +33,15 @@ router.delete('/:id', async (req, res) => {
   res.redirect('/applications')
 })
 
+router.get('/agenda', async (req, res) => {
+  const applications = await Application.find(req.params.NPU).sort({ type: 'asc' });
+  await res.render('agenda', { applications: applications });
+});
+
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });
   await res.render('applications/applications', { applications: applications });
 });
-
-// router.get('/desc', async (req, res) => {
-//   const applications = await Application.find().sort({ NPU: 'desc' });
-//   await res.render('applications/applications', { applications: applications });
-// });
 
 function saveAndRedirect(path) {
   return async (req, res) => {
