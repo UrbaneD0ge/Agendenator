@@ -18,7 +18,7 @@
           <h2>
             <%= application.title.toUpperCase() %>
           </h2>
-          <a class="btn btn-secondary" href="/applications">View All</a>
+          <a class="btn btn-secondary" href="/">View All</a>
           <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">Edit</a>
           <!-- <a class="btn btn-danger" href="/applications/delete/<%= application.id %> ">Delete</a> -->
         </div>
@@ -70,7 +70,7 @@
         <%= application.createdAt.toISOString().substring(0,10) %>
       </td>
       <td>
-        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+        <form class="d-inline" action="/<%= application.id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-danger">Delete
           </button>
         </form>
