@@ -33,9 +33,10 @@ router.delete('/:id', async (req, res) => {
   res.redirect('/applications')
 })
 
-router.get('/agenda', async (req, res) => {
-  const applications = await Application.find(req.params.NPU).sort({ type: 'asc' });
-  await res.render('agenda', { applications: applications });
+router.get('/agenda/:?query', async (req, res) => {
+  // find where NPU and month match the query
+  const applications = await Application.find({ NPU: req.params.query, month: req.params.query });
+  res.render('applications/agenda', { applications: applications });
 });
 
 router.get('/', async (req, res) => {

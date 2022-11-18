@@ -57,5 +57,3 @@ document.getElementById('submit').addEventListener('submit', function (e) {
   cell2.innerHTML = adjNPU;
   cell3.innerHTML = `<button type="button" class="btn btn-danger">Delete</button>`;
 });
-
-

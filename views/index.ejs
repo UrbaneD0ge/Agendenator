@@ -27,9 +27,65 @@
     </div>
   </header>
   <div class='col-md-10 text-center'>
-    <a href="/applications/new" class="btn btn-success">Add New Application</a>
-    <a href="/agenda" class="btn btn-primary">Render Agenda</a>
-
+    <a href="/applications/new" class="btn btn-success">Add New Application</a><br>
+    <form class="form-horizontal">
+      <fieldset>
+      <!-- Select Basic -->
+      <div class="row form-group">
+        <label class="col-md-2 control-label" for="renderNPU">Select Basic</label>
+        <div>
+          <select id="renderNPU" name="renderNPU" class="form-control">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="N">N</option>
+            <option value="O">O</option>
+            <option value="P">P</option>
+            <option value="Q">Q</option>
+            <option value="R">R</option>
+            <option value="S">S</option>
+            <option value="T">T</option>
+            <option value="V">V</option>
+            <option value="W">W</option>
+            <option value="X">X</option>
+            <option value="Y">Y</option>
+            <option value="Z">Z</option>
+          </select>
+      </div>
+      <!-- Select Basic -->
+<br>
+<label class="control-label" for="renderMonth">Select Basic</label>
+<div class="col-md-4">
+          <select id="renderMonth" name="renderMonth" class="form-control">
+            <option value="JAN ">January</option>
+            <option value="FEB ">February</option>
+            <option value="MAR ">March</option>
+            <option value="APR ">April</option>
+            <option value="MAY ">May</option>
+            <option value="JUN ">June</option>
+            <option value="JUL ">July</option>
+            <option value="AUG ">August</option>
+            <option value="SEP ">September</option>
+            <option value="OCT ">October</option>
+            <option value="NOV ">November</option>
+            <option value="DEC ">December</option>
+          </select>
+        </div>
+      </div>
+      
+      </fieldset>
+      <button value="Submit" class="btn btn-primary">Render Agenda</button>
+      </form>
   </div>
   <br>
   <%- include('./applications/_table') %>
