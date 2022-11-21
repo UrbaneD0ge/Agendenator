@@ -33,7 +33,7 @@ router.delete('/:id', async (req, res) => {
   res.redirect('/')
 })
 
-router.get('/:?query', async (req, res) => {
+router.get('/renderNPU', async (req, res) => {
   // find where NPU and month match the query
   const applications = await Application.find({ NPU: req.params.query, month: req.params.query });
   res.render('applications/agenda', { applications: applications, NPUs: NPU });

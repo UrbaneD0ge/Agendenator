@@ -9,7 +9,7 @@
   <link type="text/css" rel="stylesheet" href="../../css/style.css">
 </head>
 
-<body class='container tablePage'>
+<body class='tablePage'>
   <header>
     <div>
       <div>
@@ -29,6 +29,7 @@
       <tr>
         <th>NPU</th>
         <th>Adjacent</th>
+        <th>Month</th>
         <th>Type</th>
         <th>Title</th>
         <th>Description</th>
@@ -45,6 +46,22 @@
       </td>
       <td>
         <%= application.adjacent %>
+      </td>
+      <td>
+        <select name="month" id="month" required multiple>
+          <option value='JAN'>January</option>
+          <option value='FEB'>February</option>
+          <option value='MAR'>March</option>
+          <option value='APR'>April</option>
+          <option value='MAY'>May</option>
+          <option value='JUN'>June</option>
+          <option value='JUL'>July</option>
+          <option value='AUG'>August</option>
+          <option value='SEP'>September</option>
+          <option value='OCT'>October</option>
+          <option value='NOV'>November</option>
+          <option value='DEC'>December</option>
+        </select>
       </td>
       <td>
         <select name='type' id='type' value="<%= application.type %>">
@@ -84,10 +101,23 @@
       </td>
     </tr>
     <tr>
-      <td class='notes' colspan='10'>
+      <td class='notes' colspan='11'>
         <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
       </td>
     </tr>
   </table>
-
+  <script>
+    // select the months in application.month
+    let months = document.getElementById('month');
+    let selectedMonths = '<%= application.month %>'.split(',');
+    selectedMonths.forEach
+    // select the type in application.type
+    let type = document.getElementById('type');
+    let selectedType = '<%= application.type %>';
+    for (let i = 0; i < type.options.length; i++) {
+      if (type.options[i].value === selectedType) {
+        type.options[i].selected = true;
+      }
+    }
+  </script>
 </body>
