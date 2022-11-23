@@ -34,3 +34,4 @@ app.use('/applications', applicationRouter);
 app.use('/show', applicationRouter);
 app.use('/edit', applicationRouter);
 app.use('/desc', applicationRouter);
+app.use('/agenda', applicationRouter);
