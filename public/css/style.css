@@ -113,6 +113,15 @@ form {
   font-weight: bolder;
 }
 
+.calendar {
+  font-size: .8em;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+}
+
 .descr {
   text-align: left;
 }
