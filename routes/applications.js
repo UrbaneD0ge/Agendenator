@@ -49,6 +49,7 @@ router.get('/', async (req, res) => {
 //   await res.render('applications/applications', { applications: applications });
 // });
 
+
 function saveAndRedirect(path) {
   return async (req, res) => {
     let application = req.application

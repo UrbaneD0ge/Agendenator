@@ -1,0 +1,103 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="..\css\style.css">
+</head>
+
+<body class='container'>
+  <header>
+    <div>
+      <div>
+        <div class="col-md-10 text-center">
+          <h1><a href='/'>AGENDENATOR</a></h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <fieldset>
+    <h2>Add NPU</h2>
+    <form action="/NPUs" method="POST">
+      <label for="NPU">NPU</label>
+      <select name="NPU" id="NPU" class='form-select form-select-lg' required>
+        <option value='A'>A</option>
+        <option value='B'>B</option>
+        <option value='C'>C</option>
+        <option value='D'>D</option>
+        <option value='E'>E</option>
+        <option value='F'>F</option>
+        <option value='G'>G</option>
+        <option value='H'>H</option>
+        <option value='I'>I</option>
+        <option value='J'>J</option>
+        <option value='K'>K</option>
+        <option value='L'>L</option>
+        <option value='M'>M</option>
+        <option value='N'>N</option>
+        <option value='O'>O</option>
+        <option value='P'>P</option>
+        <option value='Q'>Q</option>
+        <option value='R'>R</option>
+        <option value='S'>S</option>
+        <option value='T'>T</option>
+        <option value='V'>V</option>
+        <option value='W'>W</option>
+        <option value='X'>X</option>
+        <option value='Y'>Y</option>
+        <option value='Z'>Z</option>
+      </select>
+      <div class='row'>
+        <div class='col'>
+          <label for="chair">Chair</label>
+          <input type="text" name="chair" id="chair" class='form-control' required>
+        </div>
+        <div class='col'>
+          <label for="chairE">Chair Email</label>
+          <input type="email" name="chairE" id="chairE" class='form-control' required>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col'>
+          <label for="Planner">Planner</label>
+          <input type="text" name="Planner" id="Planner" class='form-control' required>
+        </div>
+        <div class='col'>
+          <label for="PlannerE">Planner Email</label>
+          <input type="email" name="PlannerE" id="PlannerE" class='form-control' required>
+        </div>
+      </div>
+      <br><br>
+      <div class='row'>
+        <div class='col'>
+          <label for="meeting">Meeting Recurrence & Time</label>
+          <input type="text" name="meeting" id="meeting" class='form-control' required>
+        </div>
+        <div class='col'>
+          <label for="ZoomID">Zoom Meeting ID</label>
+          <input type="text" name="ZoomID" id="ZoomID" class='form-control' required>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col'>
+          <label for="ZoomPW">Zoom Meeting Password</label>
+          <input type="text" name="ZoomPW" id="ZoomPW" class='form-control' required>
+        </div>
+        <div class='col'>
+          <label for="ZoomURL">Zoom Meeting Link</label>
+          <input type="text" name="ZoomURL" id="ZoomURL" class='form-control' required>
+        </div>
+        <div class='col'>
+          <label for="ZoomDial">Zoom Dial-In Number</label>
+          <input type="text" name="ZoomDial" id="ZoomDial" class='form-control' required>
+        </div>
+      </div>
+      <br><br>
+      <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
+    </form>
+  </fieldset>
+</body>
+<!-- <script src="" async defer></script> -->
