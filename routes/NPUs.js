@@ -4,26 +4,10 @@ const router = express.Router();
 const NPU = require('../models/NPUs');
 
 // post new NPU
-router.post('/NPUs/new', async (req, res) => {
+router.post('/', async (req, res, next) => {
   req.NPU = new NPU()
-  let NPU = req.NPU
-  NPU.NPU = req.body.NPU
-  NPU.chair = req.body.chair
-  NPU.chairE = req.body.chairE
-  NPU.planner = req.body.planner
-  NPU.plannerE = req.body.plannerE
-  NPU.meeting = req.body.meeting
-  NPU.ZoomID = req.body.ZoomID
-  NPU.ZoomPW = req.body.ZoomPW
-  NPU.ZoomURL = req.body.ZoomURL
-  NPU.ZoomDial = req.body.ZoomDial
-  try {
-    NPU = await NPU.save()
-    res.redirect(`/`)
-  } catch (e) {
-    res.render('/')
-  }
-});
+  next()
+}, saveAndRedirect('show'));
 
 // show all NPUs
 router.get('/NPUs', async (req, res) => {
@@ -35,5 +19,28 @@ router.get('/NPUs', async (req, res) => {
 router.get('/NPUs/new', (req, res) => {
   res.render('NPUs/new', { NPUs: new NPU() });
 });
+
+function saveAndRedirect(path) {
+  return async (req, res) => {
+    let NPU = req.NPU
+    NPU.NPU = req.body.NPU
+    NPU.chair = req.body.chair
+    NPU.chairE = req.body.chairE
+    NPU.planner = req.body.planner
+    NPU.plannerE = req.body.plannerE
+    NPU.meeting = req.body.meeting
+    NPU.ZoomID = req.body.ZoomID
+    NPU.ZoomPW = req.body.ZoomPW
+    NPU.ZoomURL = req.body.ZoomURL
+    NPU.ZoomDial = req.body.ZoomDial
+    try {
+      NPU = await NPU.save()
+      res.redirect(`/NPUs/${NPU.NPU}`)
+    } catch (e) {
+      console.log(e)
+      res.render(`NPUs/${path}`, { NPU: NPU })
+    }
+  }
+}
 
 module.exports = router;
