@@ -17,7 +17,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 
 app.get('/', async (req, res) => {
-  // const applications = await Application.find().sort({ createdAt: 'desc' });
   res.render('index');
 });
 
@@ -38,3 +37,4 @@ app.use('/desc', applicationRouter);
 app.use('/agenda', applicationRouter);
 app.use('/NPUs', NPUrouter);
 app.use('/NPUs/new', NPUrouter);
+app.use('/:id', applicationRouter);

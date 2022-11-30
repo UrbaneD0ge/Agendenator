@@ -29,6 +29,7 @@
       <tr>
         <th>NPU</th>
         <th>Adjacent</th>
+        <th>Month</th>
         <th>Type</th>
         <th>Title</th>
         <th>Description</th>
@@ -45,6 +46,22 @@
       </td>
       <td>
         <%= application.adjacent %>
+      </td>
+      <td>
+        <select name="month" id="month" class='form-select' multiple required>
+          <option value='January'>January</option>
+          <option value='February'>February</option>
+          <option value='March'>March</option>
+          <option value='April'>April</option>
+          <option value='May'>May</option>
+          <option value='June'>June</option>
+          <option value='July'>July</option>
+          <option value='August'>August</option>
+          <option value='September'>September</option>
+          <option value='October'>October</option>
+          <option value='November'>November</option>
+          <option value='December'>December</option>
+        </select>
       </td>
       <td>
         <select name='type' id='type' value="<%= application.type %>">
@@ -84,10 +101,14 @@
       </td>
     </tr>
     <tr>
-      <td class='notes' colspan='10'>
+      <td class='notes' colspan='11'>
         <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
       </td>
     </tr>
   </table>
 
+  <script>
+    document.getElementById('month').value = '<%= application.month %>';
+    document.getElementById('type').value = '<%= application.type %>';
+  </script>
 </body>

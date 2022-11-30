@@ -12,16 +12,24 @@ router.get('/edit/:id', async (req, res) => {
   res.render('applications/edit', { application: application });
 });
 
+// router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
+//   const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
+//   await res.render('agendas/agenda', { application: application, NPU: req.params.NPU, month: req.params.month });
+//   if (application == null) res.redirect('/')
+// });
+
+// show applications matching request parameters
+router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
+  const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
+  await res.render('agendas/agenda', { application: application, NPU: req.params.NPU, month: req.params.month });
+  if (application == null) res.redirect('/')
+});
+
+
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
   res.render('applications/show', { application: application });
-});
-
-router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
-  const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
-  if (application == null) res.redirect('/')
-  res.render('agendas/agenda', { application: application, NPU: req.params.NPU, month: req.params.month });
 });
 
 router.post('/', async (req, res, next) => {
@@ -29,7 +37,7 @@ router.post('/', async (req, res, next) => {
   next()
 }, saveAndRedirect('show'));
 
-router.put('/:id', async (req, res, next) => {
+router.put('applications/edit/:id', async (req, res, next) => {
   req.application = await Application.updateOne(req.params.id)
   next()
 }, saveAndRedirect('show'));
