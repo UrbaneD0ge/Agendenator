@@ -3,6 +3,11 @@ const express = require('express');
 const router = express.Router();
 const NPU = require('../models/NPUs');
 
+// add new NPU
+router.get('/NPUs/new', (req, res) => {
+  res.render('NPUs/new', { NPUs: new NPU() });
+});
+
 // post new NPU
 router.post('/', async (req, res, next) => {
   req.NPU = new NPU()
@@ -10,14 +15,9 @@ router.post('/', async (req, res, next) => {
 }, saveAndRedirect('show'));
 
 // show all NPUs
-router.get('/NPUs', async (req, res) => {
+router.get('/', async (req, res) => {
   const NPUs = await NPU.find().sort({ NPU: 'asc' });
-  res.render('NPUs/NPUs', { NPUs: NPUs });
-});
-
-// add new NPU
-router.get('/NPUs/new', (req, res) => {
-  res.render('NPUs/new', { NPUs: new NPU() });
+  await res.render('NPUs/NPUs', { NPUs: NPUs });
 });
 
 function saveAndRedirect(path) {

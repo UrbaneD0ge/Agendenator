@@ -37,3 +37,4 @@ app.use('/edit', applicationRouter);
 app.use('/desc', applicationRouter);
 app.use('/agenda', applicationRouter);
 app.use('/NPUs', NPUrouter);
+app.use('/NPUs/new', NPUrouter);
