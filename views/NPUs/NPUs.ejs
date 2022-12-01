@@ -38,6 +38,7 @@
         <th>Zoom PW</th>
         <th>Zoom Link</th>
         <th>Zoom Dial-In</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <% NPUs.forEach(NPU=> { %>
@@ -73,6 +74,9 @@
         </td>
         <td>
           <%= NPU.ZoomDial %>
+        </td>
+        <td>
+          <a href="/NPUs/edit/<%= NPU._id %>">Edit</a>
         </td>
       </tr>
       <% }) %>

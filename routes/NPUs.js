@@ -6,14 +6,19 @@ const NPU = require('../models/NPUs');
 // add new NPU
 router.get('/new', (req, res) => {
   res.render('NPUs/new', { NPUs: new NPU() });
-  console.log('new NPU');
 });
 
 // post new NPU
 router.post('/', async (req, res, next) => {
   req.NPU = new NPU()
   next()
-}, saveAndRedirect('show'));
+}, saveAndRedirect('NPUs'));
+
+// edit NPU
+router.get('/edit/:id', async (req, res) => {
+  const NPU = await NPU.findById(req.params.id);
+  res.render('NPUs/edit', { NPU: NPU });
+});
 
 // show all NPUs
 router.get('/', async (req, res) => {
@@ -36,10 +41,10 @@ function saveAndRedirect(path) {
     NPU.ZoomDial = req.body.ZoomDial
     try {
       NPU = await NPU.save()
-      res.redirect(`/NPUs/${NPU.NPU}`)
+      res.redirect(`NPUs`)
     } catch (e) {
       console.log(e)
-      res.render(`NPUs/${path}`, { NPU: NPU })
+      res.render('/')
     }
   }
 }
