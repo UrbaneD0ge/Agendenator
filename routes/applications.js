@@ -13,10 +13,12 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 // show applications matching request parameters
-router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
+router.get('/agenda', async (req, res) => {
   const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
-  await res.render('agendas/agenda', { application: application, NPU: req.params.NPU, month: req.params.month });
-  if (application == null) res.redirect('/')
+  await res.render('agendas/agenda', { application: application });
+  // if (application == null) res.redirect('/')
+  console.log('Render agenda for NPU ' + req.params.NPU + ' for month ' + req.params.month);
+  console.error('Error: ' + err);
 });
 
 
