@@ -4,8 +4,9 @@ const router = express.Router();
 const NPU = require('../models/NPUs');
 
 // add new NPU
-router.get('/NPUs/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('NPUs/new', { NPUs: new NPU() });
+  console.log('new NPU');
 });
 
 // post new NPU

@@ -12,12 +12,6 @@ router.get('/edit/:id', async (req, res) => {
   res.render('applications/edit', { application: application });
 });
 
-// router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
-//   const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
-//   await res.render('agendas/agenda', { application: application, NPU: req.params.NPU, month: req.params.month });
-//   if (application == null) res.redirect('/')
-// });
-
 // show applications matching request parameters
 router.get('/agenda?NPU=:NPU&month=:month', async (req, res) => {
   const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
