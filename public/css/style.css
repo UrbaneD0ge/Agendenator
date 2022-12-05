@@ -76,6 +76,7 @@ table {
   margin: 0 30px 30px 30px;
   width: 95%;
 }
+
 table, th, td {
   text-align: center;
   font-family: Arial;
@@ -103,10 +104,6 @@ input[type=checkbox] {
   width: 20px;
   height: 20px;
 
-}
-
-form {
-  font-size: larger;
 }
 
 .NPU {

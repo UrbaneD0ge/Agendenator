@@ -40,16 +40,17 @@ router.put('applications/edit/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res) => {
   await Application.findByIdAndDelete(req.params.id)
-  res.redirect('/applications')
+  res.redirect('/')
 })
 
-router.get('/', async (req, res) => {
-  const applications = await Application.find().sort({ NPU: 'asc' });
-  await res.render('applications/applications', { applications: applications });
+router.get('/renderNPU', async (req, res) => {
+  // find where NPU and month match the query
+  const applications = await Application.find({ NPU: req.params.query, month: req.params.query });
+  res.render('applications/agenda', { applications: applications, NPUs: NPU });
 });
 
-// router.get('/desc', async (req, res) => {
-//   const applications = await Application.find().sort({ NPU: 'desc' });
+// router.get('/', async (req, res) => {
+//   const applications = await Application.find().sort({ NPU: 'asc' });
 //   await res.render('applications/applications', { applications: applications });
 // });
 
@@ -71,7 +72,7 @@ function saveAndRedirect(path) {
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
       console.log(err)
-      res.render(`applications/${path}`, { application: application })
+      res.render(`/${path}`, { application: application })
     }
   }
 }
