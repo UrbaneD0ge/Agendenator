@@ -12,16 +12,6 @@ router.get('/edit/:id', async (req, res) => {
   res.render('applications/edit', { application: application });
 });
 
-// show applications matching request parameters
-router.get('/agenda', async (req, res) => {
-  const application = await Application.find({ NPU: req.params.NPU } && { month: req.params.month });
-  await res.render('agendas/agenda', { application: application });
-  // if (application == null) res.redirect('/')
-  console.log('Render agenda for NPU ' + req.params.NPU + ' for month ' + req.params.month);
-  console.error('Error: ' + err);
-});
-
-
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
@@ -33,7 +23,7 @@ router.post('/', async (req, res, next) => {
   next()
 }, saveAndRedirect('show'));
 
-router.put('applications/edit/:id', async (req, res, next) => {
+router.put('edit/:id', async (req, res, next) => {
   req.application = await Application.updateOne(req.params.id)
   next()
 }, saveAndRedirect('show'));
@@ -42,12 +32,6 @@ router.delete('/:id', async (req, res) => {
   await Application.findByIdAndDelete(req.params.id)
   res.redirect('/')
 })
-
-router.get('/renderNPU', async (req, res) => {
-  // find where NPU and month match the query
-  const applications = await Application.find({ NPU: req.params.query, month: req.params.query });
-  res.render('applications/agenda', { applications: applications, NPUs: NPU });
-});
 
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });

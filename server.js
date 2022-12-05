@@ -20,6 +20,14 @@ app.get('/', async (req, res) => {
   res.render('index');
 });
 
+// show applications matching request parameters
+app.get('/agenda', async (req, res) => {
+  console.log(req.query)
+  // find where NPU matches request parameter
+  const applications = await Application.find({ NPU: 'A' })
+  res.render('applications/applications', { applications: applications });
+});
+
 // Connecting to the database
 mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true, useUnifiedTopology: true
@@ -30,7 +38,7 @@ mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mon
   process.exit();
 });
 
-app.use('/agenda', applicationRouter);
+// app.use('/agenda', applicationRouter);
 app.use('/show', applicationRouter);
 app.use('/edit', applicationRouter);
 app.use('/desc', applicationRouter);
