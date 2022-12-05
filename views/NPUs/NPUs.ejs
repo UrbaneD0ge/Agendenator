@@ -1,0 +1,84 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="..\css\style.css">
+</head>
+
+<body class='container tablePage'>
+  <header>
+    <div>
+      <div>
+        <div class="col-md-10 text-center">
+          <h1><a href='/'>AGENDENATOR</a></h1>
+          <h2>
+            <%= NPUs.NPU %>
+          </h2>
+          <a class="btn btn-secondary" href="/applications">View Applications</a>
+          <a class="btn btn-primary" href="/NPUs/new">Add New</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>NPU</th>
+        <th>Chair</th>
+        <th>Chair Email</th>
+        <th>Planner</th>
+        <th>Planner Email</th>
+        <th>Meeting Info</th>
+        <th>Zoom ID</th>
+        <th>Zoom PW</th>
+        <th>Zoom Link</th>
+        <th>Zoom Dial-In</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <% NPUs.forEach(NPU=> { %>
+      <tr>
+        <td class='NPU'>
+          <%= NPU.NPU %>
+        </td>
+        <td>
+          <%= NPU.chair %>
+        </td>
+        <td>
+          <%= NPU.chairE %>
+        </td>
+        <td>
+          <%= NPU.planner %>
+        </td>
+        <td>
+          <%= NPU.plannerE %>
+        </td>
+        <td>
+          <%= NPU.meeting %>
+        </td>
+        <td>
+          <%= NPU.ZoomID %>
+        </td>
+        <td>
+          <%= NPU.ZoomPW %>#
+        </td>
+        <td>
+          <a href='<%= NPU.ZoomURL %>' target='_blank'>
+            <%= NPU.ZoomURL.split('/').pop() %>
+          </a>
+        </td>
+        <td>
+          <%= NPU.ZoomDial %>
+        </td>
+        <td>
+          <a href="/NPUs/edit/<%= NPU._id %>">Edit</a>
+        </td>
+      </tr>
+      <% }) %>
+  </table>
+</body>

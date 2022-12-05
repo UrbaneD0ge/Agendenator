@@ -23,7 +23,7 @@
     <h2>Add Agenda Item</h2>
     <form action="/applications" method="POST">
       <label for="NPU">NPU</label>
-      <select name="NPU" id="NPU" required>
+      <select name="NPU" id="NPU" class='form-select form-select-lg' required>
         <option value='A'>A</option>
         <option value='B'>B</option>
         <option value='C'>C</option>
@@ -109,22 +109,22 @@
       <label for="date">Date</label>
       <input type="date" name="date" id="date" required><br>
       <label for="month">Month</label>
-      <select name="month" id="month" required multiple>
-        <option value='JAN'>January</option>
-        <option value='FEB'>February</option>
-        <option value='MAR'>March</option>
-        <option value='APR'>April</option>
-        <option value='MAY'>May</option>
-        <option value='JUN'>June</option>
-        <option value='JUL'>July</option>
-        <option value='AUG'>August</option>
-        <option value='SEP'>September</option>
-        <option value='OCT'>October</option>
-        <option value='NOV'>November</option>
-        <option value='DEC'>December</option>
+      <select name="month" id="month" class='form-select' multiple required>
+        <option value='January'>January</option>
+        <option value='February'>February</option>
+        <option value='March'>March</option>
+        <option value='April'>April</option>
+        <option value='May'>May</option>
+        <option value='June'>June</option>
+        <option value='July'>July</option>
+        <option value='August'>August</option>
+        <option value='September'>September</option>
+        <option value='October'>October</option>
+        <option value='November'>November</option>
+        <option value='December'>December</option>
       </select> <br>
       <label for="type">Type</label>
-      <select name="type" id="type" required>
+      <select name="type" id="type" class='form-select' required>
         <option value='MOSE'>MOSE</option>
         <option value='LRB'>LRB</option>
         <option value='BZA'>BZA</option>

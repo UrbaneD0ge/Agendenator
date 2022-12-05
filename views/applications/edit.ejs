@@ -16,7 +16,7 @@
         <div class="col-md-10 text-center">
           <h1><a href='/'>AGENDENATOR</a></h1>
           <h2>
-            <%= application.title %>
+            <%= application.title.toUpperCase() %>
           </h2>
           <a class="btn btn-secondary" href="/applications">View All</a>
         </div>
@@ -48,19 +48,19 @@
         <%= application.adjacent %>
       </td>
       <td>
-        <select name="month" id="month" required multiple>
-          <option value='JAN'>January</option>
-          <option value='FEB'>February</option>
-          <option value='MAR'>March</option>
-          <option value='APR'>April</option>
-          <option value='MAY'>May</option>
-          <option value='JUN'>June</option>
-          <option value='JUL'>July</option>
-          <option value='AUG'>August</option>
-          <option value='SEP'>September</option>
-          <option value='OCT'>October</option>
-          <option value='NOV'>November</option>
-          <option value='DEC'>December</option>
+        <select name="month" id="month" class='form-select' multiple required>
+          <option value='January'>January</option>
+          <option value='February'>February</option>
+          <option value='March'>March</option>
+          <option value='April'>April</option>
+          <option value='May'>May</option>
+          <option value='June'>June</option>
+          <option value='July'>July</option>
+          <option value='August'>August</option>
+          <option value='September'>September</option>
+          <option value='October'>October</option>
+          <option value='November'>November</option>
+          <option value='December'>December</option>
         </select>
       </td>
       <td>
@@ -107,17 +107,7 @@
     </tr>
   </table>
   <script>
-    // select the months in application.month
-    let months = document.getElementById('month');
-    let selectedMonths = '<%= application.month %>'.split(',');
-    selectedMonths.forEach
-    // select the type in application.type
-    let type = document.getElementById('type');
-    let selectedType = '<%= application.type %>';
-    for (let i = 0; i < type.options.length; i++) {
-      if (type.options[i].value === selectedType) {
-        type.options[i].selected = true;
-      }
-    }
+    document.getElementById('month').value = '<%= application.month %>';
+    document.getElementById('type').value = '<%= application.type %>';
   </script>
 </body>
