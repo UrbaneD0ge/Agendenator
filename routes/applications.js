@@ -49,11 +49,10 @@ router.get('/renderNPU', async (req, res) => {
   res.render('applications/agenda', { applications: applications, NPUs: NPU });
 });
 
-// router.get('/', async (req, res) => {
-//   const applications = await Application.find().sort({ NPU: 'asc' });
-//   await res.render('applications/applications', { applications: applications });
-// });
-
+router.get('/', async (req, res) => {
+  const applications = await Application.find().sort({ NPU: 'asc' });
+  await res.render('applications/applications', { applications: applications });
+});
 
 function saveAndRedirect(path) {
   return async (req, res) => {
