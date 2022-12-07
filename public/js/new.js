@@ -11,12 +11,12 @@ function NPUid() {
 };
 
 // on ready, set the datepicker to today's date
-window.onload = function () {
-  var today = new Date();
-  let dateString = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
-  console.log(dateString);
-  document.getElementById('date').value = today.toISOString().slice(0, 10);
-};
+// window.onload = function () {
+//   var today = new Date();
+//   let dateString = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
+//   console.log(dateString);
+//   document.getElementById('date').value = today.toISOString().slice(0, 10);
+// };
 
 // on item type change, prefill the application name
 document.querySelector('#type').addEventListener('change', function () {
