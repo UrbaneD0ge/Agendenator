@@ -33,8 +33,8 @@ app.get('/agenda', async (req, res) => {
     month: req.query.month
   });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU });
-  // render an agenda page with the applications and 
-  res.render('applications/applications', { applications: applications, NPUs: NPU });
+  // render an agenda page with the applications and NPU info
+  res.render('agendas/agenda', { applications: applications, NPUs: NPUs });
 });
 
 // Connecting to the database
