@@ -16,7 +16,15 @@
   <link type="text/css" rel="stylesheet" href="css\style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-
+<div>
+  <div class="row">
+    <div class="col-md-10 text-center">
+      <a href="/applications/new" class="btn btn-success">Add New Application</a>
+      <a href="/applications" class="btn btn-primary">View all applications</a>
+      <a href="/NPUs" class="btn btn-danger">View all NPUs</a>
+    </div>
+  </div>
+</div>
 <article style="background-color: whitesmoke;" id='article'>
   <div style="width: 8.5in; height: 11in;">
     <div>
@@ -44,10 +52,11 @@
           <li>Presentations</li>
           <ul>
             <!-- create li for each Application where type = 'N/A' -->
- <% applications.forEach(Application => { %>
-          <li> <%= Application.title + ' - ' + Application.descr %>  </li>
-<% }) %>
-
+        <% applications.forEach(Application => { %>
+          <% if ( Application.type === 'N/A' ) { %>
+                     <li> <%= Application.title + ' - ' + Application.descr %>  </li>
+          <% } %>
+      <% }) %>
           </ul>
           <li>Matters for Voting</li>
           <li>Old Business</li>
@@ -89,6 +98,16 @@
               <td>Westside Park</td>
               <td>May 27, 2023</td>
             </tr>
+              <% applications.forEach(Application => { %>
+                <% if ( Application.type === 'MOSE' ) { %>
+                  <tr>
+                    <td><a href='www.google.com'> <%= Application.title %> </a></td>
+                    <td> <%= Application.descr %> </td>
+                    <td> <%= Application.address %> </td>
+                    <td> <%= Application.date %> </td>
+                  </tr>
+                <% } %>
+              <% }) %>
           </tbody>
         </table>
       </div>

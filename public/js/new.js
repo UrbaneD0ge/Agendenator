@@ -22,8 +22,10 @@ window.onload = function () {
 document.querySelector('#type').addEventListener('change', function () {
   switch (document.querySelector('#type').value) {
     case 'MOSE':
-      title.setAttribute('placeholder', 'Applicant Name');
+      title.setAttribute('placeholder', 'Event Name');
       title.value = ('');
+      descr.setAttribute('placeholder', 'Event Organizer');
+      address.setAttribute('placeholder', 'Event Location');
       break;
     case 'LRB':
       title.setAttribute('placeholder', 'Applicant Name');
