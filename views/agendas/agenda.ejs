@@ -1,19 +1,38 @@
-<article id='article'>
-  <div>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="css\style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<article style="background-color: whitesmoke;" id='article'>
+  <div style="width: 8.5in; height: 11in;">
     <div>
       <div class="col-md-10 text-center">
-        <h2>NEIGHBORHOOD PLANNING UNIT-<span class='NPUletter'></span></h2>
+        <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU %></span></h2>
         <h3><span data-npu="NPUletter" id='datePlc'></span></h3>
         <h4>Register in advance by clicking <a href='https://www.atlantaga.gov/' noopener><span
               id='zInfo'>here</span></a></h4>
         <br>
         <h5><strong>CONTACT INFORMATION</strong></h5>
-        <h5>Kip Dunlap, <strong>Chair</strong> - <a href='mailto:kdunlap@atlantaga.gov'>kdunlap@atlantaga.gov</a></h5>
+        <h5> <%= NPUs.chair %> , <strong>Chair</strong> - <a href='mailto:<%= NPUs.chairE %>'> <%= NPUs.chairE %> </a></h5>
         <h5>Simit Dunlap, <strong>Vice Chair</strong> - <a href='mailto:simit@atlantaga.gov'>simit@atlantaga.gov</a>
         </h5>
         <h5>Casey Hall, <strong>Secretary</strong> - <a href='mailto:cch494@atlantaga.gov'>cch494@atlantaga.gov</a>
         </h5>
-        <h5>Samantha Terry, <strong>Planner</strong> - <a href='mailto:snterry@atlantaga.gov'>snterry@atlantaga.gov</a>
+        <h5><%= NPUs.planner %>, <strong>Planner</strong> - <a href='mailto:<%= NPUs.plannerE %>'><%= NPUs.plannerE %></a>
         </h5>
       </div>
       <div>
@@ -24,7 +43,11 @@
           <li>Public Comment</li>
           <li>Presentations</li>
           <ul>
-            <li>Keona Jones - Invest Atlanta "ATLInBusiness" resource</li>
+            <!-- create li for each Application where type = 'N/A' -->
+ <% applications.forEach(Application => { %>
+          <li> <%= Application.title + ' - ' + Application.descr %>  </li>
+<% }) %>
+
           </ul>
           <li>Matters for Voting</li>
           <li>Old Business</li>
@@ -33,11 +56,11 @@
         </ol>
       </div>
       <div id='bylawsBox'>
-        <h4>NPU-<% application.NPU %>
+        <h4>NPU-<%= NPUs.NPU %>
         </h4>
-        <p>NPU-<% application.NPU %> VOTING RULES per 2022 Bylaws
-            Each member organization of NPU-E may select two representatives, either of whom may cast a single,
-            indivisible vote at NPU-E meetings. Member organizations represent neighborhood, civic and business
+        <p>NPU-<%= NPUs.NPU %> VOTING RULES per 2022 Bylaws
+            Each member organization of NPU-<%= NPUs.NPU %> may select two representatives, either of whom may cast a single,
+            indivisible vote at NPU-<%= NPUs.NPU %> meetings. Member organizations represent neighborhood, civic and business
             associations which have geographical boundaries within the NPU. Any organization wishing to become a member
             may petition for membership (Article III).
         </p>
