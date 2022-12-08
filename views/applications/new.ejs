@@ -114,8 +114,8 @@
         <label for='Z'>Z</label>
       </fieldset>
       <br>
-      <label for="date">Date</label>
-      <input type="date" name="date" id="date" required><br>
+      <label id="dateLabel" for="date">Date</label>
+      <input type="text" name="date" id="date" required><br> 
       <label for="month">Month</label>
       <select name="month" id="month" class='form-select' multiple required>
         <option value='January'>January</option>
@@ -133,6 +133,7 @@
       </select> <br>
       <label for="type">Type</label>
       <select name="type" id="type" class='form-select' required>
+        <option hidden selected disabled></option>
         <option value='MOSE'>MOSE</option>
         <option value='LRB'>LRB</option>
         <option value='BZA'>BZA</option>
@@ -146,10 +147,12 @@
       </select><br>
       <label for="title">Title</label>
       <input type="text" name="title" id="title" placeholder="ApplName" required><br>
-      <label for="Address">Address</label>
+      <label id="addressLabel" for="Address">Address</label>
       <input type="text" name="address" id="address"><br>
+      <label id="descrLabel" for="descr">Description</label><br>
       <textarea name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
-      <br><br>
+      <br>
+      <label for="notes">Internal Notes</label><br>
       <textarea name='notes' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
       <br><br>
       <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
@@ -161,7 +164,16 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
-  $('input[name="date"]').daterangepicker();
+  $('input[name="date"]').daterangepicker({
+    showDropdowns: true,
+  });
+  $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
+    if(picker.startDate.format('MM/DD/YYYY') == picker.endDate.format('MM/DD/YYYY')) {
+      $(this).val(picker.startDate.format('MM/DD/YYYY'));
+    } else {
+      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+    }
+  });
 </script>
 
 </html>
