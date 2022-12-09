@@ -18,8 +18,6 @@ document.querySelector('#type').addEventListener('change', function () {
       title.value = ('');
       dateLabel.innerText = 'Event Date';
       descrLabel.innerText = 'Event Organizer';
-      // replace descr with input type text
-      
       descr.setAttribute('placeholder', 'Event Organizer');
       addressLabel.innerText = 'Event Location';
       address.setAttribute('placeholder', 'Event Location');
