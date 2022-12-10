@@ -15,7 +15,7 @@ router.get('/edit/:id', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
-  res.render('applications/show', { application: application });
+  else res.render('applications/show', { application: application });
 });
 
 router.post('/', async (req, res, next) => {
@@ -38,8 +38,13 @@ router.get('/', async (req, res) => {
   await res.render('applications/applications', { applications: applications });
 });
 
+console.dir(router, { depth: 5 });
+
 function saveAndRedirect(path) {
   return async (req, res) => {
+    //    for (keys in req.body) {
+    //      application[keys] = body[keys];
+    //    }
     let application = req.application
     application.NPU = req.body.NPU
     application.adjacent = req.body.adjacent
@@ -57,7 +62,9 @@ function saveAndRedirect(path) {
     application.URL3 = req.body.URL3
     application.URL4 = req.body.URL4
     try {
-      application = await application.save()
+      console.dir(req);
+      console.dir(application);
+      //application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
       console.log(err)

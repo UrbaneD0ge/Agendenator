@@ -16,7 +16,7 @@
         <div class="col-md-10 text-center">
           <h1><a href='/'>AGENDENATOR</a></h1>
           <h2>
-            <%= application.title.toUpperCase() %>
+            <%= application.title?.toUpperCase() %>
           </h2>
           <a class="btn btn-secondary" href="/applications">View All</a>
           <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">Edit</a>
@@ -81,7 +81,7 @@
         <%= application.createdAt.toISOString().substring(0,10) %>
       </td>
       <td>
-        <form class="d-inline" action="/<%= application.id %>?_method=DELETE" method="POST">
+        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-danger">Delete
           </button>
         </form>
