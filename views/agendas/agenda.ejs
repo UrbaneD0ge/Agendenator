@@ -26,21 +26,28 @@
   </div>
 </div>
 <article style="background-color: whitesmoke;" id='article'>
-  <div style="width: 8.5in; height: 11in;">
+  <div style="width: 8.5in;">
     <div>
       <div class="col-md-10 text-center">
         <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU %></span></h2>
         <h3><span data-npu="NPUletter" id='datePlc'></span></h3>
-        <h4>Register in advance by clicking <a href='https://www.atlantaga.gov/' noopener><span
-              id='zInfo'>here</span></a></h4>
+        <h4>Register in advance by clicking <a href=<%=NPUs.ZoomURL %> noopener><span id='zInfo'>here</span></a></h4>
         <br>
         <h5><strong>CONTACT INFORMATION</strong></h5>
-        <h5> <%= NPUs.chair %> , <strong>Chair</strong> - <a href='mailto:<%= NPUs.chairE %>'> <%= NPUs.chairE %> </a></h5>
+        <h5>
+          <%= NPUs.chair %> , <strong>Chair</strong> - <a href='mailto:<%= NPUs.chairE %>'>
+              <%= NPUs.chairE %>
+            </a>
+        </h5>
         <h5>Simit Dunlap, <strong>Vice Chair</strong> - <a href='mailto:simit@atlantaga.gov'>simit@atlantaga.gov</a>
         </h5>
-        <h5>Casey Hall, <strong>Secretary</strong> - <a href='mailto:cch494@atlantaga.gov'>cch494@atlantaga.gov</a>
+        <h5>Leah LaRue, <strong>City of Atlanta, Assistant Director</strong> - 404.330.6070 or <a
+            href='mailto:llarue@atlantaga.gov'>llarue@atlantaga.gov</a>
         </h5>
-        <h5><%= NPUs.planner %>, <strong>Planner</strong> - <a href='mailto:<%= NPUs.plannerE %>'><%= NPUs.plannerE %></a>
+        <h5>
+          <%= NPUs.planner %>, <strong>Planner</strong> - <a href='mailto:<%= NPUs.plannerE %>'>
+              <%= NPUs.plannerE %>
+            </a>
         </h5>
       </div>
       <div>
@@ -52,11 +59,13 @@
           <li>Presentations</li>
           <ul>
             <!-- create li for each Application where type = 'N/A' -->
-        <% applications.forEach(Application => { %>
-          <% if ( Application.type === 'N/A' ) { %>
-                     <li> <%= Application.title + ' - ' + Application.descr %>  </li>
-          <% } %>
-      <% }) %>
+            <% applications.forEach(Application=> { %>
+              <% if ( Application.type==='N/A' ) { %>
+                <li>
+                  <%= Application.title + ' - ' + Application.descr %>
+                </li>
+                <% } %>
+                  <% }) %>
           </ul>
           <li>Matters for Voting</li>
           <li>Old Business</li>
@@ -68,10 +77,13 @@
         <h4>NPU-<%= NPUs.NPU %>
         </h4>
         <p>NPU-<%= NPUs.NPU %> VOTING RULES per 2022 Bylaws
-            Each member organization of NPU-<%= NPUs.NPU %> may select two representatives, either of whom may cast a single,
-            indivisible vote at NPU-<%= NPUs.NPU %> meetings. Member organizations represent neighborhood, civic and business
-            associations which have geographical boundaries within the NPU. Any organization wishing to become a member
-            may petition for membership (Article III).
+            Each member organization of NPU-<%= NPUs.NPU %> may select two representatives, either of whom may cast a
+              single,
+              indivisible vote at NPU-<%= NPUs.NPU %> meetings. Member organizations represent neighborhood, civic and
+                business
+                associations which have geographical boundaries within the NPU. Any organization wishing to become a
+                member
+                may petition for membership (Article III).
         </p>
       </div>
       <div id='mattersForVoting'>
@@ -82,7 +94,9 @@
         <table>
           <thead>
             <tr>
-              <th colspan='4'>Special Event Applications (MOSE)</th>
+              <th colspan='4'><a style='color:initial; text-decoration:initial'
+                  href='https://www.atlantaga.gov/government/mayor-s-office/executive-offices/office-of-special-events'>Special
+                  Event Applications (MOSE)</a></th>
             </tr>
             <tr>
               <th>Event Name</th>
@@ -92,22 +106,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><a href='www.google.com'>Atlanta Caribbean Carnival</a></td>
-              <td>Patricia Henry</td>
-              <td>Westside Park</td>
-              <td>May 27, 2023</td>
-            </tr>
-              <% applications.forEach(Application => { %>
-                <% if ( Application.type === 'MOSE' ) { %>
-                  <tr>
-                    <td><a href='www.google.com'> <%= Application.title %> </a></td>
-                    <td> <%= Application.descr %> </td>
-                    <td> <%= Application.address %> </td>
-                    <td> <%= Application.date %> </td>
-                  </tr>
+            <!-- create tr for each Application where type = 'MOSE' -->
+            <% applications.forEach(Application=> { %>
+              <% if ( Application.type==='MOSE' ) { %>
+                <tr>
+                  <td><a href='www.google.com'>
+                      <%= Application.title %>
+                    </a></td>
+                  <td>
+                    <%= Application.descr %>
+                  </td>
+                  <td>
+                    <%= Application.address %>
+                  </td>
+                  <td>
+                    <%= Application.date %>
+                  </td>
+                </tr>
                 <% } %>
-              <% }) %>
+                  <% }) %>
           </tbody>
         </table>
       </div>
@@ -115,7 +132,9 @@
         <table>
           <thead>
             <tr>
-              <th colspan='5'>Alcohol License Applications (LRB)</th>
+              <th colspan='5'><a style='color:initial; text-decoration:initial'
+                  href='https://www.atlantapd.org/business/license-review-board'>Alcohol License Applications
+                  (LRB)</a></th>
             </tr>
             <tr>
               <th>Name of Business</th>
@@ -133,6 +152,28 @@
               <td>969 Marietta St NW</td>
               <td>Change of Agent</td>
             </tr>
+            <!-- create tr for each Application where type = 'LRB' -->
+            <% applications.forEach(Application=> { %>
+              <% if ( Application.type==='LRB' ) { %>
+                <tr>
+                  <td><a href='www.google.com'>
+                      <%= Application.title %>
+                    </a></td>
+                  <td>
+                    <%= Application.type %>
+                  </td>
+                  <td>
+                    <%= Application.date %>
+                  </td>
+                  <td>
+                    <%= Application.address %>
+                  </td>
+                  <td>
+                    <%= Application.descr %>
+                  </td>
+                </tr>
+                <% } %>
+                  <% }) %>
           </tbody>
         </table>
       </div>

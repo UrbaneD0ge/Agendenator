@@ -10,21 +10,16 @@ function NPUid() {
   document.getElementsByClassName('NPUletter').innerText = NPU.value;
 };
 
-// on ready, set the datepicker to today's date
-window.onload = function () {
-  var today = new Date();
-  let dateString = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
-  console.log(dateString);
-  document.getElementById('date').value = today.toISOString().slice(0, 10);
-};
-
 // on item type change, prefill the application name
 document.querySelector('#type').addEventListener('change', function () {
   switch (document.querySelector('#type').value) {
     case 'MOSE':
       title.setAttribute('placeholder', 'Event Name');
       title.value = ('');
+      dateLabel.innerText = 'Event Date';
+      descrLabel.innerText = 'Event Organizer';
       descr.setAttribute('placeholder', 'Event Organizer');
+      addressLabel.innerText = 'Event Location';
       address.setAttribute('placeholder', 'Event Location');
       break;
     case 'LRB':
