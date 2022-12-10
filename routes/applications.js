@@ -23,8 +23,8 @@ router.post('/', async (req, res, next) => {
   next()
 }, saveAndRedirect('show'));
 
-router.put('edit/:id', async (req, res, next) => {
-  req.application = await Application.updateOne(req.params.id)
+router.put('/:id', async (req, res, next) => {
+  req.application = await Application.findById(req.params.id);
   next()
 }, saveAndRedirect('show'));
 

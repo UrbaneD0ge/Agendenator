@@ -30,7 +30,27 @@ document.querySelector('#type').addEventListener('change', function () {
       descrLabel.innerText = 'Request';
       descr.setAttribute('placeholder', 'Request');
 
-      // insert select element
+      // create applicant label
+      const applicantLabel = document.createElement('label');
+      applicantLabel.setAttribute('for', 'applicant');
+      applicantLabel.setAttribute('class', 'col-md-4');
+      applicantLabel.innerText = 'Applicant';
+
+      // create applicant input
+      const applicantInput = document.createElement('input');
+      applicantInput.setAttribute('id', 'applicant');
+      applicantInput.setAttribute('name', 'applicant');
+      applicantInput.setAttribute('placeholder', 'Applicant');
+      applicantInput.setAttribute('class', 'col-md-4');
+      applicantInput.setAttribute('type', 'text');
+      applicantInput.setAttribute('required', 'required');
+
+      // get placeholder div and append label and input
+      const applicantPlaceholderDiv = document.getElementById('applicantDivPlaceholder');
+      applicantPlaceholderDiv.appendChild(applicantLabel);
+      applicantPlaceholderDiv.appendChild(applicantInput);
+
+      // insert select element for LRB type
       const LRBtype = document.createElement('select');
       LRBtype.setAttribute('id', 'bizType');
       LRBtype.setAttribute('name', 'bizType');
@@ -117,7 +137,6 @@ document.querySelector('#type').addEventListener('change', function () {
       LRBrequest.appendChild(LRBoption4);
       LRBrequest.appendChild(LRBoption5);
       // replace descr with select
-
       descr.replaceWith(LRBrequest);
       break;
     case 'ZRB':

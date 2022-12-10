@@ -1,5 +1,5 @@
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AGENDENATOR</title>
   <meta name="description" content="">
@@ -34,6 +34,8 @@
         <th>Month</th>
         <th>Type</th>
         <th>Title</th>
+        <th>Applicant</th>
+        <th>URLs</th>
         <th>Description</th>
         <th>Address</th>
         <th>Hearing Date</th>
@@ -60,7 +62,11 @@
       <td>
         <%= application.applicant %>
       <td>
-        <%= application.URL1 %>
+        <%= application.applURL %>
+          <%= application.URL1 %>
+            <%= application.URL2 %>
+              <%= application.URL3 %>
+                <%= application.URL4 %>
       </td>
       <td class='descr'>
         <%= application.descr %>
@@ -83,7 +89,7 @@
     </tr>
     <% if (application.notes) { %>
       <tr>
-        <td class='notes' colspan='10'>
+        <td class='notes' colspan='12'>
           <%= application.notes %>
         </td>
       </tr>
