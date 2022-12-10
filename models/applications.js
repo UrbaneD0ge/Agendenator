@@ -10,6 +10,12 @@ const applicationSchema = new mongoose.Schema({
   title: String,
   descr: String,
   notes: String,
+  applicant: String,
+  applURL: String,
+  URL1: String,
+  URL2: String,
+  URL3: String,
+  URL4: String,
   adjacent: { type: Array, default: "-" },
   createdAt: { type: Date, default: Date.now },
   slug: {

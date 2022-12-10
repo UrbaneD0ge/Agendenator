@@ -21,7 +21,7 @@
   <header>
     <div>
       <div>
-        <div class="col-md-10 text-center">
+        <div class="text-center">
           <h1><a href='/'>AGENDENATOR</a></h1>
         </div>
       </div>
@@ -30,8 +30,8 @@
   <fieldset>
     <h2>Add Agenda Item</h2>
     <form action="/applications" method="POST">
-      <label class="col-md-2" for="NPU">NPU</label>
-      <select name="NPU" id="NPU" class='col-md-2 form-select form-select-lg' required>
+      <label class="col-md-4" for="NPU">NPU</label>
+      <select name="NPU" id="NPU" class='col-md-4 form-select form-select-lg' required>
         <option value='A'>A</option>
         <option value='B'>B</option>
         <option value='C'>C</option>
@@ -88,7 +88,7 @@
         <label for='L'>L</label>
         <input type='checkbox' name='adjacent' value='M' id='M'></input>
         <label for='M'>M</label>
- 
+
         <input type='checkbox' name='adjacent' value='N' id='N'></input>
         <label for='N'>N</label>
         <br>
@@ -117,10 +117,10 @@
         <label for='Z'>Z</label>
       </fieldset>
       <br>
-      <label class="col-md-2" id="dateLabel" for="date">Date</label>
-      <input class="col-md-2" type="text" name="date" id="date" required><br> 
-      <label class="col-md-2" for="month">Month</label>
-      <select name="month" id="month" class='form-select col-md-2' multiple required>
+      <label class="col-md-4" id="dateLabel" for="date">Date</label>
+      <input class="col-md-4" type="text" name="date" id="date" required><br>
+      <label class="col-md-4" for="month">Month</label>
+      <select name="month" id="month" class='form-select col-md-4' multiple required>
         <option value='January'>January</option>
         <option value='February'>February</option>
         <option value='March'>March</option>
@@ -134,9 +134,9 @@
         <option value='November'>November</option>
         <option value='December'>December</option>
       </select> <br>
-      <label class="col-md-2" for="type">Type</label>
-      <select name="type" id="type" class='col-md-2 form-select' required>
-        <option hidden selected disabled></option>
+      <label class="col-md-4" for="type">Type</label>
+      <select name="type" id="type" class='col-md-4 form-select' required>
+        <option label='Type' hidden selected disabled></option>
         <option value='MOSE'>MOSE</option>
         <option value='LRB'>LRB</option>
         <option value='BZA'>BZA</option>
@@ -148,16 +148,25 @@
         <option value='LOR'>LOR</option>
         <option value='N/A'>Other...</option>
       </select><br>
-      <label class="col-md-2" for="title">Title</label>
-      <input class="col-md-2" type="text" name="title" id="title" placeholder="ApplName" required><br>
-      <label class="col-md-2" id="addressLabel" for="Address">Address</label>
-      <input class="col-md-2" type="text" name="address" id="address"><br>
-      <label class="col-md-2" id="descrLabel" for="descr">Description</label><br>
-      <textarea class="col-md-4" name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
+      <label id="titleLabel" class="col-md-4" for="title">Title</label>
+      <input class="col-md-4" type="text" name="title" id="title" placeholder="ApplName" required><br>
+      <label class="col-md-4" id="addressLabel" for="Address">Address</label>
+      <input class="col-md-4" type="text" name="address" id="address" placeholder="Address">
       <br>
-      <label class="col-md-2" for="notes">Internal Notes</label><br>
-      <textarea class="col-md-4" name='notes' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
-      <br><br>
+      <label class="col-md-4" for="applURL">Application URL</label>
+      <input class="col-md-4" type="text" name="applURL" id="applURL" placeholder="Application URL">
+      <br>
+      <span id='bizTypePlaceholder'></span>
+      <br>
+      <div class='form-row'>
+        <label class="col-md-4 pl-md-3" id="descrLabel" for="descr">Description</label>
+        <textarea class="col-md-4" name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
+      </div>
+      <br>
+      <div class='form-row'>
+        <label class="col-md-4 pl-md-3" for="notes">Internal Notes</label><br>
+        <textarea class="col-md-4" name='notes' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
+      </div><br><br>
       <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
     </form>
   </fieldset>
@@ -170,8 +179,8 @@
   $('input[name="date"]').daterangepicker({
     showDropdowns: true,
   });
-  $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
-    if(picker.startDate.format('MM/DD/YYYY') == picker.endDate.format('MM/DD/YYYY')) {
+  $('input[name="date"]').on('apply.daterangepicker', function (ev, picker) {
+    if (picker.startDate.format('MM/DD/YYYY') == picker.endDate.format('MM/DD/YYYY')) {
       $(this).val(picker.startDate.format('MM/DD/YYYY'));
     } else {
       $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));

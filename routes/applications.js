@@ -50,6 +50,12 @@ function saveAndRedirect(path) {
     application.title = req.body.title
     application.descr = req.body.descr
     application.notes = req.body.notes
+    application.applicant = req.body.applicant
+    application.applURL = req.body.applURL
+    application.URL1 = req.body.URL1
+    application.URL2 = req.body.URL2
+    application.URL3 = req.body.URL3
+    application.URL4 = req.body.URL4
     try {
       application = await application.save()
       res.redirect(`/show/${application.slug}`)
