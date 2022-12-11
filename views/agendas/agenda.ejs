@@ -29,7 +29,7 @@
   <div style="width: 8.5in;">
     <div>
       <div class="text-center">
-        <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU %></span></h2>
+        <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU? %></span></h2>
         <h3><span data-npu="NPUletter" id='datePlc'></span></h3>
         <h4>Register in advance by clicking <a href=<%=NPUs.ZoomURL %> noopener><span id='zInfo'>here</span></a></h4>
         <br>
@@ -60,7 +60,7 @@
           <ul>
             <!-- create li for each Application where type = 'N/A' -->
             <% applications.forEach(Application=> { %>
-              <% if ( Application.type==='N/A' ) { %>
+              <% if ( Application.type==='Presentation' ) { %>
                 <li>
                   <%= Application.title + ' - ' + Application.descr %>
                 </li>

@@ -103,24 +103,26 @@
             <option value='CDP'>CDP Amendment</option>
             <option value='SD'>SD</option>
             <option value='LOR'>LOR</option>
+            <option value='Presentation'>Presentation</option>
+            <option value='Notice'>Notice</option>
             <option value='N/A'>Other...</option>
           </select>
         </td>
         <td>
-          <input type="text" name="title" value="<%= application.title %>">
+          <input name="title" type="text" name="title" value="<%= application.title %>">
         </td>
         <td>
-          <input type='text' id='applicant' value='<%= application.applicant %>'>
+          <input name='applicant' type='text' id='applicant' value='<%= application.applicant %>'>
         </td>
         <td>
-          <input type='text' id='applURL' placeholder='URL' value='<%= application.applURL %>'>
-          <input type='text' id='applURL' placeholder='URL' value='<%= application.URL1 %>'>
-          <input type='text' id='applURL' placeholder='URL' value='<%= application.URL2 %>'>
-          <input type='text' id='applURL' placeholder='URL' value='<%= application.URL3 %>'>
-          <input type='text' id='applURL' placeholder='URL' value='<%= application.URL4 %>'>
+          <input name='applURL' type='text' id='applURL' placeholder='URL' value='<%= application.applURL %>'><br>
+          <input name='URL1' type='text' id='URL1' placeholder='URL' value='<%= application.URL1 %>'><br>
+          <input name='URL2' type='text' id='URL2' placeholder='URL' value='<%= application.URL2 %>'><br>
+          <input name='URL3' type='text' id='URL3' placeholder='URL' value='<%= application.URL3 %>'><br>
+          <input name='URL4' type='text' id='URL4' placeholder='URL' value='<%= application.URL4 %>'>
         </td>
         <td>
-          <input type='text' id='descr' value='<%= application.descr %>'>
+          <input name="descr" type='text' id='descr' value='<%= application.descr %>'>
         </td>
         <td>
           <input type="text" name="address" value="<%= application.address %>">
@@ -139,7 +141,7 @@
       </tr>
       <tr>
         <td class='notes' colspan='11'>
-          <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
+          <textarea name='notes' type='text' id='notes' width='100'><%= application.notes %></textarea>
         </td>
       </tr>
     </table>
