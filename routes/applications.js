@@ -15,7 +15,7 @@ router.get('/edit/:id', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
-  res.render('applications/show', { application: application });
+  else res.render('applications/show', { application: application });
 });
 
 router.post('/', async (req, res, next) => {
@@ -23,8 +23,8 @@ router.post('/', async (req, res, next) => {
   next()
 }, saveAndRedirect('show'));
 
-router.put('edit/:id', async (req, res, next) => {
-  req.application = await Application.updateOne(req.params.id)
+router.put('/:id', async (req, res, next) => {
+  req.application = await Application.findById(req.params.id);
   next()
 }, saveAndRedirect('show'));
 
@@ -38,8 +38,13 @@ router.get('/', async (req, res) => {
   await res.render('applications/applications', { applications: applications });
 });
 
+console.dir(router, { depth: 5 });
+
 function saveAndRedirect(path) {
   return async (req, res) => {
+    //    for (keys in req.body) {
+    //      application[keys] = body[keys];
+    //    }
     let application = req.application
     application.NPU = req.body.NPU
     application.adjacent = req.body.adjacent
@@ -50,8 +55,16 @@ function saveAndRedirect(path) {
     application.title = req.body.title
     application.descr = req.body.descr
     application.notes = req.body.notes
+    application.applicant = req.body.applicant
+    application.applURL = req.body.applURL
+    application.URL1 = req.body.URL1
+    application.URL2 = req.body.URL2
+    application.URL3 = req.body.URL3
+    application.URL4 = req.body.URL4
     try {
-      application = await application.save()
+      console.dir(req);
+      console.dir(application);
+      //application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
       console.log(err)

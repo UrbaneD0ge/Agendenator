@@ -1,19 +1,19 @@
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AGENDENATOR</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="../../css/style.css">
+  <link type="text/css" rel="stylesheet" href="../../css/edit.css">
 </head>
 
 <body class='tablePage'>
   <header>
     <div>
       <div>
-        <div class="col-md-10 text-center">
+        <div class="col-md-11 text-center">
           <h1><a href='/'>AGENDENATOR</a></h1>
           <h2>
             <%= application.title.toUpperCase() %>
@@ -24,90 +24,138 @@
     </div>
   </header>
   <br>
-  <table>
-    <thead>
+  <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
+    <table>
+      <thead>
+        <tr>
+          <th>NPU</th>
+          <th>Adj</th>
+          <th>Month</th>
+          <th>Type</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Hearing Date</th>
+          <th>Creation Date</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
       <tr>
-        <th>NPU</th>
-        <th>Adjacent</th>
-        <th>Month</th>
-        <th>Type</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Hearing Date</th>
-        <th>Creation Date</th>
-        <th>Delete</th>
-        <th>Save</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>
-        <input type="text" name="NPU" value="<%= application.NPU %>">
-      </td>
-      <td>
-        <%= application.adjacent %>
-      </td>
-      <td>
-        <select name="month" id="month" class='form-select' multiple required>
-          <option value='January'>January</option>
-          <option value='February'>February</option>
-          <option value='March'>March</option>
-          <option value='April'>April</option>
-          <option value='May'>May</option>
-          <option value='June'>June</option>
-          <option value='July'>July</option>
-          <option value='August'>August</option>
-          <option value='September'>September</option>
-          <option value='October'>October</option>
-          <option value='November'>November</option>
-          <option value='December'>December</option>
-        </select>
-      </td>
-      <td>
-        <select name='type' id='type' value="<%= application.type %>">
-          <option value='MOSE'>MOSE</option>
-          <option value='LRB'>LRB</option>
-          <option value='BZA'>BZA</option>
-          <option value='ZRB'>ZRB</option>
-          <option value='CDP'>CDP</option>
-          <option value='SD'>SD</option>
-          <option value='LOR'>LOR</option>
-        </select>
-      </td>
-      <td>
-        <input type="text" name="title" value="<%= application.title %>">
-      </td>
-      <td>
-        <input type='text' id='descr' value='<%= application.descr %>'>
-      </td>
-      <td>
-        <input type="text" name="address" value="<%= application.address %>">
-      </td>
-      <td>
-        <input type="date" name="date" value="<%= application.date %>">
-      </td>
-      <td>
-        <%= application.createdAt.toISOString().substring(0,10) %>
-      </td>
+        <td>
+          <select name="NPU" id="NPU" value="<%= application.NPU %> " class='form-select form-select-lg' required>
+            <option value='A'>A</option>
+            <option value='B'>B</option>
+            <option value='C'>C</option>
+            <option value='D'>D</option>
+            <option value='E'>E</option>
+            <option value='F'>F</option>
+            <option value='G'>G</option>
+            <option value='H'>H</option>
+            <option value='I'>I</option>
+            <option value='J'>J</option>
+            <option value='K'>K</option>
+            <option value='L'>L</option>
+            <option value='M'>M</option>
+            <option value='N'>N</option>
+            <option value='O'>O</option>
+            <option value='P'>P</option>
+            <option value='Q'>Q</option>
+            <option value='R'>R</option>
+            <option value='S'>S</option>
+            <option value='T'>T</option>
+            <option value='V'>V</option>
+            <option value='W'>W</option>
+            <option value='X'>X</option>
+            <option value='Y'>Y</option>
+            <option value='Z'>Z</option>
+          </select>
+        </td>
+        <td>
+          <%= application.adjacent %>
+        </td>
+        <td>
+          <select name="month" id="month" class='form-select' multiple required>
+            <option value='January'>January</option>
+            <option value='February'>February</option>
+            <option value='March'>March</option>
+            <option value='April'>April</option>
+            <option value='May'>May</option>
+            <option value='June'>June</option>
+            <option value='July'>July</option>
+            <option value='August'>August</option>
+            <option value='September'>September</option>
+            <option value='October'>October</option>
+            <option value='November'>November</option>
+            <option value='December'>December</option>
+          </select>
+        </td>
+        <td>
+          <select name='type' id='type' value="<%= application.type %>">
+            <option value='MOSE'>MOSE</option>
+            <option value='LRB'>LRB</option>
+            <option value='BZA'>BZA</option>
+            <option value='SUP'>SUP</option>
+            <option value='ZRB'>ZRB</option>
+            <option value='Text Amendment'>Text Amendment</option>
+            <option value='CDP'>CDP Amendment</option>
+            <option value='SD'>SD</option>
+            <option value='LOR'>LOR</option>
+            <option value='N/A'>Other...</option>
+          </select>
+        </td>
+        <td>
+          <input type="text" name="title" value="<%= application.title %>">
+        </td>
+        <td>
+          <input type='text' id='descr' value='<%= application.descr %>'>
+        </td>
+        <td>
+          <input type="text" name="address" value="<%= application.address %>">
+        </td>
+        <td>
+          <input type="text" name="date" value="<%= application.date %>">
+        </td>
+        <td>
+          <%= application.createdAt.toISOString().substring(0,10) %>
+        </td>
+
+        <!--
       <td>
         <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </td>
       <td>
-        <form action="/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
+        <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
           <button type="submit" class="btn btn-success ">Save</button>
         </form>
       </td>
-    </tr>
-    <tr>
-      <td class='notes' colspan='11'>
-        <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
-      </td>
-    </tr>
-  </table>
+      -->
+      </tr>
+      <tr>
+        <td class='notes' colspan='11'>
+          <textarea type='text' id='notes' width='100'><%= application.notes %></textarea>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
   <script>
-    document.getElementById('month').value = '<%= application.month %>';
+    document.getElementById('notes').value = '<%= application.notes %>';
+    // select all months that match the application month
+    var months = document.getElementById('month').options;
+    var month = '<%= application.month %>';
+    var monthArray = month.split(',');
+    for (var i = 0; i < monthArray.length; i++) {
+      for (var j = 0; j < months.length; j++) {
+        if (months[j].value == monthArray[i]) {
+          months[j].selected = true;
+        }
+      }
+    }
     document.getElementById('type').value = '<%= application.type %>';
+    document.getElementById('NPU').value = '<%= application.NPU %>';
   </script>
 </body>
