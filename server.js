@@ -35,6 +35,5 @@ mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mon
 
 app.use('/agenda', agendaRouter);
 app.use('/show', applicationRouter);
-// app.use('/desc', applicationRouter);
 app.use('/NPUs', NPUrouter);
 app.use('/applications', applicationRouter);

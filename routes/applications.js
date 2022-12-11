@@ -64,7 +64,7 @@ function saveAndRedirect(path) {
     try {
       console.dir(req);
       console.dir(application);
-      //application = await application.save()
+      application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
       console.log(err)
