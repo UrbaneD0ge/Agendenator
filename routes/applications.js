@@ -77,26 +77,10 @@ function putUpdate(path) {
   return async (req, res) => {
     let application = req.application
     //  assign fields to application and save
-       for (keys in req.body) {
-         application[keys] = req.body[keys];
-       }
+    for (keys in req.body) {
+      application[keys] = req.body[keys];
+    }
 
-    // let application = req.application
-    // application.NPU = req.body.NPU
-    // application.adjacent = req.body.adjacent
-    // application.date = req.body.date
-    // application.month = req.body.month
-    // application.address = req.body.address
-    // application.type = req.body.type
-    // application.title = req.body.title
-    // application.descr = req.body.descr
-    // application.notes = req.body.notes
-    // application.applicant = req.body.applicant
-    // application.applURL = req.body.applURL
-    // application.URL1 = req.body.URL1
-    // application.URL2 = req.body.URL2
-    // application.URL3 = req.body.URL3
-    // application.URL4 = req.body.URL4
     try {
       // console.dir(req);
       console.dir(application);

@@ -203,7 +203,7 @@
         <h4>MATTERS FOR REVIEW AND COMMENT</h4>
         <h6>Members can review subdivision applications and provide comments to be forwarded to the Subdivision Review
           Committee (SRC). Other applications may be presented to an NPU for review and comment when the address is
-          within a 300-foot radius of the NPU’s boundary. The Code of Ordinances does not require these applicants to
+          within a 300-foot radius of the NPU's boundary. The Code of Ordinances does not require these applicants to
           attend NPU meetings. </h6>
       </div>
       <div>
@@ -230,21 +230,3 @@
     </div>
   </div>
 </article>
-<script>
-  function exportHTML() {
-    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
-      "xmlns:w='urn:schemas-microsoft-com:office:word' " +
-      "xmlns='http://www.w3.org/TR/REC-html40'>" +
-      "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
-    var footer = "</body></html>";
-    var sourceHTML = header + document.getElementById("source-html").innerHTML + footer;
-
-    var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-    var fileDownload = document.createElement("a");
-    document.body.appendChild(fileDownload);
-    fileDownload.href = source;
-    fileDownload.download = 'document.doc';
-    fileDownload.click();
-    document.body.removeChild(fileDownload);
-  }
-</script>
