@@ -63,7 +63,7 @@ function saveAndRedirect(path) {
     application.URL4 = req.body.URL4
     try {
       // console.dir(req);
-      console.dir(application);
+      // console.dir(application);
       application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
@@ -83,7 +83,7 @@ function putUpdate(path) {
 
     try {
       // console.dir(req);
-      console.dir(application);
+      // console.dir(application);
       application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {

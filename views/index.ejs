@@ -10,8 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AGENDENATOR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="css\style.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
@@ -29,63 +29,67 @@
       </div>
     </div>
   </header>
-  <fieldset>
-    <h2>RENDER AGENDA</h2>
-    <form action="/agenda" method="GET">
-      <label for="NPU">NPU</label>
-      <select name="NPU" id="NPU" class='form-select form-select-lg' required>
-        <option value='A'>A</option>
-        <option value='B'>B</option>
-        <option value='C'>C</option>
-        <option value='D'>D</option>
-        <option value='E'>E</option>
-        <option value='F'>F</option>
-        <option value='G'>G</option>
-        <option value='H'>H</option>
-        <option value='I'>I</option>
-        <option value='J'>J</option>
-        <option value='K'>K</option>
-        <option value='L'>L</option>
-        <option value='M'>M</option>
-        <option value='N'>N</option>
-        <option value='O'>O</option>
-        <option value='P'>P</option>
-        <option value='Q'>Q</option>
-        <option value='R'>R</option>
-        <option value='S'>S</option>
-        <option value='T'>T</option>
-        <option value='V'>V</option>
-        <option value='W'>W</option>
-        <option value='X'>X</option>
-        <option value='Y'>Y</option>
-        <option value='Z'>Z</option>
-      </select>
-      <label for="month">Month</label>
-      <select name="month" id="month" class='form-select' required>
-        <option value='January'>January</option>
-        <option value='February'>February</option>
-        <option value='March'>March</option>
-        <option value='April'>April</option>
-        <option value='May'>May</option>
-        <option value='June'>June</option>
-        <option value='July'>July</option>
-        <option value='August'>August</option>
-        <option value='September'>September</option>
-        <option value='October'>October</option>
-        <option value='November'>November</option>
-        <option value='December'>December</option>
-      </select>
-      <!-- <label for="document">Document</label>
-      <select name="document" id="document" class='form-select' required>
-        <option value="Draft">Draft</option>
-        <option value="Final">Final</option>
-      </select> -->
-      <!-- <button class='btn btn-success' id='submit' type='submit'>Submit</button> -->
-      <a href="/agenda"><button class='btn btn-success'>Submit</button></a>
-    </form>
-  </fieldset><br><br>
   <!-- gCal iFrame -->
   <div class='container'>
+    <fieldset>
+      <form action="/agenda" method="GET">
+        <div class="row col-md-6">
+          <div class="col-auto">
+            <label for="NPU">NPU</label>
+            <select name="NPU" id="NPU" class='form-select form-select-md' required>
+              <option value='A'>A</option>
+              <option value='B'>B</option>
+              <option value='C'>C</option>
+              <option value='D'>D</option>
+              <option value='E'>E</option>
+              <option value='F'>F</option>
+              <option value='G'>G</option>
+              <option value='H'>H</option>
+              <option value='I'>I</option>
+              <option value='J'>J</option>
+              <option value='K'>K</option>
+              <option value='L'>L</option>
+              <option value='M'>M</option>
+              <option value='N'>N</option>
+              <option value='O'>O</option>
+              <option value='P'>P</option>
+              <option value='Q'>Q</option>
+              <option value='R'>R</option>
+              <option value='S'>S</option>
+              <option value='T'>T</option>
+              <option value='V'>V</option>
+              <option value='W'>W</option>
+              <option value='X'>X</option>
+              <option value='Y'>Y</option>
+              <option value='Z'>Z</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <label for="month">Month</label>
+            <select name="month" id="month" class='form-select form-select-md' required>
+              <option value='January'>January</option>
+              <option value='February'>February</option>
+              <option value='March'>March</option>
+              <option value='April'>April</option>
+              <option value='May'>May</option>
+              <option value='June'>June</option>
+              <option value='July'>July</option>
+              <option value='August'>August</option>
+              <option value='September'>September</option>
+              <option value='October'>October</option>
+              <option value='November'>November</option>
+              <option value='December'>December</option>
+            </select>
+          </div>
+          <div class='col'>
+            <label></label><br>
+            <a href="/agenda"><button class='btn btn-success'>Agenda</button></a>
+            <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white'>Roster</button>
+          </div>
+        </div>
+      </form>
+    </fieldset>
+    <br>
     <div class='calendar col-12'>
       <div class='col-5'>Month</div>
       <iframe class='container'
