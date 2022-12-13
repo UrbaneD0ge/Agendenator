@@ -64,36 +64,37 @@
       <div class='row'>
         <div class='col'>
           <label for="Planner">Planner</label>
-          <input type="text" name="planner" id="planner" class='form-control' autocomplete='off' required>
+          <input type="text" name="planner" id="planner" class='form-control' value='<%= NPU.planner %>'
+            autocomplete='off' required>
         </div>
         <div class='col'>
           <label for="PlannerE">Planner Email</label>
-          <input type="email" name="plannerE" id="plannerE" class='form-control' required>
+          <input type="email" name="plannerE" id="plannerE" class='form-control' value='<%= NPU.plannerE %>' required>
         </div>
       </div>
       <br><br>
       <div class='row'>
         <div class='col'>
           <label for="meeting">Meeting Recurrence & Time</label>
-          <input type="text" name="meeting" id="meeting" class='form-control' required>
+          <input type="text" name="meeting" id="meeting" class='form-control' value='<%= NPU.meeting %>' required>
         </div>
         <div class='col'>
           <label for="ZoomURL">Zoom Meeting Link</label>
-          <input type="text" name="ZoomURL" id="ZoomURL" class='form-control' required>
+          <input type="text" name="ZoomURL" id="ZoomURL" class='form-control' value='<%= NPU.ZoomURL %>' required>
         </div>
       </div>
       <div class='row'>
         <div class='col'>
           <label for="ZoomID">Zoom Meeting ID</label>
-          <input type="text" name="ZoomID" id="ZoomID" class='form-control' required>
+          <input type="text" name="ZoomID" id="ZoomID" class='form-control' value='<%= NPU.ZoomID %>' required>
         </div>
         <div class='col'>
           <label for="ZoomPW">Zoom Meeting Password</label>
-          <input type="text" name="ZoomPW" id="ZoomPW" class='form-control' required>
+          <input type="text" name="ZoomPW" id="ZoomPW" class='form-control' value='<%= NPU.ZoomPW %>' required>
         </div>
         <div class='col'>
           <label for="ZoomDial">Zoom Dial-In Number</label>
-          <input type="text" name="ZoomDial" id="ZoomDial" class='form-control' required>
+          <input type="text" name="ZoomDial" id="ZoomDial" class='form-control' value='<%= NPU.ZoomDial %>' required>
         </div>
       </div>
       <br><br>
@@ -104,7 +105,7 @@
 <script>
   // select the NPU that matches the application NPU
   var selectNPU = document.getElementById('NPU').options;
-  var applNPU = '<%= application.NPU %>';
+  var applNPU = '<%= NPU.NPU %>';
   for (var i = 0; i < selectNPU.length; i++) {
     if (selectNPU[i].value == applNPU) {
       selectNPU[i].selected = true;
