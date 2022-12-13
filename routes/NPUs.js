@@ -16,8 +16,9 @@ router.post('/', async (req, res, next) => {
 
 // edit NPU
 router.get('/edit/:id', async (req, res) => {
-  const NPU = await NPU.findById(req.params.id);
-  res.render('NPUs/edit', { NPU: NPU });
+  const npu = await NPU.findById(req.params.id);
+  res.render('NPUs/edit', { NPU: npu });
+  console.log(npu);
 });
 
 // show all NPUs
@@ -39,6 +40,7 @@ function saveAndRedirect(path) {
     NPU.ZoomPW = req.body.ZoomPW
     NPU.ZoomURL = req.body.ZoomURL
     NPU.ZoomDial = req.body.ZoomDial
+    NPU.bylawsURL = req.body.bylawsURL
     try {
       NPU = await NPU.save()
       res.redirect(`NPUs`)

@@ -46,7 +46,7 @@
 
       <tr>
         <td>
-          <select name="NPU" id="NPU" value="<%= application.NPU %> " class='form-select form-select-lg' required>
+          <select name="NPU" id="NPU" value="<%= application.NPU %>" class='form-select form-select-lg' required>
             <option value='A'>A</option>
             <option value='B'>B</option>
             <option value='C'>C</option>
@@ -178,7 +178,16 @@
     </div>
   </form>
   <script>
-    // select all adjacent NPUs that match the adjacent NPU
+
+    // select the NPU that matches the application NPU
+    var selectNPU = document.getElementById('NPU').options;
+    var applNPU = '<%= application.NPU %>';
+    for (var i = 0; i < selectNPU.length; i++) {
+      if (selectNPU[i].value == applNPU) {
+        selectNPU[i].selected = true;
+      }
+    }
+
     var adjacentNPUs = document.getElementById('adjacentNPUs').options;
     var adjs = '<%= application.adjacent %>';
     var adjArray = adjs.split(',');

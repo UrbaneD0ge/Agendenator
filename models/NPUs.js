@@ -10,7 +10,8 @@ const NPUSchema = new mongoose.Schema({
   ZoomID: String,
   ZoomPW: String,
   ZoomURL: String,
-  ZoomDial: String
+  ZoomDial: String,
+  bylawsURL: String,
 });
 
 module.exports = mongoose.model("NPU", NPUSchema);
