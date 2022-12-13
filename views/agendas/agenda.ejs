@@ -6,7 +6,7 @@
 <html>
 
 <head>
-  <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AGENDENATOR</title>
   <meta name="description" content="">
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="css\style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 <div>
   <div class="row pt-5">
@@ -28,7 +28,7 @@
 <article style="background-color: whitesmoke;" id='article'>
   <div style="width: 8.5in;">
     <div>
-      <div class="text-center">
+      <div class="col-md-10 text-center">
         <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU %></span></h2>
         <h3><span data-npu="NPUletter" id='datePlc'></span></h3>
         <h4>Register in advance by clicking <a href=<%=NPUs.ZoomURL %> noopener><span id='zInfo'>here</span></a></h4>
@@ -60,7 +60,7 @@
           <ul>
             <!-- create li for each Application where type = 'N/A' -->
             <% applications.forEach(Application=> { %>
-              <% if ( Application.type==='N/A' ) { %>
+              <% if ( Application.type==='Presentation' ) { %>
                 <li>
                   <%= Application.title + ' - ' + Application.descr %>
                 </li>
@@ -203,7 +203,7 @@
         <h4>MATTERS FOR REVIEW AND COMMENT</h4>
         <h6>Members can review subdivision applications and provide comments to be forwarded to the Subdivision Review
           Committee (SRC). Other applications may be presented to an NPU for review and comment when the address is
-          within a 300-foot radius of the NPU’s boundary. The Code of Ordinances does not require these applicants to
+          within a 300-foot radius of the NPU's boundary. The Code of Ordinances does not require these applicants to
           attend NPU meetings. </h6>
       </div>
       <div>

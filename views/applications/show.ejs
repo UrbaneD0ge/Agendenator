@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="..\css\style.css">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body class='container tablePage'>
@@ -34,13 +35,17 @@
         <th>Month</th>
         <th>Type</th>
         <th>Title</th>
-        <th>Applicant</th>
-        <th>URLs</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Hearing Date</th>
-        <th>Creation Date</th>
-        <th>Delete</th>
+        <% if (application.applicant) { %>
+          <th>Applicant</th>
+          <% } %>
+            <% if (application.applURL) { %>
+              <th>Application URL</th>
+              <% } %>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Hearing Date</th>
+                <th>Creation Date</th>
+                <th>Delete</th>
       </tr>
     </thead>
     <tr>
@@ -59,33 +64,40 @@
       <td>
         <%= application.title %>
       </td>
-      <td>
-        <%= application.applicant %>
-      <td>
-        <%= application.applURL %>
-          <%= application.URL1 %>
-            <%= application.URL2 %>
-              <%= application.URL3 %>
-                <%= application.URL4 %>
-      </td>
-      <td class='descr'>
-        <%= application.descr %>
-      </td>
-      <td>
-        <%= application.address %>
-      </td>
-      <td>
-        <%= application.date %>
-      </td>
-      <td>
-        <%= application.createdAt.toISOString().substring(0,10) %>
-      </td>
-      <td>
-        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-danger">Delete
-          </button>
-        </form>
-      </td>
+      <% if (application.applicant) { %>
+        <td>
+          <%= application.applicant %>
+        </td>
+        <% } %>
+          <% if (application.applURL) {%>
+            <td>
+              <a href='<%=application.applURL %>' target='_blank'>
+                <%= application.applURL %>
+              </a>
+              <%= application.URL1 %>
+                <%= application.URL2 %>
+                  <%= application.URL3 %>
+                    <%= application.URL4 %>
+            </td>
+            <% } %>
+              <td class='descr'>
+                <%= application.descr %>
+              </td>
+              <td>
+                <%= application.address %>
+              </td>
+              <td>
+                <%= application.date %>
+              </td>
+              <td>
+                <%= application.createdAt.toISOString().substring(0,10) %>
+              </td>
+              <td>
+                <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger">Delete
+                  </button>
+                </form>
+              </td>
     </tr>
     <% if (application.notes) { %>
       <tr>

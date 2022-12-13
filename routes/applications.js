@@ -26,7 +26,7 @@ router.post('/', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   req.application = await Application.findById(req.params.id);
   next()
-}, saveAndRedirect('show'));
+}, putUpdate('show'));
 
 router.delete('/:id', async (req, res) => {
   await Application.findByIdAndDelete(req.params.id)
@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
   await res.render('applications/applications', { applications: applications });
 });
 
-console.dir(router, { depth: 5 });
+// console.dir(router, { depth: 5 });
 
 function saveAndRedirect(path) {
   return async (req, res) => {
@@ -62,15 +62,35 @@ function saveAndRedirect(path) {
     application.URL3 = req.body.URL3
     application.URL4 = req.body.URL4
     try {
-      console.dir(req);
+      // console.dir(req);
       console.dir(application);
-      //application = await application.save()
+      application = await application.save()
       res.redirect(`/show/${application.slug}`)
     } catch (err) {
       console.log(err)
       res.render(`/${path}`, { application: application })
     }
   }
-}
+};
+
+function putUpdate(path) {
+  return async (req, res) => {
+    let application = req.application
+    //  assign fields to application and save
+    for (keys in req.body) {
+      application[keys] = req.body[keys];
+    }
+
+    try {
+      // console.dir(req);
+      console.dir(application);
+      application = await application.save()
+      res.redirect(`/show/${application.slug}`)
+    } catch (err) {
+      console.log(err)
+      res.render(`/${path}`, { application: application })
+    }
+  }
+};
 
 module.exports = router;
