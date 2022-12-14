@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
   "scripts": {
     "dev": "npm index.html",
     "build": "npm build index.html",
