@@ -1,17 +1,34 @@
 @font-face {
   font-family: 'Tungsten-SemiBold';
-  src: url(fonts/Tungsten-Semibold.otf) format('opentype');
+  src: url(/fonts/Tungsten-Semibold.otf) format('opentype');
   letter-spacing: 2pt;
 }
 
 @font-face {
   font-family: 'GT-Eesti-Regular';
-  src: url(fonts/GT-Eesti-Text-Regular.otf) format('opentype');
+  src: url(/fonts/GT-Eesti-Text-Regular.otf) format('opentype');
 }
 
 body {
   background-color: goldenrod;
   /* max-width: 100% !important; */
+}
+
+body.tablePage {
+  max-width: 100% !important;
+}
+
+#article {
+  width: 8.5in;
+  /* height: 11in; */
+  margin: 0.5in;
+  padding: 0.5in;
+  background-color: white;
+  border: 1px solid black;
+  background-color: #fff;
+  font: 1.2em, Arial, sans-serif;
+  margin: 50px auto;
+  padding: 20px;
 }
 
 h1 {
@@ -68,7 +85,7 @@ p {
 
 table {
   margin: 0 30px 30px 30px;
-  /* width: 95%; */
+  width: 95%;
 }
 
 table, th, td {
@@ -87,17 +104,42 @@ thead > tr:first-child {
   background-color: rgb(200, 200, 200) !important;
 }
 
-input {
-  /* input size is content minimum */
-  width: min-content !important;
+#bylawsBox {
+  display: block !important;
+  border: 5px double #000;
+  margin: 30px;
 }
 
-select {
-scrollbar-width: thin;
+input[type=checkbox] {
+  margin: 5px;
+  width: 3vmin;
+  height: 3vmin;
+}
+
+ #checkboxArray > label {
+width: 3vmin;
+}
+
+#checkboxArray {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
 .NPU {
   font-weight: bolder;
+}
+
+.calendar {
+  font-size: .8em;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
 }
 
 .descr {
