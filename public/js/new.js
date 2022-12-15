@@ -33,7 +33,7 @@ document.querySelector('#type').addEventListener('change', function () {
       // create applicant label
       const applicantLabel = document.createElement('label');
       applicantLabel.setAttribute('for', 'applicant');
-      applicantLabel.setAttribute('class', 'col-md-4');
+      applicantLabel.setAttribute('class', 'col form-label');
       applicantLabel.innerText = 'Applicant';
 
       // create applicant input
@@ -41,7 +41,7 @@ document.querySelector('#type').addEventListener('change', function () {
       applicantInput.setAttribute('id', 'applicant');
       applicantInput.setAttribute('name', 'applicant');
       applicantInput.setAttribute('placeholder', 'Applicant');
-      applicantInput.setAttribute('class', 'col-md-4');
+      applicantInput.setAttribute('class', 'col form-control');
       applicantInput.setAttribute('type', 'text');
       applicantInput.setAttribute('required', 'required');
 
@@ -55,7 +55,7 @@ document.querySelector('#type').addEventListener('change', function () {
       LRBtype.setAttribute('id', 'bizType');
       LRBtype.setAttribute('name', 'bizType');
       LRBtype.setAttribute('placeholder', 'Business Type');
-      LRBtype.setAttribute('class', 'col-md-4');
+      LRBtype.setAttribute('class', 'col form-select');
       // create options
       const bizTypeOption1 = document.createElement('option');
       bizTypeOption1.setAttribute('value', 'Restaurant');
@@ -94,7 +94,7 @@ document.querySelector('#type').addEventListener('change', function () {
 
       const bizTypePlaceholderLabel = document.createElement('label');
       bizTypePlaceholderLabel.setAttribute('for', 'bizType');
-      bizTypePlaceholderLabel.setAttribute('class', 'col-md-4');
+      bizTypePlaceholderLabel.setAttribute('class', 'col form-label');
       bizTypePlaceholderLabel.innerText = 'Business Type';
 
       // insert select element
@@ -102,11 +102,12 @@ document.querySelector('#type').addEventListener('change', function () {
       bizTypePlaceholder.appendChild(bizTypePlaceholderLabel);
       bizTypePlaceholder.appendChild(LRBtype);
 
+      // insert select element for LRB request
       const LRBrequest = document.createElement('select');
       LRBrequest.setAttribute('id', 'descr');
       LRBrequest.setAttribute('name', 'descr');
       LRBrequest.setAttribute('placeholder', 'Request');
-      LRBrequest.setAttribute('class', 'col-md-4');
+      LRBrequest.setAttribute('class', 'col form-select');
       // create options
       const LRBoption1 = document.createElement('option');
       LRBoption1.setAttribute('value', 'New Business');
@@ -138,6 +139,7 @@ document.querySelector('#type').addEventListener('change', function () {
       LRBrequest.appendChild(LRBoption5);
       // replace descr with select
       descr.replaceWith(LRBrequest);
+      descr.setAttribute('class', 'col form-select');
       break;
     case 'ZRB':
       title.value = 'Z-22-';

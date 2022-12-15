@@ -11,8 +11,8 @@
   <title>AGENDENATOR</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link type="text/css" rel="stylesheet" href="..\css\style.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
@@ -31,145 +31,161 @@
   <fieldset>
     <h2>Add Agenda Item</h2>
     <form action="/applications" method="POST">
-      <label class="col-md-4" for="NPU">NPU</label>
-      <select name="NPU" id="NPU" class='col-md-4 form-select form-select-lg' required>
-        <option value='A'>A</option>
-        <option value='B'>B</option>
-        <option value='C'>C</option>
-        <option value='D'>D</option>
-        <option value='E'>E</option>
-        <option value='F'>F</option>
-        <option value='G'>G</option>
-        <option value='H'>H</option>
-        <option value='I'>I</option>
-        <option value='J'>J</option>
-        <option value='K'>K</option>
-        <option value='L'>L</option>
-        <option value='M'>M</option>
-        <option value='N'>N</option>
-        <option value='O'>O</option>
-        <option value='P'>P</option>
-        <option value='Q'>Q</option>
-        <option value='R'>R</option>
-        <option value='S'>S</option>
-        <option value='T'>T</option>
-        <option value='V'>V</option>
-        <option value='W'>W</option>
-        <option value='X'>X</option>
-        <option value='Y'>Y</option>
-        <option value='Z'>Z</option>
-      </select>
-      <br>
-      <fieldset>
-        <legend>Adjacent</legend>
-        <input type='checkbox' name='adjacent' value='A' id='A'></input>
-        <label for='A'>A</label>
-        <input type='checkbox' name='adjacent' value='B' id='B'></input>
-        <label for='B'>B</label>
-        <input type='checkbox' name='adjacent' value='C' id='C'></input>
-        <label for='C'>C</label>
-        <input type='checkbox' name='adjacent' value='D' id='D'></input>
-        <label for='D'>D</label>
-        <input type='checkbox' name='adjacent' value='E' id='E'></input>
-        <label for='E'>E</label>
-        <input type='checkbox' name='adjacent' value='F' id='F'></input>
-        <label for='F'>F</label>
-        <input type='checkbox' name='adjacent' value='G' id='G'></input>
-        <label for='G'>G</label>
-        <br>
-        <input type='checkbox' name='adjacent' value='H' id='H'></input>
-        <label for='H'>H</label>
-        <input type='checkbox' name='adjacent' value='I' id='I'></input>
-        <label for='I'>I</label>
-        <input type='checkbox' name='adjacent' value='J' id='J'></input>
-        <label for='J'>J</label>
-        <input type='checkbox' name='adjacent' value='K' id='K'></input>
-        <label for='K'>K</label>
-        <input type='checkbox' name='adjacent' value='L' id='L'></input>
-        <label for='L'>L</label>
-        <input type='checkbox' name='adjacent' value='M' id='M'></input>
-        <label for='M'>M</label>
-
-        <input type='checkbox' name='adjacent' value='N' id='N'></input>
-        <label for='N'>N</label>
-        <br>
-        <input type='checkbox' name='adjacent' value='O' id='O'></input>
-        <label for='O'>O</label>
-        <input type='checkbox' name='adjacent' value='P' id='P'></input>
-        <label for='P'>P</label>
-        <input type='checkbox' name='adjacent' value='Q' id='Q'></input>
-        <label for='Q'>Q</label>
-        <input type='checkbox' name='adjacent' value='R' id='R'></input>
-        <label for='R'>R</label>
-        <input type='checkbox' name='adjacent' value='S' id='S'></input>
-        <label for='S'>S</label>
-        <input type='checkbox' name='adjacent' value='T' id='T'></input>
-        <label for='T'>T</label>
-        <input type='checkbox' name='adjacent' value='V' id='V'></input>
-        <label for='V'>V</label>
-        <br>
-        <input type='checkbox' name='adjacent' value='W' id='W'></input>
-        <label for='W'>W</label>
-        <input type='checkbox' name='adjacent' value='X' id='X'></input>
-        <label for='X'>X</label>
-        <input type='checkbox' name='adjacent' value='Y' id='Y'></input>
-        <label for='Y'>Y</label>
-        <input type='checkbox' name='adjacent' value='Z' id='Z'></input>
-        <label for='Z'>Z</label>
-      </fieldset>
-      <br>
-      <label class="col-md-4" id="dateLabel" for="date">Date</label>
-      <input class="col-md-4" type="text" name="date" id="date" required><br>
-      <label class="col-md-4" for="month">Month</label>
-      <select name="month" id="month" class='form-select col-md-4' multiple required>
-        <option value='January'>January</option>
-        <option value='February'>February</option>
-        <option value='March'>March</option>
-        <option value='April'>April</option>
-        <option value='May'>May</option>
-        <option value='June'>June</option>
-        <option value='July'>July</option>
-        <option value='August'>August</option>
-        <option value='September'>September</option>
-        <option value='October'>October</option>
-        <option value='November'>November</option>
-        <option value='December'>December</option>
-      </select> <br>
-      <label class="col-md-4" for="type">Type</label>
-      <select name="type" id="type" class='col-md-4 form-select' required>
-        <option label='Type' hidden selected disabled></option>
-        <option value='MOSE'>MOSE</option>
-        <option value='LRB'>LRB</option>
-        <option value='BZA'>BZA</option>
-        <option value='SUP'>SUP</option>
-        <option value='ZRB'>ZRB</option>
-        <option value='Text Amendment'>Text Amendment</option>
-        <option value='CDP'>CDP Amendment</option>
-        <option value='SD'>SD</option>
-        <option value='LOR'>LOR</option>
-        <option value='Presentation'>Presentation</option>
-        <option value='Notice'>Notice</option>
-        <option value='N/A'>Other...</option>
-      </select><br>
-      <label id="titleLabel" class="col-md-4" for="title">Title</label>
-      <input class="col-md-4" type="text" name="title" id="title" placeholder="ApplName" required><br>
-      <label class="col-md-4" id="addressLabel" for="Address">Address</label>
-      <input class="col-md-4" type="text" name="address" id="address" placeholder="Address">
-      <br>
-      <label class="col-md-4" for="applURL">Application URL</label>
-      <input class="col-md-4" type="text" name="applURL" id="applURL" placeholder="Application URL">
-      <br>
-      <span id='applicantDivPlaceholder'></span>
-      <br>
-      <span id='bizTypePlaceholder'></span>
-      <div class='form-row'>
-        <label class="col-md-4 pl-md-3" id="descrLabel" for="descr">Description</label>
-        <textarea class="col-md-4" name="descr" id="descr" cols="50" rows="5" placeholder="Description"></textarea>
+      <div class="row">
+        <div class='col-auto'>
+          <label class="col-form-label-lg" for="NPU">NPU</label>
+          <select name="NPU" id="NPU" class='form-select form-select-lg' required>
+            <option value='A'>A</option>
+            <option value='B'>B</option>
+            <option value='C'>C</option>
+            <option value='D'>D</option>
+            <option value='E'>E</option>
+            <option value='F'>F</option>
+            <option value='G'>G</option>
+            <option value='H'>H</option>
+            <option value='I'>I</option>
+            <option value='J'>J</option>
+            <option value='K'>K</option>
+            <option value='L'>L</option>
+            <option value='M'>M</option>
+            <option value='N'>N</option>
+            <option value='O'>O</option>
+            <option value='P'>P</option>
+            <option value='Q'>Q</option>
+            <option value='R'>R</option>
+            <option value='S'>S</option>
+            <option value='T'>T</option>
+            <option value='V'>V</option>
+            <option value='W'>W</option>
+            <option value='X'>X</option>
+            <option value='Y'>Y</option>
+            <option value='Z'>Z</option>
+          </select>
+        </div>
       </div>
       <br>
-      <div class='form-row'>
-        <label class="col-md-4 pl-md-3" for="notes">Internal Notes</label><br>
-        <textarea class="col-md-4" name='notes' id='notes' cols='50' rows='5' placeholder='Internal Notes'></textarea>
+      <fieldset>
+        <div id='checkboxArray' class='form-check form-check-inline g-3 w-50'>
+          <legend>Adjacent</legend>
+          <input type='checkbox' name='adjacent' value='A' id='A'></input>
+          <label for='A'>A</label>
+          <input type='checkbox' name='adjacent' value='B' id='B'></input>
+          <label for='B'>B</label>
+          <input type='checkbox' name='adjacent' value='C' id='C'></input>
+          <label for='C'>C</label>
+          <input type='checkbox' name='adjacent' value='D' id='D'></input>
+          <label for='D'>D</label>
+          <input type='checkbox' name='adjacent' value='E' id='E'></input>
+          <label for='E'>E</label>
+          <input type='checkbox' name='adjacent' value='F' id='F'></input>
+          <label for='F'>F</label>
+          <input type='checkbox' name='adjacent' value='G' id='G'></input>
+          <label for='G'>G</label>
+          <input type='checkbox' name='adjacent' value='H' id='H'></input>
+          <label for='H'>H</label>
+          <input type='checkbox' name='adjacent' value='I' id='I'></input>
+          <label for='I'>I</label>
+          <input type='checkbox' name='adjacent' value='J' id='J'></input>
+          <label for='J'>J</label>
+          <input type='checkbox' name='adjacent' value='K' id='K'></input>
+          <label for='K'>K</label>
+          <input type='checkbox' name='adjacent' value='L' id='L'></input>
+          <label for='L'>L</label>
+          <input type='checkbox' name='adjacent' value='M' id='M'></input>
+          <label for='M'>M</label>
+          <input type='checkbox' name='adjacent' value='N' id='N'></input>
+          <label for='N'>N</label>
+          <input type='checkbox' name='adjacent' value='O' id='O'></input>
+          <label for='O'>O</label>
+          <input type='checkbox' name='adjacent' value='P' id='P'></input>
+          <label for='P'>P</label>
+          <input type='checkbox' name='adjacent' value='Q' id='Q'></input>
+          <label for='Q'>Q</label>
+          <input type='checkbox' name='adjacent' value='R' id='R'></input>
+          <label for='R'>R</label>
+          <input type='checkbox' name='adjacent' value='S' id='S'></input>
+          <label for='S'>S</label>
+          <input type='checkbox' name='adjacent' value='T' id='T'></input>
+          <label for='T'>T</label>
+          <input type='checkbox' name='adjacent' value='V' id='V'></input>
+          <label for='V'>V</label>
+          <input type='checkbox' name='adjacent' value='W' id='W'></input>
+          <label for='W'>W</label>
+          <input type='checkbox' name='adjacent' value='X' id='X'></input>
+          <label for='X'>X</label>
+          <input type='checkbox' name='adjacent' value='Y' id='Y'></input>
+          <label for='Y'>Y</label>
+          <input type='checkbox' name='adjacent' value='Z' id='Z'></input>
+          <label for='Z'>Z</label>
+        </div>
+      </fieldset>
+      <br>
+      <div class='row mb-3'>
+        <label class="form-label col" id="dateLabel" for="date">Date</label>
+        <input class="form-control col" type="text" name="date" id="date" required>
+      </div>
+      <div class='row mb-3'>
+        <label class="form-label col" for="month">Month</label>
+        <select name="month" id="month" class='form-select col' multiple required>
+          <option value='January'>January</option>
+          <option value='February'>February</option>
+          <option value='March'>March</option>
+          <option value='April'>April</option>
+          <option value='May'>May</option>
+          <option value='June'>June</option>
+          <option value='July'>July</option>
+          <option value='August'>August</option>
+          <option value='September'>September</option>
+          <option value='October'>October</option>
+          <option value='November'>November</option>
+          <option value='December'>December</option>
+        </select>
+      </div>
+      <div class='row mb-3'>
+        <label class="col form-label" for="type">Type</label>
+        <select name="type" id="type" class='col form-select' required>
+          <option label='Type' hidden selected disabled></option>
+          <option value='MOSE'>MOSE</option>
+          <option value='LRB'>LRB</option>
+          <option value='BZA'>BZA</option>
+          <option value='SUP'>SUP</option>
+          <option value='ZRB'>ZRB</option>
+          <option value='Text Amendment'>Text Amendment</option>
+          <option value='CDP'>CDP Amendment</option>
+          <option value='SD'>SD</option>
+          <option value='LOR'>LOR</option>
+          <option value='Presentation'>Presentation</option>
+          <option value='Notice'>Notice</option>
+          <option value='N/A'>Other...</option>
+        </select>
+      </div><br>
+      <div class='row mb-3'>
+        <label id="titleLabel" class="col form-label" for="title">Title</label>
+        <input class="col form-control" type="text" name="title" id="title" placeholder="ApplName" required><br>
+      </div>
+      <div class='row mb-3'>
+        <label class="col form-label" id="addressLabel" for="Address">Address</label>
+        <input class="col form-control" type="text" name="address" id="address" placeholder="Address">
+      </div>
+      <div class='row mb-3'>
+        <label class="col form-label" for="applURL">Application URL</label>
+        <input class="col form-control" type="text" name="applURL" id="applURL" placeholder="Application URL">
+      </div>
+      <div class='row mb-3' id='applicantDivPlaceholder'>
+      </div>
+      <br>
+      <div class='row mb-3' id='bizTypePlaceholder'>
+      </div>
+      <div class='row mb-3'>
+        <label class="col form-label pl-md-3" id="descrLabel" for="descr">Description</label>
+        <textarea class="col form-control" name="descr" id="descr" cols="50" rows="5"
+          placeholder="Description"></textarea>
+      </div>
+      <br>
+      <div class='row mb-3'>
+        <label class="col form-label pl-md-3" for="notes">Internal Notes</label><br>
+        <textarea class="col form-control" name='notes' id='notes' cols='50' rows='5'
+          placeholder='Internal Notes'></textarea>
       </div><br>
       <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
     </form>
