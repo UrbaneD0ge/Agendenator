@@ -4,6 +4,9 @@
   "description": "",
   "main": "app.js",
   "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
+  "engines": {
+    "node": "14.18.1"
+  },
   "scripts": {
     "dev": "npm index.html",
     "build": "npm build index.html",
