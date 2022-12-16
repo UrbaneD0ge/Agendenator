@@ -110,7 +110,7 @@
             <% applications.forEach(Application=> { %>
               <% if ( Application.type==='MOSE' ) { %>
                 <tr>
-                  <td><a href='www.google.com'>
+                  <td><a href='<%= Application.applURL %>'>
                       <%= Application.title %>
                     </a></td>
                   <td>
@@ -156,7 +156,7 @@
             <% applications.forEach(Application=> { %>
               <% if ( Application.type==='LRB' ) { %>
                 <tr>
-                  <td><a href='www.google.com'>
+                  <td><a href='<%= Application.applURL %>'>
                       <%= Application.title %>
                     </a></td>
                   <td>
