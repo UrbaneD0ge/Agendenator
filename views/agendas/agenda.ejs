@@ -237,24 +237,24 @@
               </tr>
             </thead>
             <tbody>
-                            <!-- create tr for each Application where type = 'BZA' && adjacent includes 'A' -->
-                            <% applications.forEach(Application=> { %>
-                              <% if ( Application.type==='BZA' && Application.adjacent == 'A' ) { %>
-                                <tr>
-                                  <td class='text-start'><a href='<%= Application.applURL %> '>
-                                      <%= Application.title %>
-                                    </a><br>
-                                    <%= Application.descr %>
-                                  </td>
-                                  <td>
-                                    <%= Application.address %>
-                                  </td>
-                                  <td>
-                                    <%= Application.date %>
-                                  </td>
-                                </tr>
-                                <% } %>
-                                  <% }) %>
+                <!-- create tr for each Application where type = 'BZA' && adjacent includes 'A' -->
+                <% applications.forEach(Application=> { %>
+                  <% if ( Application.type==='BZA' && Application.adjacent == 'A' ) { %>
+                    <tr>
+                      <td class='text-start'><a href='<%= Application.applURL %> '>
+                          <%= Application.title %>
+                        </a><br>
+                        <%= Application.descr %>
+                      </td>
+                      <td>
+                        <%= Application.address %>
+                      </td>
+                      <td>
+                        <%= Application.date %>
+                      </td>
+                    </tr>
+                    <% } %>
+                      <% }) %>
             </tbody>
           </table>
         </div>
