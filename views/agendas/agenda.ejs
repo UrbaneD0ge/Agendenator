@@ -155,7 +155,7 @@
               </tr>
               <!-- create tr for each Application where type = 'LRB' -->
               <% applications.forEach(Application=> { %>
-                <% if ( Application.type==='LRB' ) { %>
+                <% if ( Application.type==='LRB'  && Application.NPU == 'A' ) { %>
                   <tr>
                     <td><a href='<%= Application.applURL %>'>
                         <%= Application.title %>
@@ -195,7 +195,7 @@
             <tbody>
               <!-- create tr for each Application where type = 'BZA' -->
               <% applications.forEach(Application=> { %>
-                <% if ( Application.type==='BZA' ) { %>
+                <% if ( Application.type==='BZA'  && Application.NPU == 'A' ) { %>
                   <tr>
                     <td class='text-start'><a href='<%= Application.applURL %> '>
                         <%= Application.title %>
@@ -237,11 +237,24 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><a href='www.google.com'>Z-22-72</a></td>
-                <td>2060 Peachtree Rd</td>
-                <td>December 1 or 8, 2022</td>
-              </tr>
+                            <!-- create tr for each Application where type = 'BZA' && adjacent includes 'A' -->
+                            <% applications.forEach(Application=> { %>
+                              <% if ( Application.type==='BZA' && Application.adjacent == 'A' ) { %>
+                                <tr>
+                                  <td class='text-start'><a href='<%= Application.applURL %> '>
+                                      <%= Application.title %>
+                                    </a><br>
+                                    <%= Application.descr %>
+                                  </td>
+                                  <td>
+                                    <%= Application.address %>
+                                  </td>
+                                  <td>
+                                    <%= Application.date %>
+                                  </td>
+                                </tr>
+                                <% } %>
+                                  <% }) %>
             </tbody>
           </table>
         </div>
