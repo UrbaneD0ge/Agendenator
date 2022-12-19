@@ -232,9 +232,8 @@
           <table>
             <thead class='rc'>
               <tr>
-                <th colspan='3'><a style='color:initial; text-decoration:initial'
-                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/board-of-zoning-adjustment-bza'
-                    Board of Zoning Adjustment Applications (BZA)>Board of Zoning Adjustment Applications (BZA)</a></th>
+                <th colspan='3'>Subdivision Review Committee Applications (SD)
+                </th>
               </tr>
               <tr class='colHead'>
                 <th>Application</th>
@@ -243,9 +242,9 @@
               </tr>
             </thead>
             <tbody>
-              <!-- create tr for each Application where type = 'BZA' && adjacent includes 'A' -->
+              <!-- create tr for each Application where type = 'SD' && adjacent includes 'A' -->
               <% applications.forEach(Application=> { %>
-                <% if ( Application.type==='BZA' && Application.adjacent==NPUs.NPU ) { %>
+                <% if ( Application.type==='SD' ) { %>
                   <tr>
                     <td class='text-start'><a href='<%= Application.applURL %> '>
                         <%= Application.title %>
@@ -253,7 +252,7 @@
                       <%= Application.descr %>
                     </td>
                     <td>
-                      <%= Application.address %> (NPU-<%= Application.NPU %>)
+                      <%= Application.address %>
                     </td>
                     <td>
                       <%= Application.date %>
@@ -281,7 +280,7 @@
             <tbody>
               <!-- prototype application section -->
               <% applications.forEach(Application=> { %>
-                <% if ( Application.type==='BZA' && Application.adjacent.includes(Application.NPU)) { %>
+                <% if ( Application.type==='BZA' && Application.adjacent.includes(NPUs.NPU)) { %>
                   <tr>
                     <td class='text-start'><a href='<%= Application.applURL %> '>
                         <%= Application.title %>
