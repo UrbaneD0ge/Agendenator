@@ -15,9 +15,10 @@ router.get('/', async (req, res) => {
     month: req.query.month
   });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU });
-  console.log(applications)
+  // console.log(applications)
   // render an agenda page with the applications and NPU info
-  res.render('agendas/agenda', { applications: applications, NPUs: NPUs });
+  // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
+  res.render('agendas/agenda', { applications: applications, NPUs:NPUs })
 });
 
 router.get('/roster', async (req, res) => {

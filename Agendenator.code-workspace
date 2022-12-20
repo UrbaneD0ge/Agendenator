@@ -1,16 +1,17 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"cSpell.words": [
-			"AGENDENATOR",
-			"appl",
-			"descr",
-			"MOSE",
-			"Urouter"
-		]
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "agemplates",
+      "AGENDENATOR",
+      "appl",
+      "descr",
+      "MOSE",
+      "Urouter"
+    ]
+  }
 }
