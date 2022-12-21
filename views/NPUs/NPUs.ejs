@@ -38,6 +38,7 @@
         <th>Zoom Link</th>
         <th>Zoom Dial-In</th>
         <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <% NPUs.forEach(NPU=> { %>
@@ -76,6 +77,12 @@
         </td>
         <td>
           <a href="/NPUs/edit/<%= NPU._id %>">Edit</a>
+        </td>
+        <td>
+          <form class="d-inline" action="/NPUs/<%= NPU.id %>?_method=DELETE" method="POST">
+            <button>Delete
+            </button>
+          </form>
         </td>
       </tr>
       <% }) %>

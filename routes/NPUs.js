@@ -8,17 +8,30 @@ router.get('/new', (req, res) => {
   res.render('NPUs/new', { NPUs: new NPU() });
 });
 
-// post new NPU
-router.post('/', async (req, res, next) => {
-  req.NPU = new NPU()
-  next()
-}, saveAndRedirect('NPUs'));
-
 // edit NPU
 router.get('/edit/:id', async (req, res) => {
   const npu = await NPU.findById(req.params.id);
   res.render('NPUs/edit', { NPU: npu });
-  console.log(npu);
+});
+
+// update NPU
+router.put('/NPUs/:id', async (req, res, next) => {
+  req.NPU = await NPU.findById(req.params.id);
+  next()
+  console.log('update NPU-' + req.NPU.NPU)
+}, putUpdate('NPUs'));
+
+// post new NPU
+router.post('/', async (req, res, next) => {
+  req.NPU = new NPU()
+  next()
+  console.log('post new NPU-' + req.NPU.NPU)
+}, saveAndRedirect('NPUs'));
+
+// delete NPU
+router.delete('/:id', async (req, res) => {
+  await NPU.findByIdAndDelete(req.params.id)
+  res.redirect('/NPUs')
 });
 
 // show all NPUs
@@ -50,5 +63,25 @@ function saveAndRedirect(path) {
     }
   }
 }
+
+function putUpdate(path) {
+  return async (req, res) => {
+    let NPU = req.NPU
+    //  assign fields to application and save
+    for (keys in req.body) {
+      NPU[keys] = req.body[keys];
+    }
+
+    try {
+      // console.dir(req);
+      // console.dir(application);
+      NPU = await NPU.save()
+      res.redirect(`/NPUs`)
+    } catch (err) {
+      console.log(err)
+      res.render(`/${path}`)
+    }
+  }
+};
 
 module.exports = router;
