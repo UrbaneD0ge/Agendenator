@@ -21,7 +21,7 @@
   </header>
   <fieldset>
     <h2>Add NPU</h2>
-    <form action="/NPUs/<%= NPU.id %>?_method=PUT" class="d-inline" method="PUT" autocomplete='off'>
+    <form action="/NPUs/<%= NPU.id %>?_method=PUT" class="d-inline" method="POST" autocomplete='off'>
       <label for="NPU">NPU</label>
       <select name="NPU" id="NPU" class='form-select form-select-lg' value='<%= NPU.NPU %>' required>
         <option value='A'>A</option>

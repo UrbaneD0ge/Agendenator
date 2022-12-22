@@ -15,7 +15,7 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 // update NPU
-router.put('/NPUs/:id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   req.NPU = await NPU.findById(req.params.id);
   next()
   console.log('update NPU-' + req.NPU.NPU)
