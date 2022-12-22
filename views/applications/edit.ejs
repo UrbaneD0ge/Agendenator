@@ -163,19 +163,19 @@
         </td>
         <td>
           <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">🗑</button>
           </form>
         </td>
       </tr>
       <tr>
-        <td class='notes' colspan='11'>
+        <td class='notes' colspan='12'>
           <textarea name='notes' type='text' id='notes' width='100'><%= application.notes %></textarea>
         </td>
       </tr>
     </table>
     <br>
     <div class='col-md-11 text-center'>
-      <button type="submit" class="btn btn-success">Save</button>
+      <button type="submit" class="btn btn-success">💾</button>
     </div>
   </form>
   <script>

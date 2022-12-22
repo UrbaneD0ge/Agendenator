@@ -36,7 +36,6 @@
         <th>Zoom ID</th>
         <th>Zoom PW</th>
         <th>Zoom Link</th>
-        <th>Zoom Dial-In</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -73,14 +72,11 @@
           </a>
         </td>
         <td>
-          <%= NPU.ZoomDial %>
-        </td>
-        <td>
-          <a href="/NPUs/edit/<%= NPU._id %>">Edit</a>
+          <a class='btn btn-warning' href="/NPUs/edit/<%= NPU._id %>">✏</a>
         </td>
         <td>
           <form class="d-inline" action="/NPUs/<%= NPU.id %>?_method=DELETE" method="POST">
-            <button>Delete
+            <button class='btn btn-danger'>🗑
             </button>
           </form>
         </td>

@@ -20,8 +20,8 @@
             <%= application.title?.toUpperCase() %>
           </h2>
           <a class="btn btn-secondary" href="/applications">View All</a>
-          <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">Edit</a>
-          <!-- <a class="btn btn-danger" href="/applications/delete/<%= application.id %> ">Delete</a> -->
+          <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">✏</a>
+          <!-- <a class="btn btn-danger" href="/applications/delete/<%= application.id %> "></a> -->
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
               </td>
               <td>
                 <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-danger">Delete
+                  <button type="submit" class="btn btn-danger">🗑
                   </button>
                 </form>
               </td>
