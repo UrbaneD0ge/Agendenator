@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
 <head>
   <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,17 +19,11 @@
 
 <body class='tablePage'>
   <header>
-    <div>
-      <div>
-        <div class="col-md-11 text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-          <h2>
-            <%= application.title.toUpperCase() %>
-          </h2>
-          <a class="btn btn-secondary" href="/applications">View All</a>
-        </div>
-      </div>
-    </div>
+    <%- include('../_nav') %>
+      <br>
+      <h2 class='text-center col-md-11'>
+        <%= application.title.toUpperCase() %>
+      </h2>
   </header>
   <br>
   <form action="/applications/<%= application.id %>?_method=PUT" class="d-inline" method="POST">
@@ -222,3 +223,5 @@
     }
   </script>
 </body>
+
+</html>
