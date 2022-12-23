@@ -16,91 +16,29 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
-<body class='container'>
+<body>
   <header>
-    <div>
-      <div class="row">
-        <div class="col-md-10 text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-          <a href="/applications/new" class="btn btn-success">Add New Application</a>
-          <a href="/applications" class="btn btn-primary">View all applications</a>
-          <a href="/NPUs" class="btn btn-danger">View all NPUs</a>
-        </div>
-      </div>
-    </div>
+    <%- include('_nav') %>
   </header>
-  <!-- gCal iFrame -->
-  <div class='container'>
-    <fieldset>
-      <form action="/agenda" method="GET">
-        <div class="row col-md-6">
-          <div class="col-auto">
-            <label for="NPU">NPU</label>
-            <select name="NPU" id="NPU" class='form-select form-select-md' required>
-              <option value='A'>A</option>
-              <option value='B'>B</option>
-              <option value='C'>C</option>
-              <option value='D'>D</option>
-              <option value='E'>E</option>
-              <option value='F'>F</option>
-              <option value='G'>G</option>
-              <option value='H'>H</option>
-              <option value='I'>I</option>
-              <option value='J'>J</option>
-              <option value='K'>K</option>
-              <option value='L'>L</option>
-              <option value='M'>M</option>
-              <option value='N'>N</option>
-              <option value='O'>O</option>
-              <option value='P'>P</option>
-              <option value='Q'>Q</option>
-              <option value='R'>R</option>
-              <option value='S'>S</option>
-              <option value='T'>T</option>
-              <option value='V'>V</option>
-              <option value='W'>W</option>
-              <option value='X'>X</option>
-              <option value='Y'>Y</option>
-              <option value='Z'>Z</option>
-            </select>
-          </div>
-          <div class="col-auto">
-            <label for="month">Month</label>
-            <select name="month" id="month" class='form-select form-select-md' required>
-              <option value='January'>January</option>
-              <option value='February'>February</option>
-              <option value='March'>March</option>
-              <option value='April'>April</option>
-              <option value='May'>May</option>
-              <option value='June'>June</option>
-              <option value='July'>July</option>
-              <option value='August'>August</option>
-              <option value='September'>September</option>
-              <option value='October'>October</option>
-              <option value='November'>November</option>
-              <option value='December'>December</option>
-            </select>
-          </div>
-          <div class='col'>
-            <label></label><br>
-            <a href="/agenda"><button class='btn btn-success'>Agenda</button></a>
-            <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white'>Roster</button>
-          </div>
-        </div>
-      </form>
-    </fieldset>
-    <br>
-    <div class='calendar col-12'>
-      <div class='col-5'>Month</div>
-      <iframe class='container'
-        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=1&showNav=1&showDate=1&showTabs=0&showCalendars=0&title=City%20of%20Atlanta%20NPU%20Meetings&showPrint=0&src=bzZtY3RoaHBoanU0OGlrc2hlOTVudWptdThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688"
-        style="border:solid 2px #777" height="620" frameborder="0" scrolling="no"></iframe>
+  <div class='container tablePage'>
+
+    <!-- gCal iFrame -->
+    <div class='container'>
+      <div class='calendar col-12'>
+        <div class='col-5'>Month</div>
+        <iframe class='container'
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=1&showNav=1&showDate=1&showTabs=0&showCalendars=0&title=City%20of%20Atlanta%20NPU%20Meetings&showPrint=0&src=bzZtY3RoaHBoanU0OGlrc2hlOTVudWptdThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688"
+          style="border:solid 2px #777; height: 80vmin;" frameborder="0" scrolling="no"></iframe>
+      </div>
     </div>
   </div>
   </div>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

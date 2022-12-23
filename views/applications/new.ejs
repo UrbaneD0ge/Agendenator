@@ -18,17 +18,11 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
-<body class='container'>
+<body>
   <header>
-    <div>
-      <div>
-        <div class="text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-        </div>
-      </div>
-    </div>
+    <%- include('../_nav') %>
   </header>
-  <fieldset>
+  <fieldset class='container'>
     <h2>Add Agenda Item</h2>
     <form action="/applications" method="POST">
       <div class="row">
@@ -188,7 +182,7 @@
         <textarea class="col form-control" name='notes' id='notes' cols='50' rows='5'
           placeholder='Internal Notes'></textarea>
       </div><br>
-      <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
+      <button class='btn btn-success m-3' id='submit' type='submit'>SUBMIT</button>
     </form>
   </fieldset>
 </body>

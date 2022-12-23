@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,77 +17,72 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
-<body class='container tablePage'>
+<body class='tablePage'>
   <header>
-    <div>
-      <div>
-        <div class="col-md-10 text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-          <a href="/applications/new" class="btn btn-success">Add New Application</a>
-          <a href="/applications" class="btn btn-primary">View all applications</a>
-          <a href="/NPUs/new" class="btn btn-light">Add New NPU</a>
-        </div>
-      </div>
-    </div>
+    <%- include('../_nav') %>
   </header>
   <br>
-  <table>
-    <thead>
-      <tr>
-        <th>NPU</th>
-        <th>Chair</th>
-        <th>Chair Email</th>
-        <th>Planner</th>
-        <th>Planner Email</th>
-        <th>Meeting Info</th>
-        <th>Zoom ID</th>
-        <th>Zoom PW</th>
-        <th>Zoom Link</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <% NPUs.forEach(NPU=> { %>
-      <tr>
-        <td class='NPU'>
-          <%= NPU.NPU %>
-        </td>
-        <td>
-          <%= NPU.chair %>
-        </td>
-        <td>
-          <%= NPU.chairE %>
-        </td>
-        <td>
-          <%= NPU.planner %>
-        </td>
-        <td>
-          <%= NPU.plannerE %>
-        </td>
-        <td>
-          <%= NPU.meeting %>
-        </td>
-        <td>
-          <%= NPU.ZoomID %>
-        </td>
-        <td>
-          <%= NPU.ZoomPW %>#
-        </td>
-        <td>
-          <a href='<%= NPU.ZoomURL %>' target='_blank'>
-            <%= NPU.ZoomURL.split('/').pop() %>
-          </a>
-        </td>
-        <td>
-          <a class='btn btn-warning' href="/NPUs/edit/<%= NPU._id %>">✏</a>
-        </td>
-        <td>
-          <form class="d-inline" action="/NPUs/<%= NPU.id %>?_method=DELETE" method="POST">
-            <button class='btn btn-danger'>🗑
-            </button>
-          </form>
-        </td>
-      </tr>
-      <% }) %>
-  </table>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>NPU</th>
+          <th>Chair</th>
+          <th>Chair Email</th>
+          <th>Planner</th>
+          <th>Planner Email</th>
+          <th>Meeting Info</th>
+          <th>Zoom ID</th>
+          <th>Zoom PW</th>
+          <th>Zoom Link</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <% NPUs.forEach(NPU=> { %>
+        <tr>
+          <td class='NPU'>
+            <%= NPU.NPU %>
+          </td>
+          <td>
+            <%= NPU.chair %>
+          </td>
+          <td>
+            <%= NPU.chairE %>
+          </td>
+          <td>
+            <%= NPU.planner %>
+          </td>
+          <td>
+            <%= NPU.plannerE %>
+          </td>
+          <td>
+            <%= NPU.meeting %>
+          </td>
+          <td>
+            <%= NPU.ZoomID %>
+          </td>
+          <td>
+            <%= NPU.ZoomPW %>#
+          </td>
+          <td>
+            <a href='<%= NPU.ZoomURL %>' target='_blank'>
+              <%= NPU.ZoomURL.split('/').pop() %>
+            </a>
+          </td>
+          <td>
+            <a class='btn btn-warning' href="/NPUs/edit/<%= NPU._id %>">✏</a>
+          </td>
+          <td>
+            <form class="d-inline" action="/NPUs/<%= NPU.id %>?_method=DELETE" method="POST">
+              <button class='btn btn-danger'>🗑
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+    </table>
+  </div>
 </body>
+
+</html>

@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +16,13 @@
   <link type="text/css" rel="stylesheet" href="..\css\style.css">
 </head>
 
-<body class='container'>
+<body>
   <header>
-    <div>
-      <div>
-        <div class="col-md-10 text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-        </div>
-      </div>
-    </div>
+    <%- include('../_nav') %>
+
   </header>
-  <fieldset>
+  <br>
+  <fieldset class='container'>
     <h2>Add NPU</h2>
     <form action="/NPUs" method="POST" autocomplete='off'>
       <div class="row">
@@ -100,7 +103,10 @@
         </div>
       </div>
       <br><br>
-      <button class='btn btn-success' id='submit' type='submit'>SUBMIT</button>
+      <button class='btn btn-success m-3' id='submit' type='submit'>SUBMIT</button>
+
     </form>
   </fieldset>
 </body>
+
+</html>

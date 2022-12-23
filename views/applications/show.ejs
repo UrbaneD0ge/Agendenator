@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
 <head>
   <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,101 +17,102 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
-<body class='container tablePage'>
+<body class='tablePage'>
   <header>
-    <div>
-      <div>
-        <div class="col-md-10 text-center">
-          <h1><a href='/'>AGENDENATOR</a></h1>
-          <h2>
-            <%= application.title?.toUpperCase() %>
-          </h2>
-          <a class="btn btn-secondary" href="/applications">View All</a>
-          <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">✏</a>
-          <!-- <a class="btn btn-danger" href="/applications/delete/<%= application.id %> "></a> -->
-        </div>
-      </div>
-    </div>
+    <%- include('../_nav') %>
+      <br>
+      <h2 class='text-center col-md-11'>
+        <%= application.title.toUpperCase() %>
+      </h2>
   </header>
-  <br>
-  <table>
-    <thead>
-      <tr>
-        <th>NPU</th>
-        <th>Adjacent</th>
-        <th>Month</th>
-        <th>Type</th>
-        <th>Title</th>
-        <% if (application.applicant) { %>
-          <th>Applicant</th>
-          <% } %>
-            <% if (application.applURL) { %>
-              <th>Application URL</th>
-              <% } %>
-                <th>Description</th>
-                <th>Address</th>
-                <th>Hearing Date</th>
-                <th>Creation Date</th>
-                <th>Delete</th>
-      </tr>
-    </thead>
-    <tr>
-      <td class='NPU'>
-        <%= application.NPU %>
-      </td>
-      <td>
-        <%= application.adjacent %>
-      </td>
-      <td>
-        <%= application.month %>
-      </td>
-      <td>
-        <%= application.type %>
-      </td>
-      <td>
-        <%= application.title %>
-      </td>
-      <% if (application.applicant) { %>
-        <td>
-          <%= application.applicant %>
-        </td>
-        <% } %>
-          <% if (application.applURL) {%>
-            <td>
-              <a href='<%=application.applURL %>' target='_blank'>
-                <%= application.applURL %>
-              </a>
-              <%= application.URL1 %>
-                <%= application.URL2 %>
-                  <%= application.URL3 %>
-                    <%= application.URL4 %>
-            </td>
+
+  <div class='container'>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <th>NPU</th>
+          <th>Adjacent</th>
+          <th>Month</th>
+          <th>Type</th>
+          <th>Title</th>
+          <% if (application.applicant) { %>
+            <th>Applicant</th>
             <% } %>
-              <td class='descr'>
-                <%= application.descr %>
-              </td>
-              <td>
-                <%= application.address %>
-              </td>
-              <td>
-                <%= application.date %>
-              </td>
-              <td>
-                <%= application.createdAt.toISOString().substring(0,10) %>
-              </td>
-              <td>
-                <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-danger">🗑
-                  </button>
-                </form>
-              </td>
-    </tr>
-    <% if (application.notes) { %>
+              <% if (application.applURL) { %>
+                <th>Application URL</th>
+                <% } %>
+                  <th>Description</th>
+                  <th>Address</th>
+                  <th>Hearing Date</th>
+                  <th>Creation Date</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+        </tr>
+      </thead>
       <tr>
-        <td class='notes' colspan='12'>
-          <%= application.notes %>
+        <td class='NPU'>
+          <%= application.NPU %>
         </td>
+        <td>
+          <%= application.adjacent %>
+        </td>
+        <td>
+          <%= application.month %>
+        </td>
+        <td>
+          <%= application.type %>
+        </td>
+        <td>
+          <%= application.title %>
+        </td>
+        <% if (application.applicant) { %>
+          <td>
+            <%= application.applicant %>
+          </td>
+          <% } %>
+            <% if (application.applURL) {%>
+              <td>
+                <a href='<%=application.applURL %>' target='_blank'>
+                  <%= application.applURL %>
+                </a>
+                <%= application.URL1 %>
+                  <%= application.URL2 %>
+                    <%= application.URL3 %>
+                      <%= application.URL4 %>
+              </td>
+              <% } %>
+                <td class='descr'>
+                  <%= application.descr %>
+                </td>
+                <td>
+                  <%= application.address %>
+                </td>
+                <td>
+                  <%= application.date %>
+                </td>
+                <td>
+                  <%= application.createdAt.toISOString().substring(0,10) %>
+                </td>
+                <td>
+                  <a class="btn btn-warning" href="/applications/edit/<%= application.id %> ">✏</a>
+                </td>
+                <td>
+                  <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">🗑
+                    </button>
+                  </form>
+                </td>
       </tr>
-      <% } %>
-  </table>
+      <% if (application.notes) { %>
+        <tr>
+          <td class='notes' colspan='12'>
+            <%= application.notes %>
+          </td>
+        </tr>
+        <% } %>
+    </table>
+  </div>
 </body>
+
+</html>
