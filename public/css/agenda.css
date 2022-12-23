@@ -26,7 +26,6 @@ body.tablePage {
   background-color: white;
   border: 1px solid black;
   background-color: #fff;
-  font: 1.2em, Arial, sans-serif;
   margin: 50px auto;
   padding: 20px;
 }
@@ -40,7 +39,7 @@ h1 {
 h2 {
   font-size: 30px;
   font-weight: bold;
-  margin: 0 0 0.5em 0;
+  margin: 0;
   font-family: 'Tungsten Semibold';
 }
 
@@ -54,6 +53,7 @@ h4 {
   text-align: center;
   font-family: 'Century Gothic';
   font-size: 12pt;
+  margin-bottom: 0;
 }
 
 h5 {
@@ -86,8 +86,9 @@ p {
 }
 
 table {
-  margin: 0 30px 30px 30px;
+  margin: 0 auto 25px auto;
   width: 95%;
+  break-inside: avoid;
 }
 
 table, th, td {
@@ -161,8 +162,5 @@ width: 3vmin;
 .sectionHeader {
   font-size: 18pt;
   font-family: 'Century Gothic';
-}
-
-td > textarea {
-  width: 100%;
+  break-after: avoid-page;
 }
