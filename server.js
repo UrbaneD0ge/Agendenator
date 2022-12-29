@@ -4,6 +4,7 @@ const app = express();
 const applicationRouter = require('./routes/applications');
 const agendaRouter = require('./routes/agendas');
 const NPUrouter = require('./routes/NPUs');
+const mongoConnect = require('./config/keys.env');
 // const Application = require('./models/applications');
 // const NPU = require('./models/NPUs');
 // const applications = require('./models/applications');
@@ -24,7 +25,7 @@ app.get('/', async (req, res) => {
 });
 
 // Connecting to the database
-mongoose.connect("mongodb+srv://UrbaneDoge:bPlZ8wc1DQ4cnhQC@cluster0.lojy1rw.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect(mongoConnect, {
   useNewUrlParser: true, useUnifiedTopology: true
 }).then(() => {
   console.log("Successfully connected to the database");
