@@ -100,6 +100,11 @@ thead > tr:first-child {
   background-color: palegoldenrod;
 }
 
+nav {
+  background: rgb(179,179,179);
+  background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
+}
+
 .rc > tr:first-child {
   background-color: rgb(200, 200, 200) !important;
 }
