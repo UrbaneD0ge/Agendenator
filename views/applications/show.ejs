@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="..\css\style.css">
+  <link type="text/css" rel="stylesheet" href="..\css\show.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
 
@@ -21,21 +21,22 @@
   <header>
     <%- include('../_nav') %>
       <br>
-      <h2 class='text-center col-md-11'>
-        <%= application.title.toUpperCase() %>
-      </h2>
+      <h1 class='text-center col-md-11'>
+        <a href="<%= application.applURL%>" target="_blank" rel="noopener noreferrer">
+          <%= application.title.toUpperCase() %>
+        </a>
+      </h1>
   </header>
 
-  <div class='container'>
+  <div>
     <br>
     <table>
       <thead>
         <tr>
           <th>NPU</th>
-          <th>Adjacent</th>
+          <th>Adj</th>
           <th>Month</th>
           <th>Type</th>
-          <th>Title</th>
           <% if (application.applicant) { %>
             <th>Applicant</th>
             <% } %>
@@ -63,23 +64,33 @@
         <td>
           <%= application.type %>
         </td>
-        <td>
-          <%= application.title %>
-        </td>
         <% if (application.applicant) { %>
           <td>
             <%= application.applicant %>
           </td>
           <% } %>
-            <% if (application.applURL) {%>
+            <% if (application.URL1 || application.URL2 || application.URL3 || application.URL4) {%>
               <td>
-                <a href='<%=application.applURL %>' target='_blank'>
-                  <%= application.applURL %>
-                </a>
-                <%= application.URL1 %>
-                  <%= application.URL2 %>
-                    <%= application.URL3 %>
-                      <%= application.URL4 %>
+                <% if (application.URL1) {%>
+                  <a href='<%=application.URL1 %>' target='_blank'>
+                    SURVEY
+                  </a>
+                  <% } %>
+                    <% if (application.URL2) {%>
+                      <br><a href='<%=application.URL2 %>' target='_blank'>
+                        SITE PLAN
+                      </a>
+                      <% } %>
+                        <% if (application.URL3) {%>
+                          <br><a href='<%=application.URL3 %>' target='_blank'>
+                            FLOOR PLAN
+                          </a>
+                          <% } %>
+                            <% if (application.URL4) {%>
+                              <br><a href='<%=application.URL4 %>' target='_blank'>
+                                ELEVATIONS
+                              </a>
+                              <% } %>
               </td>
               <% } %>
                 <td class='descr'>

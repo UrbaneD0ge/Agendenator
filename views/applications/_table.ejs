@@ -28,7 +28,13 @@
         <%= application.type %>
       </td>
       <td class='title'>
-        <%= application.title %>
+        <% if (application.applURL) { %>
+          <a href="<%= application.applURL%>" target="_blank" rel="noopener noreferrer">
+            <%= application.title %>
+          </a>
+          <% } else { %>
+            <%= application.title %>
+              <% } %>
       </td>
       <td class='descr'>
         <%= application.descr %>

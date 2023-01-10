@@ -10,7 +10,6 @@ const NPUSchema = new mongoose.Schema({
   ZoomID: String,
   ZoomPW: String,
   ZoomURL: String,
-  ZoomDial: { type: String, default: "+1 646-558-8656" },
   bylawsURL: String,
 });
 

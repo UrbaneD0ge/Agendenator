@@ -5,10 +5,6 @@ const applicationRouter = require('./routes/applications');
 const agendaRouter = require('./routes/agendas');
 const NPUrouter = require('./routes/NPUs');
 const mongoConnect = require('./config/keys.env');
-// const Application = require('./models/applications');
-// const NPU = require('./models/NPUs');
-// const applications = require('./models/applications');
-// const NPUs = require('./models/NPUs');
 const methodOverride = require('method-override');
 
 app.listen(3000 || process.env.PORT, () => {

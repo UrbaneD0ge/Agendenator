@@ -230,7 +230,16 @@
                     <td class='text-start'><a href='<%= Application.applURL %> '>
                         <%= Application.title %>
                       </a><br>
-                      <%= Application.descr %>
+                      <%= Application.descr %><br><a href='<%= Application.URL1 %>'>SURVEY</a>
+                        <% if(Application.URL2) {%>
+                          , <a href='<%= Application.URL2 %>'>SITE PLAN</a>
+                          <% } %>
+                            <% if(Application.URL3) {%>
+                              , <a href='<%= Application.URL3 %>'>FLOOR PLAN</a>
+                              <% } %>
+                                <% if(Application.URL4) {%>
+                                  , <a href='<%= Application.URL4 %>'>ELEVATIONS</a>
+                                  <% } %>
                     </td>
                     <td>
                       <%= Application.address %>

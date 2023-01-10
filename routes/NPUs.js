@@ -52,7 +52,6 @@ function saveAndRedirect(path) {
     NPU.ZoomID = req.body.ZoomID
     NPU.ZoomPW = req.body.ZoomPW
     NPU.ZoomURL = req.body.ZoomURL
-    NPU.ZoomDial = req.body.ZoomDial
     NPU.bylawsURL = req.body.bylawsURL
     try {
       NPU = await NPU.save()

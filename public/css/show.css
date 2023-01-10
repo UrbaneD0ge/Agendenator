@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'Tungsten-SemiBold';
+  src: url(/fonts/Tungsten-Semibold.otf) format('opentype');
+  letter-spacing: 2pt;
+}
+
+@font-face {
+  font-family: 'GT-Eesti-Regular';
+  src: url(/fonts/GT-Eesti-Text-Regular.otf) format('opentype');
+}
+
+body {
+  background-color: goldenrod;
+  /* max-width: 100% !important; */
+}
+
+body.tablePage {
+  max-width: 100% !important;
+}
+
+#article {
+  width: 8.5in;
+  /* height: 11in; */
+  margin: 0.5in;
+  padding: 0.5in;
+  background-color: white;
+  border: 1px solid black;
+  background-color: #fff;
+  font: 1.2em, Arial, sans-serif;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Tungsten Semibold';
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 0.5em 0;
+
+}
+
+h3 {
+  font-size: 12pt;
+  font-family: 'Century Gothic';
+  color: teal;
+}
+
+h4 {
+  text-align: center;
+  font-family: 'Century Gothic';
+}
+
+h5 {
+  font-family: 'Century Gothic';
+  text-align: left;
+  line-height: .8 !important;
+  font-size: 10.5pt;
+}
+
+h5 a{
+  text-align: left;
+  font-family: 'Century Gothic';
+  color: black;
+  text-decoration: underline;
+}
+
+h6 {
+  font-family: 'Century Gothic';
+  text-align: center;
+  size: 10pt;
+  margin: 20px;
+}
+
+p {
+  font-family: Calibri;
+  font-size: 10pt;
+  line-height: 1 !important;
+  padding: 1%;
+}
+
+table {
+  margin: 0 30px 30px 30px;
+  width: 95%;
+}
+
+table, th, td {
+  text-align: center;
+  font-family: Arial;
+  size: 10pt;
+  /* border-collapse: collapse; */
+  border: 1px solid rgb(105, 105, 105);
+}
+
+thead > tr:first-child {
+  background-color: palegoldenrod;
+}
+
+nav {
+  background: rgb(179,179,179);
+  background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
+}
+
+.rc > tr:first-child {
+  background-color: rgb(200, 200, 200) !important;
+}
+
+#bylawsBox {
+  display: block !important;
+  border: 5px double #000;
+  margin: 30px;
+}
+
+input[type=checkbox] {
+  margin: 5px;
+  width: 3vmin;
+  height: 3vmin;
+}
+
+ #checkboxArray > label {
+width: 3vmin;
+}
+
+#checkboxArray {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.NPU {
+  font-weight: bolder;
+}
+
+.calendar {
+  font-size: .8em;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+}
+
+.descr {
+  text-align: left;
+}
+
+.notes {
+  text-align: left;
+  width: 100%;
+}
+
+td > textarea {
+  width: 100%;
+}
