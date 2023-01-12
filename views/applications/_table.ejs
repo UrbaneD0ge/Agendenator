@@ -14,15 +14,16 @@
     </tr>
   </thead>
   <% applications.forEach(application=> { %>
+    <% const formatter = new Intl.ListFormat('en', {style: 'long', type: 'unit'}) %> 
     <tr>
       <td class='NPU'>
         <%= application.NPU %>
       </td>
       <td>
-        <%= application.adjacent %>
+        <%= formatter.format(application.adjacent) %>
       </td>
       <td>
-        <%= application.month %>
+        <%= formatter.format(application.month) %>
       </td>
       <td>
         <%= application.type %>
