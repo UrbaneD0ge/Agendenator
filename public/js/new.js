@@ -174,5 +174,9 @@ document.querySelector('#type').addEventListener('change', function () {
       title.value = '';
       title.removeAttribute('placeholder');
       break;
+    default:
+      title.value = '';
+      title.removeAttribute('placeholder');
+      break;
   }
 });
