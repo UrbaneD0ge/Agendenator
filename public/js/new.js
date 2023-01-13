@@ -47,8 +47,10 @@ document.querySelector('#type').addEventListener('change', function () {
 
       // get placeholder div and append label and input
       const applicantPlaceholderDiv = document.getElementById('applicantDivPlaceholder');
-      applicantPlaceholderDiv.appendChild(applicantLabel);
-      applicantPlaceholderDiv.appendChild(applicantInput);
+      if (!applicantPlaceholderDiv.hasChildNodes()) {
+        applicantPlaceholderDiv.appendChild(applicantLabel);
+        applicantPlaceholderDiv.appendChild(applicantInput);
+      }
 
       // insert select element for LRB type
       const LRBtype = document.createElement('select');
@@ -82,64 +84,67 @@ document.querySelector('#type').addEventListener('change', function () {
       bizTypeOption8.setAttribute('value', 'Other');
       bizTypeOption8.innerText = 'Other';
 
-      // append options to select element
-      LRBtype.appendChild(bizTypeOption1);
-      LRBtype.appendChild(bizTypeOption2);
-      LRBtype.appendChild(bizTypeOption3);
-      LRBtype.appendChild(bizTypeOption4);
-      LRBtype.appendChild(bizTypeOption5);
-      LRBtype.appendChild(bizTypeOption6);
-      LRBtype.appendChild(bizTypeOption7);
-      LRBtype.appendChild(bizTypeOption8);
+      if (document.getElementById('bizType') == null) {
 
-      const bizTypePlaceholderLabel = document.createElement('label');
-      bizTypePlaceholderLabel.setAttribute('for', 'bizType');
-      bizTypePlaceholderLabel.setAttribute('class', 'col form-label');
-      bizTypePlaceholderLabel.innerText = 'Business Type';
+        // append options to select element
+        LRBtype.appendChild(bizTypeOption1);
+        LRBtype.appendChild(bizTypeOption2);
+        LRBtype.appendChild(bizTypeOption3);
+        LRBtype.appendChild(bizTypeOption4);
+        LRBtype.appendChild(bizTypeOption5);
+        LRBtype.appendChild(bizTypeOption6);
+        LRBtype.appendChild(bizTypeOption7);
+        LRBtype.appendChild(bizTypeOption8);
 
-      // insert select element
-      const bizTypePlaceholder = document.getElementById('bizTypePlaceholder');
-      bizTypePlaceholder.appendChild(bizTypePlaceholderLabel);
-      bizTypePlaceholder.appendChild(LRBtype);
+        const bizTypePlaceholderLabel = document.createElement('label');
+        bizTypePlaceholderLabel.setAttribute('for', 'bizType');
+        bizTypePlaceholderLabel.setAttribute('class', 'col form-label');
+        bizTypePlaceholderLabel.innerText = 'Business Type';
 
-      // insert select element for LRB request
-      const LRBrequest = document.createElement('select');
-      LRBrequest.setAttribute('id', 'descr');
-      LRBrequest.setAttribute('name', 'descr');
-      LRBrequest.setAttribute('placeholder', 'Request');
-      LRBrequest.setAttribute('class', 'col form-select');
-      // create options
-      const LRBoption1 = document.createElement('option');
-      LRBoption1.setAttribute('value', 'New Business');
-      LRBoption1.innerText = 'New Business';
-      const LRBoption2 = document.createElement('option');
-      LRBoption2.setAttribute('value', 'Change of Ownership');
-      LRBoption2.innerText = 'Change of Ownership';
-      const LRBoption3 = document.createElement('option');
-      LRBoption3.setAttribute('value', 'Change of Agent');
-      LRBoption3.innerText = 'Change of Agent';
-      const LRBoption4 = document.createElement('option');
-      LRBoption4.setAttribute('value', 'Change of Licensee');
-      LRBoption4.innerText = 'Change of Licensee';
-      const LRBoption5 = document.createElement('option');
-      LRBoption5.setAttribute('value', 'Other');
-      LRBoption5.innerText = 'Other';
-      // if other, change descr to input type text
-      LRBoption5.addEventListener('change', function () {
-        if (LRBoption5.selected) {
-          descr.setAttribute('type', 'text');
-          descr.setAttribute('placeholder', 'Request');
-        }
-      });
-      // append options to select
-      LRBrequest.appendChild(LRBoption1);
-      LRBrequest.appendChild(LRBoption2);
-      LRBrequest.appendChild(LRBoption3);
-      LRBrequest.appendChild(LRBoption4);
-      LRBrequest.appendChild(LRBoption5);
-      // replace descr with select
-      descr.replaceWith(LRBrequest);
-      descr.setAttribute('class', 'col form-select');
+        // insert select element
+        const bizTypePlaceholder = document.getElementById('bizTypePlaceholder');
+        bizTypePlaceholder.appendChild(bizTypePlaceholderLabel);
+        bizTypePlaceholder.appendChild(LRBtype);
+
+        // insert select element for LRB request
+        const LRBrequest = document.createElement('select');
+        LRBrequest.setAttribute('id', 'descr');
+        LRBrequest.setAttribute('name', 'descr');
+        LRBrequest.setAttribute('placeholder', 'Request');
+        LRBrequest.setAttribute('class', 'col form-select');
+        // create options
+        const LRBoption1 = document.createElement('option');
+        LRBoption1.setAttribute('value', 'New Business');
+        LRBoption1.innerText = 'New Business';
+        const LRBoption2 = document.createElement('option');
+        LRBoption2.setAttribute('value', 'Change of Ownership');
+        LRBoption2.innerText = 'Change of Ownership';
+        const LRBoption3 = document.createElement('option');
+        LRBoption3.setAttribute('value', 'Change of Agent');
+        LRBoption3.innerText = 'Change of Agent';
+        const LRBoption4 = document.createElement('option');
+        LRBoption4.setAttribute('value', 'Change of Licensee');
+        LRBoption4.innerText = 'Change of Licensee';
+        const LRBoption5 = document.createElement('option');
+        LRBoption5.setAttribute('value', 'Other');
+        LRBoption5.innerText = 'Other';
+        // if other, change descr to input type text
+        LRBoption5.addEventListener('change', function () {
+          if (LRBoption5.selected) {
+            descr.setAttribute('type', 'text');
+            descr.setAttribute('placeholder', 'Request');
+          }
+        });
+        // append options to select
+        LRBrequest.appendChild(LRBoption1);
+        LRBrequest.appendChild(LRBoption2);
+        LRBrequest.appendChild(LRBoption3);
+        LRBrequest.appendChild(LRBoption4);
+        LRBrequest.appendChild(LRBoption5);
+        // replace descr with select
+        descr.replaceWith(LRBrequest);
+        descr.setAttribute('class', 'col form-select');
+      }
       break;
     case 'ZRB':
       title.value = 'Z-22-';
