@@ -2,13 +2,14 @@
   "name": "agendenator",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
   "engines": {
     "node": "14.18.1"
   },
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "build": "node server.js"
   },
   "keywords": [],
   "author": "",
