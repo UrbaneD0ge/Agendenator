@@ -5,8 +5,12 @@ const applicationRouter = require('./routes/applications');
 const agendaRouter = require('./routes/agendas');
 const NPUrouter = require('./routes/NPUs');
 const methodOverride = require('method-override');
+const cookieSession = require('cookie-session');
 
 const mongoConnect = process.env.mongoConnect;
+const client_id = process.env.client_id
+const client_secret = process.env.client_secret
+const cookie_secret = process.env.cookie_secret
 
 const port = process.env.PORT || 3000;
 
@@ -18,6 +22,9 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
+app.use(cookieSession({
+  secret: cookie_secret
+}));
 
 app.get('/', async (req, res) => {
   res.render('index');
@@ -28,7 +35,6 @@ app.get('/login/google', (req, res) => {
     '&redirect_uri=http://localhost:' + port +
     '/login/google/callback&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email');
 });
-
 
 async function getAccessToken(code) {
   const url = 'https://oauth2.googleapis.com/token';
@@ -76,11 +82,11 @@ app.get('/login/google/callback', async (req, res) => {
   const token = await getAccessToken(code);
   const googleUserData = await getGoogleUser(token);
   if (googleUserData) {
-    req.session.user = googleUserData.id;
+    // req.session.user = googleUserData.id;
     req.session.email = googleUserData.email;
     req.session.token = token;
     // console.log('Google User Data:', googleUserData);
-    res.redirect('/reservations');
+    res.redirect('/applications');
   } else {
     res.send('Error!');
   }

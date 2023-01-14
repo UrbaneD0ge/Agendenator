@@ -1,3 +1,4 @@
+const cookieSession = require('cookie-session');
 const { application } = require('express');
 const express = require('express');
 const router = express.Router();
@@ -19,8 +20,12 @@ router.get('/:slug', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-  req.application = new Application()
-  next()
+  if (cookieSession) {
+    req.application = new Application()
+    next()
+  } else {
+    res.redirect('/login/google')
+  }
 }, saveAndRedirect('show'));
 
 router.put('/:id', async (req, res, next) => {
