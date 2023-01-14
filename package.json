@@ -9,7 +9,7 @@
   },
   "scripts": {
     "devStart": "nodemon server.js",
-    "build": "node server.js"
+    "deploy": "node server.js"
   },
   "keywords": [],
   "author": "",

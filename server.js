@@ -7,8 +7,10 @@ const NPUrouter = require('./routes/NPUs');
 const mongoConnect = require('./config/keys.env');
 const methodOverride = require('method-override');
 
-app.listen(3000 || process.env.PORT, () => {
-  console.log('Listening at http://localhost:3000');
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`);
 });
 
 app.set('view engine', 'ejs');
