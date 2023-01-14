@@ -5,7 +5,7 @@
   "main": "server.js",
   "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
   "engines": {
-    "node": "14.18.1"
+    "node": "18.0.0"
   },
   "scripts": {
     "devStart": "nodemon server.js",
