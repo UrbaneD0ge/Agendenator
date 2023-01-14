@@ -12,6 +12,7 @@
       "descr",
       "MOSE",
       "Urouter"
-    ]
+    ],
+    "dotenv.enableAutocloaking": false
   }
 }

@@ -5,9 +5,10 @@
   "main": "server.js",
   "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
   "engines": {
-    "node": "18.0.0"
+    "node": "18.12.1"
   },
   "scripts": {
+    "start": "nodemon -r dotenv/config server.js",
     "devStart": "nodemon server.js",
     "deploy": "node server.js"
   },
