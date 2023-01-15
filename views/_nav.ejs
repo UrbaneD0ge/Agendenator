@@ -8,22 +8,20 @@
     <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto m-2">
         <li class="nav-item mx-2">
-          <a href="/applications/new" class="btn btn-success">New Application</a>
+          <a href="/applications" class="btn btn-primary">View Applications</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="/applications" class="btn btn-primary">View Applications</a>
+          <a href="/applications/new" class="btn btn-success">New Application</a>
         </li>
         <li class="nav-item mx-2">
           <a href="/NPUs" class="btn btn-danger">View NPUs</a>
         </li>
         <li class="nav-item mx-2">
-          <a class='btn btn-dark' href="/NPUs/new">Add NPU</a>
+          <a class='btn btn-warning' href="/NPUs/new">Add NPU</a>
         </li>
-        <!-- if (currentUser) {
-          <li class="nav-item mx-2">
-            <a class='btn btn-dark' href="/logout">Add NPU</a>
-          </li>
-           } -->
+        <li class="nav-item mx-2">
+          <a class='btn btn-dark' href="/logout">Log Out</a>
+        </li>
       </ul>
       <form class="d-flex" action="/agenda" method="GET">
         <select name="NPU" id="navNPU" class='form-select form-select-md mx-2' required>

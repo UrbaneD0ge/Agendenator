@@ -30,6 +30,11 @@ app.get('/', async (req, res) => {
   res.render('index');
 });
 
+app.get('/logout', (req, res) => {
+  req.session = null;
+  res.redirect('/');
+});
+
 app.get('/login/google', (req, res) => {
   res.redirect('https://accounts.google.com/o/oauth2/v2/auth?client_id=' + client_id +
     '&redirect_uri=http://localhost:' + port +
