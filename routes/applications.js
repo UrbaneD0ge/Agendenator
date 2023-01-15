@@ -29,13 +29,21 @@ router.post('/', async (req, res, next) => {
 }, saveAndRedirect('show'));
 
 router.put('/:id', async (req, res, next) => {
-  req.application = await Application.findById(req.params.id);
-  next()
+  if (cookieSession) {
+    req.application = await Application.findById(req.params.id);
+    next()
+  } else {
+    res.redirect('/login/google')
+  }
 }, putUpdate('show'));
 
 router.delete('/:id', async (req, res) => {
-  await Application.findByIdAndDelete(req.params.id)
-  res.redirect('/')
+  if (cookieSession) {
+    await Application.findByIdAndDelete(req.params.id)
+    res.redirect('/applications')
+  } else {
+    res.redirect('/login/google')
+  }
 })
 
 router.get('/', async (req, res) => {

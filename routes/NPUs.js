@@ -1,3 +1,4 @@
+const cookieSession = require('cookie-session');
 const { application } = require('express');
 const express = require('express');
 const router = express.Router();
@@ -16,22 +17,32 @@ router.get('/edit/:id', async (req, res) => {
 
 // update NPU
 router.put('/:id', async (req, res, next) => {
-  req.NPU = await NPU.findById(req.params.id);
-  next()
-  // console.log('update NPU-' + req.NPU.NPU)
+  if (cookieSession) {
+    req.NPU = await NPU.findById(req.params.id);
+    next()
+  } else {
+    res.redirect('/login/google')
+  }
 }, putUpdate('NPUs'));
 
 // post new NPU
 router.post('/', async (req, res, next) => {
-  req.NPU = new NPU()
-  next()
-  console.log('post new NPU-' + req.NPU.NPU)
+  if (cookieSession) {
+    req.NPU = new NPU()
+    next()
+  } else {
+    res.redirect('/login/google')
+  }
 }, saveAndRedirect('NPUs'));
 
 // delete NPU
 router.delete('/:id', async (req, res) => {
-  await NPU.findByIdAndDelete(req.params.id)
-  res.redirect('/NPUs')
+  if (cookieSession) {
+    await NPU.findByIdAndDelete(req.params.id)
+    res.redirect('/NPUs')
+  } else {
+    res.redirect('/login/google')
+  }
 });
 
 // show all NPUs

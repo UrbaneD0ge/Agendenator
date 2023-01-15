@@ -82,7 +82,7 @@ app.get('/login/google/callback', async (req, res) => {
   const token = await getAccessToken(code);
   const googleUserData = await getGoogleUser(token);
   if (googleUserData) {
-    // req.session.user = googleUserData.id;
+    req.session.user = googleUserData.id;
     req.session.email = googleUserData.email;
     req.session.token = token;
     // console.log('Google User Data:', googleUserData);
