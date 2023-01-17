@@ -20,16 +20,17 @@ router.get('/:slug', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-  if (cookieSession) {
+  if (req.session) {
     req.application = new Application()
     next()
   } else {
     res.redirect('/login/google')
+    return
   }
 }, saveAndRedirect('show'));
 
 router.put('/:id', async (req, res, next) => {
-  if (cookieSession) {
+  if (req.session) {
     req.application = await Application.findById(req.params.id);
     next()
   } else {
@@ -38,7 +39,7 @@ router.put('/:id', async (req, res, next) => {
 }, putUpdate('show'));
 
 router.delete('/:id', async (req, res) => {
-  if (cookieSession) {
+  if (req.session.isPopulated) {
     await Application.findByIdAndDelete(req.params.id)
     res.redirect('/applications')
   } else {

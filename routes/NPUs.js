@@ -17,7 +17,7 @@ router.get('/edit/:id', async (req, res) => {
 
 // update NPU
 router.put('/:id', async (req, res, next) => {
-  if (cookieSession) {
+  if (req.session) {
     req.NPU = await NPU.findById(req.params.id);
     next()
   } else {
@@ -27,7 +27,7 @@ router.put('/:id', async (req, res, next) => {
 
 // post new NPU
 router.post('/', async (req, res, next) => {
-  if (cookieSession) {
+  if (req.session) {
     req.NPU = new NPU()
     next()
   } else {
@@ -37,7 +37,7 @@ router.post('/', async (req, res, next) => {
 
 // delete NPU
 router.delete('/:id', async (req, res) => {
-  if (cookieSession) {
+  if (req.session.isPopulated) {
     await NPU.findByIdAndDelete(req.params.id)
     res.redirect('/NPUs')
   } else {
