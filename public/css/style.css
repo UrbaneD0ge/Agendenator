@@ -12,6 +12,7 @@
 body {
   background-color: goldenrod;
   /* max-width: 100% !important; */
+  padding-top: 7vh;
 }
 
 body.tablePage {

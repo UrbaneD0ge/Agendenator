@@ -1,7 +1,7 @@
 <table>
   <thead>
     <tr>
-      <th><a id='npuSort'>NPU 🔼</a></th>
+      <th><a id='npuSort'>NPU</a></th>
       <th>Adjacent</th>
       <th>Month</th>
       <th>Type</th>
@@ -14,50 +14,50 @@
     </tr>
   </thead>
   <% applications.forEach(application=> { %>
-    <% const formatter = new Intl.ListFormat('en', {style: 'long', type: 'unit'}) %> 
-    <tr>
-      <td class='NPU'>
-        <%= application.NPU %>
-      </td>
-      <td>
-        <%= formatter.format(application.adjacent) %>
-      </td>
-      <td>
-        <%= formatter.format(application.month) %>
-      </td>
-      <td>
-        <%= application.type %>
-      </td>
-      <td class='title'>
-        <% if (application.applURL) { %>
-          <a href="<%= application.applURL%>" target="_blank" rel="noopener noreferrer">
-            <%= application.title %>
-          </a>
-          <% } else { %>
-            <%= application.title %>
-              <% } %>
-      </td>
-      <td class='descr'>
-        <%= application.descr %>
-      </td>
-      <td>
-        <%= application.address %>
-      </td>
-      <td>
-        <%= application.date %>
-      </td>
-      <td>
-        <%= application.createdAt.toISOString().substring(0,10) %>
-      </td>
-      <td>
-        <a class="btn btn-secondary" href="/show/<%= application.slug %>">View</a>
-      </td>
-      <!-- <td>
+    <% const formatter=new Intl.ListFormat('en', {style: 'long' , type: 'unit' }) %>
+      <tr>
+        <td class='NPU'>
+          <%= application.NPU %>
+        </td>
+        <td>
+          <%= formatter.format(application.adjacent) %>
+        </td>
+        <td>
+          <%= formatter.format(application.month) %>
+        </td>
+        <td>
+          <%= application.type %>
+        </td>
+        <td class='title'>
+          <% if (application.applURL) { %>
+            <a href="<%= application.applURL%>" target="_blank" rel="noopener noreferrer">
+              <%= application.title %>
+            </a>
+            <% } else { %>
+              <%= application.title %>
+                <% } %>
+        </td>
+        <td class='descr'>
+          <%= application.descr %>
+        </td>
+        <td>
+          <%= application.address %>
+        </td>
+        <td>
+          <%= application.date %>
+        </td>
+        <td>
+          <%= application.createdAt.toISOString().substring(0,10) %>
+        </td>
+        <td>
+          <a class="btn btn-secondary" href="/show/<%= application.slug %>">View</a>
+        </td>
+        <!-- <td>
         <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-danger">Delete
           </button>
         </form>
       </td> -->
-    </tr>
-    <% }) %>
+      </tr>
+      <% }) %>
 </table>
