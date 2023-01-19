@@ -23,7 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 app.use(cookieSession({
-  secret: cookie_secret
+  secret: cookie_secret,
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
 app.get('/', async (req, res) => {
@@ -32,6 +33,7 @@ app.get('/', async (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.session = null;
+  req.cookies = null;
   res.redirect('/');
 });
 

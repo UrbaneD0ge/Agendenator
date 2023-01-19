@@ -1,5 +1,3 @@
-const cookieSession = require('cookie-session');
-const { application } = require('express');
 const express = require('express');
 const router = express.Router();
 const Application = require('../models/applications');

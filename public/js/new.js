@@ -147,31 +147,31 @@ document.querySelector('#type').addEventListener('change', function () {
       }
       break;
     case 'ZRB':
-      title.value = 'Z-22-';
+      title.value = 'Z-23-';
       title.setAttribute('placeholder', 'Z-');
       break;
     case 'SUP':
-      title.value = 'U-22-';
+      title.value = 'U-23-';
       title.setAttribute('placeholder', 'U-');
       break;
     case 'BZA':
-      title.value = 'V-22-';
+      title.value = 'V-23-';
       title.setAttribute('placeholder', 'V-');
       break;
     case 'Text Amendment':
-      title.value = 'Z-22-';
+      title.value = 'Z-23-';
       title.setAttribute('placeholder', 'Z-');
       break;
     case 'CDP':
-      title.value = 'CDP-22-';
+      title.value = 'CDP-23-';
       title.setAttribute('placeholder', 'CDP-');
       break;
     case 'SD':
-      title.value = 'SD-22-';
+      title.value = 'SD-23-';
       title.setAttribute('placeholder', 'SD-')
       break;
     case 'LOR':
-      title.value = 'LOR-22-';
+      title.value = 'LOR-23-';
       title.setAttribute('placeholder', 'LOR-')
       // title.setAttribute('type', 'number');
       break;
