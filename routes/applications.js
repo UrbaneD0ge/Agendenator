@@ -18,7 +18,7 @@ router.get('/:slug', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-  if (req.session) {
+  if (req.session.isPopulated) {
     req.application = new Application()
     next()
   } else {
@@ -28,7 +28,7 @@ router.post('/', async (req, res, next) => {
 }, saveAndRedirect('show'));
 
 router.put('/:id', async (req, res, next) => {
-  if (req.session) {
+  if (req.session.isPopulated) {
     req.application = await Application.findById(req.params.id);
     next()
   } else {

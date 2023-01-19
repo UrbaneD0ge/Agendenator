@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body class='tablePage'>
+  <header>
+    <%- include('../_nav') %>
+  </header>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th><a id='npuSort'>NPU</a></th>
+        <th><a id='titleSort'>Title</a></th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Month</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>Application URL</th>
+        <th>URL1</th>
+        <th>URL2</th>
+        <th>URL3</th>
+        <th>URL4</th>
+        <th>View/Edit</th>
+      </tr>
+    </thead>
+    <% applications.forEach(application=> { %>
+      <tr>
+        <td class='NPU'>
+          <%= application.NPU %>
+        </td>
+        <td class='title'>
+          <%= application.title %>
+        </td>
+        <td>
+          <%= application.address %>
+        </td>
+        <td>
+          <%= application.type %>
+        </td>
+        <td>
+          <%= application.month %>
+        </td>
+        <td class='descr'>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td class='descr'>
+          <a href='<%= application.applURL %> '>
+            <%= application.applURL %>
+          </a>
+        </td>
+        <td class='descr'>
+          <a href='<%= application.URL1 %> '>
+            <%= application.URL1 %>
+          </a>
+        </td>
+        <td class='descr'>
+          <a href='<%= application.URL2 %> '>
+            <%= application.URL2 %>
+          </a>
+        </td>
+        <td class='descr'>
+          <a href='<%= application.URL3 %> '>
+            <%= application.URL3 %>
+          </a>
+        </td>
+        <td class='descr'>
+          <a href='<%= application.URL4 %> '>
+            <%= application.URL4 %>
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-secondary" href="/show/<%= application.slug %>">View</a>
+        </td>
+        <!-- <td>
+        <form class="d-inline" action="/applications/<%= application.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete
+          </button>
+        </form>
+      </td> -->
+      </tr>
+      <% }) %>
+  </table>
+
+</body>
+
+</html>

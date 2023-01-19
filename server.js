@@ -39,7 +39,7 @@ app.get('/logout', (req, res) => {
 
 app.get('/login/google', (req, res) => {
   res.redirect('https://accounts.google.com/o/oauth2/v2/auth?client_id=' + client_id +
-    '&redirect_uri=http://localhost:' + port +
+    '&redirect_uri=http://localhost:' + uri +
     '/login/google/callback&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email');
 });
 
