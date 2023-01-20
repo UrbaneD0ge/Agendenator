@@ -45,8 +45,19 @@ router.get('/dashboard', async (req, res) => {
     month: req.query.month
   }).sort({ NPU: 'asc', type: 'asc' });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU });
+  // // fetch from GIS website
+  // await fetch(`https://gis.atlantaga.gov/dpcd/rest/services/LandUsePlanning/LandUsePlanning/MapServer/10/query?where=DOCKET_NO%3D'Z-22-001'&outFields=ORDHYPERLINK,%20STATUSTYPE&returnGeometry=false&returnTrueCurves=false&returnIdsOnly=false&returnCountOnly=false&returnZ=false&returnM=false&returnDistinctValues=false&returnExtentOnly=false&f=pjson`)
+  //   .then((response) => {
+  //     // console.log(response);
+  //     return response.json();
+  //   }).then((data) => {
+  //     application.status = data.features[0].attributes.STATUSTYPE;
+  //     application.ordLink = data.features[0].attributes.ORDHYPERLINK;
+  //     // console.log(application.status);
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   });
   // render an agenda page with the applications and NPU info
   res.render('agendas/dashboard', { applications: applications, NPUs: NPUs });
 });
-
 module.exports = router;

@@ -61,6 +61,21 @@
           <%= application.month %>
         </td>
         <td class='descr'>
+          <%# if (application.type=='BZA' ) { %>
+            <%# await
+              fetch(`https://gis.atlantaga.gov/dpcd/rest/services/LandUsePlanning/LandUsePlanning/MapServer/10/query?where=DOCKET_NO%3D${application.title}&outFields=ORDHYPERLINK,%20STATUSTYPE&returnGeometry=false&returnTrueCurves=false&returnIdsOnly=false&returnCountOnly=false&returnZ=false&returnM=false&returnDistinctValues=false&returnExtentOnly=false&f=pjson`)%>
+              <%# .then((response)=> {
+                return response.json();
+                }) %>
+                <%# .then((data)=> {
+                  application.ordLink = data.features[0].attributes.ORDHYPERLINK;
+                  application.status = data.features[0].attributes.STATUSTYPE;
+                  }) %>
+
+                  <a href='<%= application.ordLink %>' target='_blank'>
+                    <%= application.status %>
+                  </a>
+                  <%#} %>
         </td>
         <td>
         </td>
@@ -107,7 +122,9 @@
       </tr>
       <% }) %>
   </table>
-
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
