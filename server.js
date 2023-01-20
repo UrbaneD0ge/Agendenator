@@ -14,6 +14,15 @@ const cookie_secret = process.env.cookie_secret
 
 const port = process.env.PORT || 3000;
 
+// get callback uri from environment
+function getCallbackURI() {
+  if (process.env.NODE_ENV === 'production') {
+    var callbackURI = 'https://agendenator.up.railway.app/'
+  } else {
+    var callbackURI = `http://localhost:${port}`
+  };
+  return callbackURI;
+};
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
@@ -38,17 +47,18 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/login/google', (req, res) => {
+  const callbackURI = getCallbackURI();
   res.redirect('https://accounts.google.com/o/oauth2/v2/auth?client_id=' + client_id +
-    '&redirect_uri=http://localhost:' + uri +
-    '/login/google/callback&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email');
+    '&redirect_uri=' + callbackURI + '/login/google/callback&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email');
 });
 
 async function getAccessToken(code) {
+  const callbackURI = getCallbackURI();
   const url = 'https://oauth2.googleapis.com/token';
   const params = {
     client_id: client_id,
     client_secret: client_secret,
-    redirect_uri: `http://localhost:${port}/login/google/callback`,
+    redirect_uri: `${callbackURI}/login/google/callback`,
     grant_type: 'authorization_code',
     code: code
   };
