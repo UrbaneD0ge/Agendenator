@@ -12,6 +12,7 @@
 body {
   background-color: goldenrod;
   /* max-width: 100% !important; */
+  margin-top: 5rem;
 }
 
 body.tablePage {
@@ -109,6 +110,7 @@ nav {
   background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
 }
 
+
 .rc > tr:first-child {
   background-color: rgb(200, 200, 200) !important;
 }
@@ -125,8 +127,8 @@ input[type=checkbox] {
   height: 3vmin;
 }
 
- #checkboxArray > label {
-width: 3vmin;
+#checkboxArray > label {
+  width: 3vmin;
 }
 
 #checkboxArray {
@@ -136,6 +138,20 @@ width: 3vmin;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+}
+
+nav h1 {
+  font-size: 2rem;
+  font-family: 'Tungsten Semibold';
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: 'Tungsten Semibold';
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
 }
 
 .NPU {

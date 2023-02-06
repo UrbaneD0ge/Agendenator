@@ -106,6 +106,20 @@ nav {
   background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
 }
 
+nav h1 {
+  font-size: 2rem;
+  font-family: 'Tungsten Semibold';
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: 'Tungsten Semibold';
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
+
 .rc > tr:first-child {
   background-color: rgb(200, 200, 200) !important;
 }

@@ -170,3 +170,17 @@ width: 3vmin;
   font-family: 'Century Gothic';
   break-after: avoid-page;
 }
+
+nav h1 {
+  font-size: 2rem;
+  font-family: 'Tungsten Semibold';
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: 'Tungsten Semibold';
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
