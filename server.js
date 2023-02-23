@@ -33,7 +33,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 app.use(cookieSession({
   secret: cookie_secret,
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  keys: [cookie_secret]
 }));
 
 app.get('/', async (req, res) => {
