@@ -2,7 +2,7 @@
   "name": "agendenator",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "build/build.js",
   "homepage": "https://urbaned0ge.github.io/NPUNGL0Tron-2/",
   "engines": {
     "node": "18.12.1"
@@ -20,6 +20,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "method-override": "^3.0.0",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
@@ -27,6 +28,7 @@
     "gh-pages": "^4.0.0",
     "mongod": "^2.0.0",
     "mongoose": "^6.7.1",
+    "parcel": "^2.8.3",
     "slugify": "^1.6.5"
   }
 }
