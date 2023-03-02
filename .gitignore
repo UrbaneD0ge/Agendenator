@@ -107,3 +107,7 @@ dist
 .flaskenv*
 !.env.project
 !.env.vault
+
+/build
+build.js
+build.js.map

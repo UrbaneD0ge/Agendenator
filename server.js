@@ -7,6 +7,8 @@ const NPUrouter = require('./routes/NPUs');
 const methodOverride = require('method-override');
 const cookieSession = require('cookie-session');
 
+require('dotenv').config()
+
 const mongoConnect = process.env.mongoConnect;
 const client_id = process.env.client_id
 const client_secret = process.env.client_secret
@@ -17,7 +19,7 @@ const port = process.env.PORT || 3000;
 // get callback uri from environment
 function getCallbackURI() {
   if (process.env.NODE_ENV === 'production') {
-    var callbackURI = 'https://agendenator.up.railway.app/'
+    var callbackURI = 'https://agendenator.onrender.com'
   } else {
     var callbackURI = `http://localhost:${port}`
   };
