@@ -109,3 +109,5 @@ dist
 !.env.vault
 
 /build
+build.js
+build.js.map
