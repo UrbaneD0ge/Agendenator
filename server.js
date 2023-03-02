@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -7,6 +6,9 @@ const agendaRouter = require('./routes/agendas');
 const NPUrouter = require('./routes/NPUs');
 const methodOverride = require('method-override');
 const cookieSession = require('cookie-session');
+
+require('dotenv').config()
+console.log(process.env)
 
 const mongoConnect = process.env.mongoConnect;
 const client_id = process.env.client_id

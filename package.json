@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node -r dotenv/config server.js",
-    "devStart": "nodemon server.js",
+    "devStart": "nodemon -r dotenv/config server.js",
     "deploy": "node server.js"
   },
   "keywords": [],
