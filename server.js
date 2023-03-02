@@ -46,6 +46,8 @@ app.get('/', async (req, res) => {
 app.get('/logout', (req, res) => {
   req.session = null;
   req.cookies = null;
+  res.clearCookie('session');
+  res.clearCookie('session.sig');
   res.redirect('/');
 });
 

@@ -149,6 +149,11 @@ width: 3vmin;
   align-content: center;
 }
 
+#profileImg {
+  width: 40px;
+  clip-path: circle(40% at 50% 50%);
+}
+
 .NPU {
   font-weight: bolder;
 }
