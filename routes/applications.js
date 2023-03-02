@@ -8,13 +8,13 @@ router.get('/new', (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
   const application = await Application.findById(req.params.id);
-  res.render('applications/edit', { application: application });
+  res.render('applications/edit', { application: application, req: req });
 });
 
 router.get('/:slug', async (req, res) => {
   const application = await Application.findOne({ slug: req.params.slug });
   if (application == null) res.redirect('/')
-  else res.render('applications/show', { application: application });
+  else res.render('applications/show', { application: application, req: req });
 });
 
 router.post('/', async (req, res, next) => {
@@ -47,7 +47,7 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   const applications = await Application.find().sort({ NPU: 'asc' });
-  await res.render('applications/applications', { applications: applications });
+  await res.render('applications/applications', { applications: applications, req: req });
 });
 
 // console.dir(router, { depth: 5 });

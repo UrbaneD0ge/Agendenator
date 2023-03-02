@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light p-0">
   <div class="container-fluid">
-    <img id="profileImg" src="https://www.dofactory.com/img/html/vangogh-sm.jpg" alt="profile icon" sizes='30w'>
+
 
     <h1><a class='navbar-brand' href='/'>AGENDENATOR</a></h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -20,12 +20,6 @@
         </li>
         <li class="nav-item mx-1">
           <a class='btn btn-warning' href="/NPUs/new">Add NPU</a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class='btn btn-dark' href="/logout">Log Out</a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class='btn btn-outline-dark' href="/login/google">Log In</a>
         </li>
       </ul>
       <form class="d-flex" action="/agenda" method="GET">
@@ -74,6 +68,16 @@
         <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white mx-1'>Roster</button>
         <button type="submit" formaction="/agenda/dashboard" class='btn btn-outline-primary bg-white mx-1'>Dash</button>
       </form>
+      <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
+      <ul class="navbar-nav m-2">
+        <li class="nav-item mx-1">
+          <a class='btn btn-outline-dark' href="/login/google">Log In</a>
+        </li>
+        <li class="nav-item mx-1">
+          <a class='btn btn-dark' href="/logout">Log Out</a>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>

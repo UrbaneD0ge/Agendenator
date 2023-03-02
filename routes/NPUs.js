@@ -6,13 +6,13 @@ const NPU = require('../models/NPUs');
 
 // add new NPU
 router.get('/new', (req, res) => {
-  res.render('NPUs/new', { NPUs: new NPU() });
+  res.render('NPUs/new', { NPUs: new NPU(), req: req });
 });
 
 // edit NPU
 router.get('/edit/:id', async (req, res) => {
   const npu = await NPU.findById(req.params.id);
-  res.render('NPUs/edit', { NPU: npu });
+  res.render('NPUs/edit', { NPU: npu, req: req });
 });
 
 // update NPU
@@ -48,7 +48,7 @@ router.delete('/:id', async (req, res) => {
 // show all NPUs
 router.get('/', async (req, res) => {
   const NPUs = await NPU.find().sort({ NPU: 'asc' });
-  await res.render('NPUs/NPUs', { NPUs: NPUs });
+  await res.render('NPUs/NPUs', { NPUs: NPUs, req: req });
 });
 
 function saveAndRedirect(path) {

@@ -40,7 +40,7 @@ app.use(cookieSession({
 }));
 
 app.get('/', async (req, res) => {
-  res.render('index');
+  res.render('index', { req: req });
 });
 
 app.get('/logout', (req, res) => {
@@ -106,12 +106,15 @@ app.get('/login/google/callback', async (req, res) => {
   if (googleUserData) {
     req.session.user = googleUserData.id;
     req.session.email = googleUserData.email;
+    req.session.name = googleUserData.name;
+    req.session.image = googleUserData.picture;
     req.session.token = token;
-    // console.log('Google User Data:', googleUserData);
+    console.log('Google User Data:', googleUserData);
     res.redirect('/applications');
   } else {
     res.send('Error!');
   }
+  return googleUserData;
 });
 
 // Connecting to the database

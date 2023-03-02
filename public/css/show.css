@@ -147,6 +147,11 @@ nav h1 {
   padding: 0;
 }
 
+#profileImg {
+  width: 40px;
+  clip-path: circle(40% at 50% 50%);
+}
+
 .navbar-brand {
   font-family: 'Tungsten Semibold';
   font-size: 2rem;
