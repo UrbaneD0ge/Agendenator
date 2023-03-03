@@ -14,11 +14,11 @@ router.get('/', async (req, res) => {
     ],
     month: req.query.month
   });
-  const NPUs = await NPU.findOne({ NPU: req.query.NPU });
+  const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
   // console.log(applications)
   // render an agenda page with the applications and NPU info
   // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
-  res.render('agendas/agenda', { applications: applications, NPUs: NPUs })
+  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req })
 });
 
 router.get('/roster', async (req, res) => {
@@ -32,7 +32,7 @@ router.get('/roster', async (req, res) => {
   }).sort({ NPU: 'asc', type: 'asc' });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU });
   // render an agenda page with the applications and NPU info
-  res.render('agendas/roster', { applications: applications, NPUs: NPUs });
+  res.render('agendas/roster', { applications: applications, NPUs: NPUs, req: req });
 });
 
 router.get('/dashboard', async (req, res) => {
@@ -58,6 +58,6 @@ router.get('/dashboard', async (req, res) => {
   //     console.log(err);
   //   });
   // render an agenda page with the applications and NPU info
-  res.render('agendas/dashboard', { applications: applications, NPUs: NPUs });
+  res.render('agendas/dashboard', { applications: applications, NPUs: NPUs, req: req });
 });
 module.exports = router;
