@@ -72,6 +72,25 @@
         <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white mx-1'>Roster</button>
         <button type="submit" formaction="/agenda/dashboard" class='btn btn-outline-primary bg-white mx-1'>Dash</button>
       </form>
+      <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
+      <ul class="navbar-nav m-2">
+        <% if ( !req.session.user ) { %>
+        <li class="nav-item mx-1">
+          <a class='btn btn-outline-dark' href="/login/google">Log In</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item mx-1">
+          <a class='btn btn-dark' href="/logout">Log Out</a>
+        </li>
+        <% } %>
+      </ul>
+      <script>
+        document.getElementById('profileImg').addEventListener('click', () => {
+          alert('You are logged in as <%= req.session.user %>.'
+            + '\nYour email is <%= req.session.email %>.'
+            + '\nYour image is <%= req.session.image %>.')
+        })
+      </script>
     </div>
   </div>
 </nav>
