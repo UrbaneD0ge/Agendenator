@@ -3,12 +3,20 @@ const router = express.Router();
 const Application = require('../models/applications');
 
 router.get('/new', (req, res) => {
-  res.render('applications/new', { applications: new Application(), req: req });
+  if (req.session.isPopulated) {
+    res.render('applications/new', { applications: new Application(), req: req });
+  } else {
+    res.redirect('/login/google')
+  }
 });
 
 router.get('/edit/:id', async (req, res) => {
-  const application = await Application.findById(req.params.id);
-  res.render('applications/edit', { application: application, req: req });
+  if (req.session.isPopulated) {
+    const application = await Application.findById(req.params.id);
+    res.render('applications/edit', { application: application, req: req });
+  } else {
+    res.redirect('/login/google')
+  }
 });
 
 router.get('/:slug', async (req, res) => {

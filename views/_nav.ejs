@@ -12,15 +12,20 @@
         <li class="nav-item mx-1">
           <a href="/applications" class="btn btn-primary">View Applications</a>
         </li>
-        <li class="nav-item mx-1">
-          <a href="/applications/new" class="btn btn-success">New Application</a>
-        </li>
-        <li class="nav-item mx-1">
-          <a href="/NPUs" class="btn btn-danger">View NPUs</a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class='btn btn-warning' href="/NPUs/new">Add NPU</a>
-        </li>
+        <% if (req.session.user) { %>
+          <li class="nav-item mx-1">
+            <a href="/applications/new" class="btn btn-success">New Application</a>
+          </li>
+          <% } %>
+
+            <li class="nav-item mx-1">
+              <a href="/NPUs" class="btn btn-danger">View NPUs</a>
+            </li>
+            <% if (req.session.user) { %>
+              <li class="nav-item mx-1">
+                <a class='btn btn-warning' href="/NPUs/new">Add NPU</a>
+              </li>
+              <% } %>
       </ul>
       <form class="d-flex" action="/agenda" method="GET">
         <select name="NPU" id="navNPU" class='form-select mx-1 w-auto' required>
@@ -68,11 +73,11 @@
         <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white mx-1'>Roster</button>
         <button type="submit" formaction="/agenda/dashboard" class='btn btn-outline-primary bg-white mx-1'>Dash</button>
       </form>
-      <% if (req.session) { %>
+      <% if (req.session.image) { %>
         <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
         <% } %>
           <ul class="navbar-nav m-2">
-            <% if (req.session) { %>
+            <% if (req.session.user) { %>
               <li class="nav-item mx-1">
                 <a class='btn btn-dark' href="/logout">Log Out</a>
               </li>
@@ -82,7 +87,6 @@
                 </li>
                 <% } %>
           </ul>
-
     </div>
   </div>
 </nav>

@@ -6,18 +6,26 @@ const NPU = require('../models/NPUs');
 
 // add new NPU
 router.get('/new', (req, res) => {
-  res.render('NPUs/new', { NPUs: new NPU(), req: req });
+  if (req.session.isPopulated) {
+    res.render('NPUs/new', { NPUs: new NPU(), req: req });
+  } else {
+    res.redirect('/login/google')
+  }
 });
 
 // edit NPU
 router.get('/edit/:id', async (req, res) => {
-  const npu = await NPU.findById(req.params.id);
-  res.render('NPUs/edit', { NPU: npu, req: req });
+  if (req.session.isPopulated) {
+    const npu = await NPU.findById(req.params.id);
+    res.render('NPUs/edit', { NPU: npu, req: req });
+  } else {
+    res.redirect('/login/google')
+  }
 });
 
 // update NPU
 router.put('/:id', async (req, res, next) => {
-  if (req.session) {
+  if (req.session.isPopulated) {
     req.NPU = await NPU.findById(req.params.id);
     next()
   } else {
@@ -27,7 +35,7 @@ router.put('/:id', async (req, res, next) => {
 
 // post new NPU
 router.post('/', async (req, res, next) => {
-  if (req.session) {
+  if (req.session.isPopulated) {
     req.NPU = new NPU()
     next()
   } else {
