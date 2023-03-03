@@ -71,7 +71,12 @@
         </select>
         <a href="/agenda"><button class='btn btn-success'>Agenda</button></a>
         <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white mx-1'>Roster</button>
-        <button type="submit" formaction="/agenda/dashboard" class='btn btn-outline-primary bg-white mx-1'>Dash</button>
+        <% if (req.session.user) { %>
+          <button type="submit" formaction="/agenda/report"
+            class='btn btn-outline-success bg-white mx-1'>Report</button>
+          <% } %>
+            <button type="submit" formaction="/agenda/dashboard"
+              class='btn btn-outline-primary bg-white mx-1'>Dash</button>
       </form>
       <% if (req.session.image) { %>
         <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
@@ -87,13 +92,13 @@
                 </li>
                 <% } %>
           </ul>
-      <script>
-        document.getElementById('profileImg').addEventListener('click', () => {
-          alert('You are logged in as <%= req.session.user %>.'
-            + '\nYour email is <%= req.session.email %>.'
-            + '\nYour image is <%= req.session.image %>.')
-        })
-      </script>
+          <script>
+            document.getElementById('profileImg').addEventListener('click', () => {
+              alert('You are logged in as <%= req.session.user %>.'
+                + '\nYour email is <%= req.session.email %>.'
+                + '\nYour image is <%= req.session.image %>.')
+            })
+          </script>
     </div>
   </div>
 </nav>

@@ -35,6 +35,25 @@ router.get('/roster', async (req, res) => {
   res.render('agendas/roster', { applications: applications, NPUs: NPUs, req: req });
 });
 
+router.get('/report', async (req, res) => {
+  // authenticate user
+  if (req.session.isPopulated) {
+    // find where NPU or adjacent matches request parameters and month
+    const applications = await Application.find({
+      $or: [
+        { NPU: req.query.NPU },
+        { adjacent: req.query.NPU }
+      ],
+      month: req.query.month
+    }).sort({ NPU: 'asc', type: 'asc' });
+    const NPUs = await NPU.findOne({ NPU: req.query.NPU });
+    // render an voting report page with the applications
+    res.render('agendas/report', { applications: applications, NPUs: NPUs, req: req });
+  } else {
+    res.redirect('/login/google')
+  }
+});
+
 router.get('/dashboard', async (req, res) => {
   // find where NPU or adjacent matches request parameters and month
   const applications = await Application.find({

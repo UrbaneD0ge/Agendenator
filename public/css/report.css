@@ -1,0 +1,232 @@
+@font-face {
+  font-family: 'Tungsten-SemiBold';
+  src: url(../fonts/Tungsten-Semibold.otf) format('opentype');
+  letter-spacing: 2pt;
+}
+
+@font-face {
+  font-family: 'GT-Eesti-Regular';
+  src: url(../fonts/GT-Eesti-Text-Regular.otf) format('opentype');
+}
+
+h1 {
+  font-family: 'Tungsten-SemiBold', sans-serif;
+  font-size: 3rem;
+  /* font-weight: 600; */
+  margin-bottom: 1rem;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: 'GT-Eesti-Regular', sans-serif;
+  padding-top: 10vh;
+}
+
+select, input, button, textarea {
+  font-size: 1.2rem;
+  font-family: 'GT-Eesti-Regular', sans-serif;
+  border-radius: 5px;
+}
+
+.highlight {
+  background-color: #ff424281;
+  padding: 1rem;
+}
+
+.item {
+  background-color: lightgray;
+}
+
+.pHead {
+  margin: 3px;
+}
+
+.pHead input {
+  align-content: right;
+}
+
+.pHead label {
+  justify-self: left;
+}
+
+.row {
+  align-items: center;
+}
+
+.sign {
+  border: 1px solid #888;
+  background-color: rgb(217, 217, 217);
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+tbody:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+/* thead > tr {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+} */
+
+tr :first-child {
+  text-align: left;
+}
+
+td > button {
+  margin-right: 2vw;
+}
+
+tbody > tr :nth-child(2) {
+  width: 50%;
+}
+
+tr > td:nth-child(3) {
+  text-align: end;
+}
+
+tr > th:nth-child(3) {
+  text-align: end;
+}
+
+tr > th:nth-child(2) {
+  text-align: center;
+}
+
+td {
+  border: 1px solid rgb(110, 110, 110);
+  padding: 0px 10px !important;
+}
+
+p {
+  font-size: .8rem;
+  position: relative;
+  bottom: 0;
+}
+
+ol {
+  padding: 0;
+  margin: 0;
+  font-size: .8rem;
+}
+
+#addItem {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+#addItem select{
+  width: 100%;
+}
+
+#addItem input {
+  width: 100%;
+}
+
+#conditions {
+  grid-area: 2 / 1 / 3 / 4;
+}
+
+#dcpLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  min-width: 1.5in !important;
+}
+
+#demo {
+  color: darkgray;
+}
+
+#demo td {
+  border-color: lightgray !important;
+}
+
+#newItem {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+#pNotes {
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+#print {
+  border-radius: 5px;
+}
+
+#profileImg {
+  width: 40px;
+  clip-path: circle(40% at 50% 50%);
+}
+
+#signature input {
+  width: 100%;
+}
+
+#submit {
+  grid-area: 3 / 3 / 4 / 4;
+  border-radius: 5px;;
+}
+
+@media only screen
+and (max-width : 768px) {
+  #addItem {
+  grid-template-columns: 1fr 1fr 1fr;
+ }
+ .text-end {
+  text-align: inherit !important;
+ }
+ tbody > tr :nth-child(2) {
+  width: 33%;
+}
+
+}
+
+@media only screen
+and (max-width : 425px) {
+  .container {
+    width: 100% !important;
+  }
+  #dcpLogo {
+    width: 80%;
+   }
+   #submit {
+    grid-area: 3 / 1 / 4 / 4;
+  }
+}
+
+@media print {
+  #newItem {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+  input:-webkit-any(autofill),
+  input:-internal-autofill-selected,
+  /* input:-internal-autofill-blur, */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px inset;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    border-width: 2px !important;
+    border-radius: 5px;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 1.2rem !important;
+}
