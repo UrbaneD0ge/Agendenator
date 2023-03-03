@@ -87,6 +87,13 @@
                 </li>
                 <% } %>
           </ul>
+      <script>
+        document.getElementById('profileImg').addEventListener('click', () => {
+          alert('You are logged in as <%= req.session.user %>.'
+            + '\nYour email is <%= req.session.email %>.'
+            + '\nYour image is <%= req.session.image %>.')
+        })
+      </script>
     </div>
   </div>
 </nav>
