@@ -41,6 +41,7 @@ app.use(cookieSession({
 
 app.get('/', async (req, res) => {
   res.render('index', { req: req });
+  // console.log(req.session);
 });
 
 app.get('/logout', (req, res) => {

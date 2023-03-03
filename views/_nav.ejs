@@ -68,15 +68,20 @@
         <button type="submit" formaction="/agenda/roster" class='btn btn-outline-success bg-white mx-1'>Roster</button>
         <button type="submit" formaction="/agenda/dashboard" class='btn btn-outline-primary bg-white mx-1'>Dash</button>
       </form>
-      <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
-      <ul class="navbar-nav m-2">
-        <li class="nav-item mx-1">
-          <a class='btn btn-outline-dark' href="/login/google">Log In</a>
-        </li>
-        <li class="nav-item mx-1">
-          <a class='btn btn-dark' href="/logout">Log Out</a>
-        </li>
-      </ul>
+      <% if (req.session) { %>
+        <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
+        <% } %>
+          <ul class="navbar-nav m-2">
+            <% if (req.session) { %>
+              <li class="nav-item mx-1">
+                <a class='btn btn-dark' href="/logout">Log Out</a>
+              </li>
+              <% } else { %>
+                <li class="nav-item mx-1">
+                  <a class='btn btn-outline-dark' href="/login/google">Log In</a>
+                </li>
+                <% } %>
+          </ul>
 
     </div>
   </div>

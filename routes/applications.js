@@ -3,7 +3,7 @@ const router = express.Router();
 const Application = require('../models/applications');
 
 router.get('/new', (req, res) => {
-  res.render('applications/new', { applications: new Application() });
+  res.render('applications/new', { applications: new Application(), req: req });
 });
 
 router.get('/edit/:id', async (req, res) => {
