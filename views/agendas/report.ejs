@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AGENDENATOR</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="..\css\report.css">
+  <link type="text/css" rel="stylesheet" href="..\css\navbar.css">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <%- include('../_nav') %>
+      <img id="dcpLogo" src="..\assets\NPU Logo Black.png"
+        alt="Logo: City of Atlanta Dept of City Planning Neighborhood Planning Units">
+      <h1 id="header">VOTING REPORT</h1>
+  </header>
+
+  <body class='container'>
+    <form id='pageInfo'>
+      <div class='row'>
+        <div class='col'>
+          <label class='pHead' for="neighborhood">Select NPU:</label>
+          <select class='pHead' name="neighborhood" id="NPU">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+            <option value="I">I</option>
+            <option value="J">J</option>
+            <option value="K">K</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="N">N</option>
+            <option value="O">O</option>
+            <option value="P">P</option>
+            <option value="Q">Q</option>
+            <option value="R">R</option>
+            <option value="S">S</option>
+            <option value="T">T</option>
+            <option value="V">V</option>
+            <option value="W">W</option>
+            <option value="X">X</option>
+            <option value="Y">Y</option>
+            <option value="Z">Z</option>
+          </select>
+          <br>
+          <label class='pHead' for="chair">Chair:</label>
+          <input class='pHead' type="text" name="chair" id="chair">
+          <br>
+          <label class='pHead' for="date">Meeting Date:</label>
+          <input class='pHead' type="date" name="date" id="date" required>
+        </div>
+        <div class='col text-end'>
+          <label class='pHead' for="location">Location:</label>
+          <input class='pHead' type="text" name="location" id="location">
+          <br>
+          <label class='pHead' for="planner">Planner:</label>
+          <input class='pHead' type="text" name="planner" id="planner">
+          <br>
+          <div id='fillToggle'>
+            <label class='pHead' for="autofill">Autofill application numbers:</label>
+            <label class="switch">
+              <input id="autofill" type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <div id='newItem'>
+      <legend>New Item:</legend>
+      <form onsubmit='return false' id='addItem'>
+        <select name='itmType' id='itmType' required>
+          <option hidden selected disabled>Type</option>
+          <option value='MOSE'>MOSE</option>
+          <option value='LRB'>LRB</option>
+          <option value='ZRB'>ZRB</option>
+          <option value='SUP'>SUP</option>
+          <option value='BZA'>BZA</option>
+          <option value='Text Amendment'>Text Amendment</option>
+          <option value='CDP'>CDP Amendment</option>
+          <option value='SD'>SD</option>
+          <option value='LOR'>LOR</option>
+          <option value='N/A'>Other...</option>
+        </select>
+        <input type="text" name="applName" id="applName" placeholder='Application number or name' required
+          autocomplete='off' />
+        <select name='disposal' id='disposal'>
+          <option value='PENDING' hidden selected disabled>Recommend</option>
+          <option value='Approval'>Approval</option>
+          <option value='Approval w/C'>Approval w/C</option>
+          <option value='Denial'>Denial</option>
+          <option value='Defer'>Defer</option>
+          <option value='Abstain'>Abstain</option>
+          <option value='R&C'>Review & Comment</option>
+        </select>
+        <textarea class='comments' name="conditions" id="conditions" cols="30" rows="2"
+          placeholder='Comments / Conditions...'></textarea>
+        <button id='submit' value='submit' type='submit' class='mt-1'>Submit</button>
+      </form>
+      </legend>
+    </div>
+    <table id='table'>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Application # / Name</th>
+          <th>NPU Recommendation</th>
+        </tr>
+      </thead>
+      <% applications.forEach(Application=> { %>
+        <tbody>
+          <tr>
+            <td class='typeBttn'>
+              <button class="btn btn-close my-1"></button>
+              <%= Application.type %>
+            </td>
+            <td contenteditable="true" class="applName">
+              <%= Application.title %>
+                <% if (Application.adjacent.includes("-")==false && (Application.NPU!=NPUs.NPU) ) { %>
+                  (adjacent-<%= Application.NPU %>)
+            </td>
+            <td class="disp">R&C</td>
+          </tr>
+          <% } else { %>
+            </td>
+            <td class="disp">PENDING</td>
+            </tr>
+            <% }}) %>
+        </tbody>
+        <!-- <tbody>
+            <tr>
+              <td class='typeBttn'>ZRB</td>
+              <td contenteditable="true">Z-12-345</td>
+              <td>Approval</td>
+            </tr>
+            <tr>
+              <td colspan='3' contenteditable='true'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti
+                placeat iusto expedita provident nihil praesentium, libero quod perspiciatis recusandae? Repellat hic
+                eius
+                culpa quam dignissimos dicta inventore sint quis accusantium. </td>
+            </tr>
+          </tbody> -->
+    </table>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class='d-flex justify-content-around'>
+      <!-- <button id='save' class='m-3 flex-grow-1'>Save</button> -->
+      <button id='print' class='m-5 flex-grow-1'>Print</button>
+    </div>
+    <div id='signature' class='noBreak' style='display: none;'>
+      <div class='row'>
+        <div class='col sign'>
+          <label for="chairS">Chair Signature:</label>
+          <input type="text" name="chairS" id="chairS">
+          <br>
+          <label for="cDate">Date:</label>
+          <input type="text" name="cDate" id="cDate">
+        </div>
+        <div class='col sign'>
+          <label for="plannerS">Planner Signature:</label>
+          <input type="text" name="plannerS" id="plannerS">
+          <br>
+          <label for="pDate">Date:</label>
+          <input type="text" name="pDate" id="pDate">
+        </div>
+      </div>
+    </div>
+    <div class='noBreak'>
+      <legend>Planner's Notes:</legend>
+      <textarea placeholder="Note any themes or discussions of concern to the NPU..." id="pNotes" cols="30"
+        rows="3"></textarea>
+      <br>
+      <h5 id='report'><a
+          href="https://www.atlantaga.gov/government/departments/city-planning/neighborhood-planning-units/updates"
+          target='_blank'>Planner's Report</a></h5>
+    </div>
+    <footer>
+      <details id='instructions'>
+        <summary>Instructions:</summary>
+        <ul>
+          <li>Fill page header info - this information is saved to your device for future use when you click print.</li>
+          <li>For each voting item: Select item type, complete the pre-filled application numbers where applicable, and
+            select NPU recommendation from drop-down - do not list the outcomes of each vote, only disposition.</li>
+          <li>Add comments/conditions if applicable and submit.</li>
+          <li>To delete an item, click the 'X' button next to the item. Comments and application numbers are editable
+            after submission.</li>
+
+          <li>When finished, click 'Print'. You may print the page if you have access to a printer, or print to .PDF for
+            emailing.</li>
+          <li>In iOS - Tap the print preview image to share the filled form.</li>
+          <li>When saving, please do not rename the file - but pay attention to where the file is being saved.</li>
+          <li>This page is built for Chrome browser, and can be downloaded for use offline.</li>
+          <li>Recommendation field is not required, so you can pre-fill items and edit them later.</li>
+          <li>If a recommendation isn't selected it will show as "PENDING" - Click on the
+            recommendation cell to change it.</li>
+          <li>The print button is disabled if any item's NPU Recommendation field is "PENDING". Select a recommendation
+            to continue printing.</li>
+          <li>Add a comments line to an existing item by pressing <code>Tab</code> inside the Application Name field.
+          </li>
+        </ul>
+      </details>
+      <br>
+      <p>Prepared by the <a href='https://www.atlantaga.gov/government/departments/city-planning'
+          target='_blank'>Department of City
+          Planning</a>, City of Atlanta | Send questions and bug reports to <a
+          href="mailto:kdunlap@atlantaga.gov">KDunlap@AtlantaGA.gov</a> | Version 2.0.0</p>
+    </footer>
+    <script src="../js/report.js" async defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
+  </body>
+
+  </html>

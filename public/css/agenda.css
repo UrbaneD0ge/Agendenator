@@ -11,7 +11,6 @@
 
 body {
   background-color: goldenrod;
-  /* max-width: 100% !important; */
   padding-top: 7vh;
 }
 
@@ -34,31 +33,31 @@ body.tablePage {
 h1 {
   font-size: 40px;
   font-weight: bold;
-  font-family: 'Century Gothic';
+  font-family: 'Tungsten-SemiBold';
 }
 
 h2 {
   font-size: 30px;
   font-weight: bold;
   margin: 0;
-  font-family: 'Tungsten Semibold';
+  font-family: 'Tungsten-SemiBold';
 }
 
 h3 {
   font-size: 12pt;
-  font-family: 'Century Gothic';
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   color: teal;
 }
 
 h4 {
   text-align: center;
-  font-family: 'Century Gothic';
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   font-size: 12pt;
   margin-bottom: 0;
 }
 
 h5 {
-  font-family: 'Century Gothic';
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   text-align: left;
   line-height: .8 !important;
   font-size: 10.5pt;
@@ -66,13 +65,13 @@ h5 {
 
 h5 a{
   text-align: left;
-  font-family: 'Century Gothic';
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   color: black;
   text-decoration: underline;
 }
 
 h6 {
-  font-family: 'Century Gothic';
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   text-align: center;
   size: 10pt;
   margin: 0 20px 20px 20px;
@@ -102,16 +101,6 @@ table, th, td {
 
 thead > tr:first-child {
   background-color: palegoldenrod;
-}
-
-nav {
-  background: rgb(179,179,179);
-  background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
-}
-
-#profileImg {
-  width: 40px;
-  clip-path: circle(40% at 50% 50%);
 }
 
 .rc > tr:first-child {
@@ -174,18 +163,4 @@ width: 3vmin;
   font-size: 18pt;
   font-family: 'Century Gothic';
   break-after: avoid-page;
-}
-
-nav h1 {
-  font-size: 2rem;
-  font-family: 'Tungsten Semibold';
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-brand {
-  font-family: 'Tungsten Semibold';
-  font-size: 2rem;
-  color: black;
-  text-decoration: none;
 }
