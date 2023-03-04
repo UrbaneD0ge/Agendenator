@@ -18,7 +18,7 @@ const applicationSchema = new mongoose.Schema({
   URL4: String,
   status: String,
   ordLink: String,
-  adjacent: { type: Array, default: "-" },
+  adjacent: { type: Array, default: ["-"] },
   createdAt: { type: Date, default: Date.now },
   slug: {
     type: String,

@@ -132,6 +132,9 @@
             </td>
             <td contenteditable="true" class="applName">
               <%= Application.title %>
+                <% if (Application.adjacent.includes("-" )===false) { %>
+                  (adjacent-<%= Application.adjacent %>)
+                    <% } %>
             </td>
             <td class="disp">PENDING</td>
           </tr>
