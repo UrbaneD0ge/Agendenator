@@ -260,30 +260,29 @@ window.addEventListener('beforeprint', () => {
     }
   });
   // remove all highlight classes
-  document.querySelectorAll('.highlight').forEach(cell => {
-    cell.classList.remove('highlight');
+  document.querySelectorAll('.highlight').forEach(cell => {cell.classList.remove('highlight');
   });
 });
 
 // on print button click, print page
 document.querySelector('#print').addEventListener('click', () => {
-  // if any dispCell is "PENDING", cancel print and highlight cell
-  let dispCell = document.querySelectorAll('.disp');
-  for (let i = 0; i < dispCell.length; i++) {
-    if (dispCell[i].textContent === 'PENDING') {
-      dispCell[i].classList.add('highlight');
-      return;
-    } else {
-      dispCell[i].classList.remove('highlight');
-    }
-  }
   // if datepicker is empty, return
   if (field.value === '') {
     alert('Please select a date');
     return;
   }
-  // if no dispCell is "PENDING", print page
-  window.print();
+  // if any dispCell is "PENDING", cancel print and highlight cell
+  let dispCell = document.querySelectorAll('.disp');
+  dispCell.forEach(cell => {
+    if ( cell.textContent === 'PENDING') {
+      cell.classList.add('highlight');
+      return;
+    } else {
+      cell.classList.remove('highlight');
+      // if no dispCell is "PENDING", print page
+      window.print();
+    }
+  });
 });
 
 // reset title after print

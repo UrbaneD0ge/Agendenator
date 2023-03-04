@@ -218,6 +218,20 @@ and (max-width : 425px) {
     visibility: hidden;
     display: none;
   }
+  #signature {
+  -webkit-print-color-adjust: exact !important;
+  /* color-adjust: exact !important; */
+  print-color-adjust: exact !important;
+  }
+  body {
+    margin-left: .75in;
+    margin-right: .75in;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+  #fillToggle {
+    display: none;
+  }
 }
 
   input:-webkit-any(autofill),
