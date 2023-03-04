@@ -46,6 +46,6 @@ button {
   margin: 5px;
 }
 
-nav > select {
-  height: 32px;
+#navForm > select {
+  height: 34px;
 }

@@ -27,7 +27,7 @@
               </li>
               <% } %>
       </ul>
-      <form class="d-flex flex-row flex-wrap" action="/agenda" method="GET">
+      <form id="navForm" class="d-flex flex-row flex-wrap" action="/agenda" method="GET">
         <select name="NPU" id="navNPU" class='form-select m-1 w-auto' required>
           <option value='A'>A</option>
           <option value='B'>B</option>
@@ -69,7 +69,7 @@
           <option value='November'>NOV</option>
           <option value='December'>DEC</option>
         </select>
-        <a href="/agenda"><button class='btn btn-sm btn-success'>Agenda</button></a>
+        <button type="submit" formaction="/agenda" class='btn btn-sm btn-success'>Agenda</button>
         <button type="submit" formaction="/agenda/roster"
           class='btn btn-sm btn-outline-success bg-white m-1'>Roster</button>
         <button type="submit" formaction="/agenda/dashboard"
