@@ -132,15 +132,18 @@
             </td>
             <td contenteditable="true" class="applName">
               <%= Application.title %>
-                <% if (Application.adjacent.includes("-" )===false) { %>
-                  (adjacent-<%= Application.adjacent %>)
-                    <% } %>
+                <% if (Application.adjacent.includes("-")==false && (Application.NPU!=NPUs.NPU) ) { %>
+                  (adjacent-<%= Application.NPU %>)
+            </td>
+            <td class="disp">R&C</td>
+          </tr>
+          <% } else { %>
             </td>
             <td class="disp">PENDING</td>
-          </tr>
+            </tr>
+            <% }}) %>
         </tbody>
-        <% }) %>
-          <!-- <tbody>
+        <!-- <tbody>
             <tr>
               <td class='typeBttn'>ZRB</td>
               <td contenteditable="true">Z-12-345</td>
