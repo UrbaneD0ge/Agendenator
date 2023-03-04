@@ -183,7 +183,8 @@ document.querySelector('#table').addEventListener('click', (e) => {
   // on blur, change selected value to td text
   e.target.addEventListener('blur', (e) => {
     if (e.target.tagName === 'SELECT') {
-      e.target.parentElement.textContent = e.target.value;
+      e.target.parentElement.classList.remove('highlight');
+      e.target.parentElement.innerText = e.target.value;
     }
   });
 });
@@ -260,29 +261,36 @@ window.addEventListener('beforeprint', () => {
     }
   });
   // remove all highlight classes
-  document.querySelectorAll('.highlight').forEach(cell => {cell.classList.remove('highlight');
-  });
+  // document.querySelectorAll('.highlight').forEach(cell => {
+  //   cell.classList.remove('highlight');
+  // });
 });
 
 // on print button click, print page
 document.querySelector('#print').addEventListener('click', () => {
+  let dispCell = document.querySelectorAll('.disp');
   // if datepicker is empty, return
   if (field.value === '') {
     alert('Please select a date');
     return;
   }
+
   // if any dispCell is "PENDING", cancel print and highlight cell
-  let dispCell = document.querySelectorAll('.disp');
   dispCell.forEach(cell => {
-    if ( cell.textContent === 'PENDING') {
+    if (cell.textContent === 'PENDING') {
       cell.classList.add('highlight');
       return;
     } else {
       cell.classList.remove('highlight');
-      // if no dispCell is "PENDING", print page
-      window.print();
     }
   });
+  // check if any disp cell contains "PENDING", if so, cancel printing
+  if (document.querySelectorAll('.highlight').length > 0) {
+    alert('Please select a disposition for all items');
+    return;
+  } else {
+    window.print();
+  }
 });
 
 // reset title after print

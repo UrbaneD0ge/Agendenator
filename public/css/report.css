@@ -37,6 +37,10 @@ select, input, button, textarea {
   background-color: lightgray;
 }
 
+.noBreak {
+  page-break-inside: avoid;
+}
+
 .pHead {
   margin: 3px;
 }
@@ -214,6 +218,7 @@ and (max-width : 425px) {
   print-color-adjust: exact !important;
   }
   body {
+    margin-top: 0;
     margin-left: .75in;
     margin-right: .75in;
     filter: grayscale(100%);
@@ -221,6 +226,10 @@ and (max-width : 425px) {
   }
   #fillToggle {
     display: none;
+  }
+  nav {
+    display: none;
+    visibility: hidden;
   }
 }
 
