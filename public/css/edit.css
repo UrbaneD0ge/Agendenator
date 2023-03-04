@@ -96,16 +96,6 @@ select {
 scrollbar-width: thin;
 }
 
-nav {
-  background: rgb(179,179,179);
-  background: linear-gradient(0deg, rgba(179,179,179,1) 0%, rgba(255,255,255,1) 10%);
-}
-
-#profileImg {
-  width: 40px;
-  clip-path: circle(40% at 50% 50%);
-}
-
 .NPU {
   font-weight: bolder;
 }
@@ -121,18 +111,4 @@ nav {
 
 td > textarea {
   width: 100%;
-}
-
-nav h1 {
-  font-size: 2rem;
-  font-family: 'Tungsten Semibold';
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-brand {
-  font-family: 'Tungsten Semibold';
-  font-size: 2rem;
-  color: black;
-  text-decoration: none;
 }

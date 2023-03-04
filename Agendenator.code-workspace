@@ -13,6 +13,11 @@
       "MOSE",
       "Urouter"
     ],
-    "dotenv.enableAutocloaking": false
+    "dotenv.enableAutocloaking": false,
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#60041E",
+      "titleBar.activeBackground": "#87062A",
+      "titleBar.activeForeground": "#FFFBFC"
+    }
   }
 }
