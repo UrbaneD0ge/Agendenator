@@ -35,6 +35,6 @@ button {
   margin: 5px;
 }
 
-select {
+nav > select {
   height: 32px;
 }
