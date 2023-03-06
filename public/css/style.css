@@ -88,7 +88,6 @@ p {
 
 table {
   margin: 0 30px 30px 30px;
-  width: 95%;
 }
 
 table, th, td {
@@ -156,4 +155,12 @@ width: 3vmin;
 
 td > textarea {
   width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
