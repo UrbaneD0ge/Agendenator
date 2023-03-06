@@ -35,6 +35,8 @@ window.onload = function () {
 // on itemType change, preFill the applName
 document.querySelector('#itmType').addEventListener('change', preFill);
 
+const autoFill = document.querySelector('#autofill');
+
 function preFill() {
   switch (document.querySelector('#itmType').value) {
     case 'MOSE':
@@ -46,32 +48,32 @@ function preFill() {
       applName.value = ('');
       break;
     case 'ZRB':
-      applName.value = 'Z-2';
+      if (autoFill.checked) { applName.value = ('Z-2'); }
       applName.setAttribute('placeholder', 'Z-');
       break;
     case 'SUP':
-      applName.value = 'U-2';
+      if (autoFill.checked) { applName.value = 'U-2'; }
       applName.setAttribute('placeholder', 'U-');
       break;
     case 'BZA':
-      applName.value = 'V-2';
+      if (autoFill.checked) { applName.value = 'V-2'; }
       applName.setAttribute('placeholder', 'V-');
       break;
     case 'Text Amendment':
-      applName.value = 'Z-2';
+      if (autoFill.checked) { applName.value = 'Z-2'; }
       applName.setAttribute('placeholder', 'Z-');
       break;
     case 'CDP':
-      applName.value = 'CDP-2';
+      if (autoFill.checked) { applName.value = 'CDP-2'; }
       applName.setAttribute('placeholder', 'CDP-');
       break;
     case 'SD':
-      applName.value = 'SD-2';
+      if (autoFill.checked) { applName.value = 'SD-2'; }
       applName.setAttribute('placeholder', 'SD-')
       disposal.value = 'R&C'
       break;
     case 'LOR':
-      applName.value = 'LOR-2';
+      if (autoFill.checked) { applName.value = 'LOR-2'; }
       applName.setAttribute('placeholder', 'LOR-')
       disposal.value = 'R&C'
       break;
@@ -146,7 +148,7 @@ submit.addEventListener('click', (e) => {
     tbody.appendChild(commentsRow);
   }
 
-  console.log('new row added');
+  // console.log('new row added');
   // clear inputs
   document.querySelector('#addItem').reset();
   document.getElementById('applName').setAttribute('placeholder', 'Application number or name');
@@ -246,24 +248,19 @@ window.addEventListener('beforeprint', () => {
   document.getElementById('print').style.display = 'none';
   document.getElementById('report').style.display = 'none';
   document.getElementById('signature').style.display = 'block';
-  if (document.querySelector('#demo') === null) {
-    return;
-  } else {
-    document.getElementById('demo').style.display = 'none';
-  }
   document.querySelectorAll('.btn-close').forEach(btn => {
     btn.style.display = 'none';
   });
   // if comment cells are empty, remove them
   document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+    console.log('remove empty comments')
     if (cell.textContent === '') {
       cell.parentElement.remove();
     }
   });
-  // remove all highlight classes
-  // document.querySelectorAll('.highlight').forEach(cell => {
-  //   cell.classList.remove('highlight');
-  // });
+  if (document.querySelector('#demo') === !null) {
+    document.getElementById('demo').style.display = 'none';
+  };
 });
 
 // on print button click, print page
@@ -274,7 +271,6 @@ document.querySelector('#print').addEventListener('click', () => {
     alert('Please select a date');
     return;
   }
-
   // if any dispCell is "PENDING", cancel print and highlight cell
   dispCell.forEach(cell => {
     if (cell.textContent === 'PENDING') {
