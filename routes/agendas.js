@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
   const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
   // console.log(applications)
   // render an agenda page with the applications and NPU info
+
   // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
   res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req })
 });

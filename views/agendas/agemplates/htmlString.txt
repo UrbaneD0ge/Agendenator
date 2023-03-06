@@ -1,0 +1,451 @@
+`<div style="width: 8.5in;">
+      <div style="width: 8in">
+        <div class="col-md-12 text-center">
+          <h2>NEIGHBORHOOD PLANNING UNIT-<%= NPUs.NPU %></span></h2>
+          <h3><strong>
+              <%= NPUs.meeting %>
+            </strong></h3>
+          <h4>Register in advance by clicking <a href=<%=NPUs.ZoomURL %> noopener><span id='zInfo'>here</span></a></h4>
+
+          <h4>Meeting ID: <%= NPUs.ZoomID %> Password: <%= NPUs.ZoomPW %><br> One-tap mobile:
+                <%= NPUs.ZoomDial %>
+          </h4>
+          <br>
+          <h5><strong>CONTACT INFORMATION</strong></h5>
+          <h5>
+            <%= NPUs.chair %> , <strong>Chair</strong> - <a href='mailto:<%= NPUs.chairE %>'>
+                <%= NPUs.chairE %>
+              </a>
+          </h5>
+          <h5>Simit Dunlap, <strong>Vice Chair</strong> - <a href='mailto:simit@atlantaga.gov'>simit@atlantaga.gov</a>
+          </h5>
+          <h5>Leah LaRue, <strong>City of Atlanta, Assistant Director</strong> - 404.330.6070 or <a
+              href='mailto:llarue@atlantaga.gov'>llarue@atlantaga.gov</a>
+          </h5>
+          <h5>
+            <%= NPUs.planner %>, <strong>Planner</strong> - <a href='mailto:<%= NPUs.plannerE %>'>
+                <%= NPUs.plannerE %>
+              </a>
+          </h5>
+        </div>
+        <div>
+          <h1>AGENDA</h1>
+          <ol>
+            <li>Invocation</li>
+            <li>Approval of Minutes</li>
+            <li>Public Comment</li>
+            <li>Presentations</li>
+            <ul>
+              <!-- create li for each Application where type = 'N/A' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='Presentation' ) { %>
+                  <li>
+                    <%= Application.title + ' - ' + Application.descr %>
+                  </li>
+                  <% } %>
+                    <% }) %>
+            </ul>
+            <li>Matters for Voting</li>
+            <li>Old Business</li>
+            <li>New Business</li>
+            <li>Adjournment</li>
+          </ol>
+        </div>
+        <div id='bylawsBox'>
+          <h4>NPU-<%= NPUs.NPU %>
+          </h4>
+          <p>NPU-<%= NPUs.NPU %> VOTING RULES per 2022 Bylaws
+              Each member organization of NPU-<%= NPUs.NPU %> may select two representatives, either of whom may cast a
+                single,
+                indivisible vote at NPU-<%= NPUs.NPU %> meetings. Member organizations represent neighborhood, civic and
+                  business
+                  associations which have geographical boundaries within the NPU. Any organization wishing to become a
+                  member
+                  may petition for membership (Article III).
+          </p>
+        </div>
+        <div id='mattersForVoting'>
+          <h4 class='sectionHeader'>MATTERS FOR VOTING</h4>
+          <h6>NPUs provide recommendations to the City of Atlanta by voting to support or oppose applications. The
+            application and the NPU’s recommendations, along with Staff recommendations, are then considered by the
+            appropriate board, association, commission, or office.</h6>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='4'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/mayor-s-office/executive-offices/office-of-special-events'>Special
+                    Event Applications (MOSE)</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Event Name</th>
+                <th>Event Organizer</th>
+                <th>Event Location</th>
+                <th>Event Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'MOSE' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='MOSE' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td><a href='<%= Application.applURL %>'>
+                        <%= Application.title %>
+                      </a></td>
+                    <td>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='5'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantapd.org/business/license-review-board'>Alcohol License Applications
+                    (LRB)</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Name of Business</th>
+                <th>Type of Business</th>
+                <th>Applicant</th>
+                <th>Property Address</th>
+                <th>Request</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'LRB' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='LRB' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td><a href='<%= Application.applURL %>'>
+                        <%= Application.title %>
+                      </a></td>
+                    <td>
+                      <%= Application.type %>
+                    </td>
+                    <td>
+                      <%= Application.applicant %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.descr %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/board-of-zoning-adjustment-bza'
+                    Board of Zoning Adjustment Applications (BZA)>Board of Zoning Adjustment Applications (BZA)</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'BZA' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='BZA' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/zoning-review-board-zrb'>Zoning
+                    Review Board Applications (ZRB)</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'ZRB' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='ZRB' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %><br><a href='<%= Application.URL1 %>'>SURVEY</a>
+                        <% if(Application.URL2) {%>
+                          , <a href='<%= Application.URL2 %>'>SITE PLAN</a>
+                          <% } %>
+                            <% if(Application.URL3) {%>
+                              , <a href='<%= Application.URL3 %>'>FLOOR PLAN</a>
+                              <% } %>
+                                <% if(Application.URL4) {%>
+                                  , <a href='<%= Application.URL4 %>'>ELEVATIONS</a>
+                                  <% } %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/zoning-review-board-zrb'
+                    noopener noreferrer>Text Amendments - Zoning Ordinance</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'Text Amendment' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='Text Amendment' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/2016-comprehensive-development-plan-cdp'
+                    noopener noreferrer>Land Use Amendments -
+                    Comprehensive Development Plan</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'CDP' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='CDP' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='http://citycouncil.atlantaga.gov/'>Proposed
+                    Legislation - Atlanta City Council</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'Legislation' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='Legislation' && Application.NPU==NPUs.NPU ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+        </div>
+        <div class='rc' id='R&C'>
+          <br>
+          <h4 class='sectionHeader'>MATTERS FOR REVIEW AND COMMENT</h4>
+          <h6>Members can review subdivision applications and provide comments to be forwarded to the Subdivision Review
+            Committee (SRC). Other applications may be presented to an NPU for review and comment when the address is
+            within a 300-foot radius of the NPU's boundary. The Code of Ordinances does not require these applicants to
+            attend NPU meetings. </h6>
+        </div>
+        <div>
+          <table>
+            <thead class='rc'>
+              <tr>
+                <th colspan='3'>Subdivision Review Committee Applications (SD)
+                </th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- create tr for each Application where type = 'SD' && adjacent includes 'A' -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='SD' ) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %>
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead class='rc'>
+              <tr>
+                <th colspan='3'><a style='color:initial; text-decoration:initial'
+                    href='https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/board-of-zoning-adjustment-bza'
+                    Board of Zoning Adjustment Applications (BZA)>Board of Zoning Adjustment Applications (BZA)</a></th>
+              </tr>
+              <tr class='colHead'>
+                <th>Application</th>
+                <th>Property Address</th>
+                <th>Public Hearing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- prototype application section -->
+              <% applications.forEach(Application=> { %>
+                <% if ( Application.type==='BZA' && Application.adjacent.includes(NPUs.NPU)) { %>
+                  <tr>
+                    <td class='text-start'><a href='<%= Application.applURL %> '>
+                        <%= Application.title %>
+                      </a><br>
+                      <%= Application.descr %>
+                    </td>
+                    <td>
+                      <%= Application.address %> (NPU-<%= Application.NPU %>)
+                    </td>
+                    <td>
+                      <%= Application.date %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div class='notice' id='publicNotice'>
+          <br>
+          <h4 class='sectionHeader'>PUBLIC NOTICES AND ANNOUNCEMENTS</h4>
+          <h6>Provided for informational purposes. Votes/comments are neither required nor expected.</h6>
+        </div>
+        <div>
+          <% applications.forEach(Application=> { %>
+            <% if ( Application.type==='Notice' && (Application.NPU===NPUs.NPU ||
+              Application.adjacent.includes(NPUs.NPU))) { %>
+              <table>
+                <thead class='rc'>
+                  <tr>
+                    <th>
+                      <%= Application.title %>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class='text-start'>
+                      <%= Application.descr %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <% } %>
+                <% }) %>
+        </div>
+      </div>
+    </div>`
