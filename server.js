@@ -6,6 +6,7 @@ const agendaRouter = require('./routes/agendas');
 const NPUrouter = require('./routes/NPUs');
 const methodOverride = require('method-override');
 const cookieSession = require('cookie-session');
+const authUser = require('./middleware/authUser');
 
 require('dotenv').config()
 
@@ -100,7 +101,7 @@ async function getGoogleUser(access_token) {
   return res;
 };
 
-app.get('/login/google/callback', async (req, res) => {
+app.get('/login/google/callback', async (req, res, authUser, next) => {
   const code = req.query.code;
   const token = await getAccessToken(code);
   const googleUserData = await getGoogleUser(token);
@@ -111,6 +112,8 @@ app.get('/login/google/callback', async (req, res) => {
     req.session.image = googleUserData.picture;
     req.session.token = token;
     console.log('Google User Data:', googleUserData);
+    authUser();
+    next();
     res.redirect('/applications');
   } else {
     res.send('Error!');
