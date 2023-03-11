@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 const app = express();
 const applicationRouter = require('./routes/applications');
 const agendaRouter = require('./routes/agendas');
@@ -30,6 +31,14 @@ app.listen(port, () => {
 });
 
 app.set('view engine', 'ejs');
+app.use(helmet(
+  {
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
+    frameGuard: false,
+    PermittedCrossDomainPolicies: 'all'
+    }
+));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
