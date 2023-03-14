@@ -25,6 +25,7 @@ function getCallbackURI() {
   };
   return callbackURI;
 };
+
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
@@ -110,7 +111,7 @@ app.get('/login/google/callback', async (req, res) => {
     req.session.name = googleUserData.name;
     req.session.image = googleUserData.picture;
     req.session.token = token;
-    console.log('Google User Data:', googleUserData);
+    console.log(req.session.email + ' logged in');
     res.redirect('/');
   } else {
     res.send('Error!');

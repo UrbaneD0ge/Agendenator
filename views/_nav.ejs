@@ -26,7 +26,7 @@
                 <a class='btn btn-sm btn-warning' href="/NPUs/new">Add NPU</a>
               </li>
               <li class="nav-item m-1">
-                <a class='btn btn-sm btn-outline-primary' href="/NPUs/npungl3r">NPUNGL3R</a>
+                <a class='btn btn-sm btn-info' href="/NPUs/npungl3r">NPUNGL3R</a>
               </li>
               <% } %>
       </ul>
@@ -97,11 +97,13 @@
                 <% } %>
       </ul>
       <script>
-        document.getElementById('profileImg').addEventListener('click', () => {
-          alert('You are logged in as <%= req.session.user %>.'
-            + '\nYour email is <%= req.session.email %>.'
-            + '\nYour image is <%= req.session.image %>.')
-        })
+        if (document.getElementById('profileImg')) {
+          document.getElementById('profileImg').addEventListener('click', () => {
+            alert('You are logged in as <%= req.session.user %>.'
+              + '\nYour email is <%= req.session.email %>.'
+              + '\nYour image is <%= req.session.image %>.')
+          })
+        };
       </script>
     </div>
   </div>
