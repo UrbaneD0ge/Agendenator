@@ -13,6 +13,15 @@ router.get('/new', (req, res) => {
   }
 });
 
+// npungl3r
+router.get('/npungl3r', (req, res) => {
+  if (req.session.isPopulated) {
+    res.render('NPUs/npungl3r', { req: req });
+  } else {
+    res.redirect('/login/google')
+  }
+});
+
 // edit NPU
 router.get('/edit/:id', async (req, res) => {
   if (req.session.isPopulated) {
@@ -89,7 +98,6 @@ function putUpdate(path) {
     for (keys in req.body) {
       NPU[keys] = req.body[keys];
     }
-
     try {
       // console.dir(req);
       // console.dir(application);

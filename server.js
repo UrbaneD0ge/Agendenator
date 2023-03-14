@@ -111,7 +111,7 @@ app.get('/login/google/callback', async (req, res) => {
     req.session.image = googleUserData.picture;
     req.session.token = token;
     console.log('Google User Data:', googleUserData);
-    res.redirect('/applications');
+    res.redirect('/');
   } else {
     res.send('Error!');
   }

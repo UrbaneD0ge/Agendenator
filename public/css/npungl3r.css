@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Tungsten-SemiBold';
+  src: url(../fonts/Tungsten-Semibold.otf) format('opentype');
+  letter-spacing: 2pt;
+}
+
+@font-face {
+  font-family: 'GT-Eesti-Regular';
+  src: url(../fonts/GT-Eesti-Text-Regular.otf) format('opentype');
+}
+
+body {
+  background-color: rgb(6, 80, 80);
+  font-family: 'GT-Eesti-Regular', sans-serif;
+  font-weight: 100;
+  margin-block: 4vh;
+}
+
+header {
+  color: rgb(255, 243, 162);
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: black;
+}
+
+pre {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+p {
+  overflow-wrap: break-word;
+  font-size: large;
+}
+
+/* p:hover {
+  cursor: grab;
+} */
+
+.calendar {
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 5px 10px #888888;
+}
+
+#DCP {
+  font-weight: bolder;
+  text-shadow: black 5px 5px;
+  ;
+}
+
+#date, #NPU {
+  width: min-content;
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  #date, #NPU {
+    display: block;
+  }
+  tr{
+    display: block; float: left;
+  }
+
+  th, td {
+    display: block;
+  }
+}
