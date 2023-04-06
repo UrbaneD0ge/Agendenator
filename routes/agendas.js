@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const Application = require('../models/applications');
 const NPU = require('../models/NPUs');
+const fs = require('fs');
+const HTMLtoDOCX = require('html-to-docx');
 
 // show applications matching request parameters
 router.get('/', async (req, res) => {
@@ -18,7 +20,22 @@ router.get('/', async (req, res) => {
   // console.log(applications)
   // render an agenda page with the applications and NPU info
   // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
-  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req })
+  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
+    console.log('We made it to the callback!')
+    if (err) {
+      console.log(err);
+    } else {
+      HTMLtoDOCX(html, 'test.docx', (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('DOCX file created');
+          // TODO: create unique file names
+          res.download('test.docx')
+        }
+      });
+    }
+  });
 });
 
 router.get('/roster', async (req, res) => {
