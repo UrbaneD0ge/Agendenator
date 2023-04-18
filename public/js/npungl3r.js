@@ -539,7 +539,7 @@ Access Code: 929 8209 4616#`
     // console.log('Approved');
   }
   if ($('#nextdoor')[0].checked) {
-    $('#textZone').append('<div class="y-2 calendar col-12"><h2><a href="https://nextdoor.com/city/feed/?" target="_blank" noopener>NEXTDOOR</a></h2><p id="nextdoor" onclick="copy(this)"><strong>NPU-' + title + ' | ' + casual + ' ' + meeting.time + '</strong><br>Hey Neighbors!<br><br>NPU University offers free courses in community leadership, planning, and civic participation.<br><br>Coming Up:<ul><li>Avoiding Housing Scams & Reducing Property Taxes, Thursday, March 9th, 2023 – 6:00 PM</li><li>Building Permits for Beginners, Thursday, March 30th, 2023 - 6:00 PM</li><li>Understanding Public Financing (TADs, bonds, NMTCs, LIHTC, etc), Thursday, April 13th, 2023 - 6:00 PM</li></ul>For more information go to NPUatlanta.org/NPUuniversity<br><br>NPU-' + title + ' meets next ' + casual + ' at ' + meeting.time + '<br><br>To register in advance go to:<br>' + meeting.zURL + '<pre>' + meeting.meet + '<br><br></pre>Thank you,</p></div>')
+    $('#textZone').append('<div class="y-2 calendar col-12"><h2><a href="https://nextdoor.com/city/feed/?" target="_blank" noopener>NEXTDOOR</a></h2><p id="nextdoor" onclick="copy(this)"><strong>NPU-' + title + ' | ' + casual + ' ' + meeting.time + '</strong><br>Hey Neighbors!<br><br>NPU-' + title + ' meets next ' + casual + ' at ' + meeting.time + '<br><br>To register in advance go to:<br>' + meeting.zURL + '<pre>' + meeting.meet + '<br><br></pre>Thank you,</p></div>')
     // console.log('Nextdoor');
   }
   if ($('#ZoomCreds')[0].checked) {
