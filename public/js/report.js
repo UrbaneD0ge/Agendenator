@@ -1,6 +1,6 @@
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
-let suffix = document.getElementById('itmType').value;
+// let suffix = document.getElementById('itmType').value;
 
 // function to store the values of the form in local storage
 function storeForm() {
@@ -304,3 +304,50 @@ window.addEventListener('afterprint', () => {
   let notes = document.getElementById('pNotes').textContent;
   document.querySelector('#pNotes').outerHTML = `<textarea id="pNotes" class="form-control" placeholder="Enter any notes here...">${notes}</textarea>`;
 });
+
+// format certain input types
+applName.oninput = (e) => {
+  console.log(e.target.value);
+  e.target.value = patternMatch({
+    input: e.target.value,
+    template: "x-xx-xxx",
+  });
+};
+
+function patternMatch({
+  input,
+  template
+}) {
+  try {
+
+
+    let j = 0;
+    let plaintext = "";
+    let countj = 0;
+    while (j < template.length) {
+
+      if (countj > input.length - 1) {
+        template = template.substring(0, j);
+        break;
+      }
+
+      if (template[j] == input[j]) {
+        j++;
+        countj++;
+        continue;
+      }
+
+      if (template[j] == "x") {
+        template = template.substring(0, j) + input[countj] + template.substring(j + 1);
+        plaintext = plaintext + input[countj];
+        countj++;
+      }
+      j++;
+    }
+
+    return template
+
+  } catch {
+    return ""
+  }
+};
