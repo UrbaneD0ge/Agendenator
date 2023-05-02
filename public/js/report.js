@@ -305,6 +305,7 @@ window.addEventListener('afterprint', () => {
   document.querySelector('#pNotes').outerHTML = `<textarea id="pNotes" class="form-control" placeholder="Enter any notes here...">${notes}</textarea>`;
 });
 
+// BROKEN???
 document.getElementById('itmType').addEventListener('change', () => {
   if (document.getElementById('itmType').value === 'ZRB' || 'BZA') {
     console.log(document.getElementById('itmType').value);
