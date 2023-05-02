@@ -305,21 +305,26 @@ window.addEventListener('afterprint', () => {
   document.querySelector('#pNotes').outerHTML = `<textarea id="pNotes" class="form-control" placeholder="Enter any notes here...">${notes}</textarea>`;
 });
 
-// format certain input types
-applName.oninput = (e) => {
-  console.log(e.target.value);
-  e.target.value = patternMatch({
-    input: e.target.value,
-    template: "x-xx-xxx",
-  });
-};
+document.getElementById('itmType').addEventListener('change', () => {
+  if (document.getElementById('itmType').value === 'ZRB' || 'BZA') {
+    console.log(document.getElementById('itmType').value);
+    // format certain input types
+    applName.oninput = (e) => {
+      // console.log(e.target.value);
+      e.target.value = patternMatch({
+        input: e.target.value,
+        template: "x-xx-xxx",
+      });
+    };
+  }
+});
+
 
 function patternMatch({
   input,
   template
 }) {
   try {
-
 
     let j = 0;
     let plaintext = "";
