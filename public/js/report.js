@@ -42,6 +42,7 @@ function preFill() {
     case 'MOSE':
       applName.setAttribute('placeholder', 'Applicant Name');
       applName.value = ('');
+      applName.setAttribute('type', 'text');
       applName.oninput = (e) => {
         e.target.value = patternMatch({
           input: e.target.value,
@@ -52,6 +53,7 @@ function preFill() {
     case 'LRB':
       applName.setAttribute('placeholder', 'Applicant Name');
       applName.value = ('');
+      applName.setAttribute('type', 'text');
       applName.oninput = (e) => {
         e.target.value = patternMatch({
           input: e.target.value,
@@ -63,6 +65,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'Z-');
       if (autoFill.checked) {
         applName.value = ('Z-2');
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -75,6 +78,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'U-');
       if (autoFill.checked) {
         applName.value = 'U-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -87,6 +91,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'V-');
       if (autoFill.checked) {
         applName.value = 'V-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -99,6 +104,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'Z-');
       if (autoFill.checked) {
         applName.value = 'Z-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -111,6 +117,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'CDP-');
       if (autoFill.checked) {
         applName.value = 'CDP-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -123,6 +130,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'SD-')
       if (autoFill.checked) {
         applName.value = 'SD-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -136,6 +144,7 @@ function preFill() {
       applName.setAttribute('placeholder', 'LOR-')
       if (autoFill.checked) {
         applName.value = 'LOR-2';
+        applName.setAttribute('type', 'tel');
         applName.oninput = (e) => {
           e.target.value = patternMatch({
             input: e.target.value,
@@ -148,6 +157,7 @@ function preFill() {
     case 'N/A':
       applName.removeAttribute('placeholder');
       applName.value = '';
+      applName.setAttribute('type', 'text');
       applName.oninput = (e) => {
         e.target.value = patternMatch({
           input: e.target.value,
@@ -158,6 +168,7 @@ function preFill() {
     default:
       applName.removeAttribute('placeholder');
       applName.value = '';
+      applName.setAttribute('type', 'text');
       applName.oninput = (e) => {
         e.target.value = patternMatch({
           input: e.target.value,
