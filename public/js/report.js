@@ -60,78 +60,93 @@ function preFill() {
       };
       break;
     case 'ZRB':
-      if (autoFill.checked) { applName.value = ('Z-2'); }
       applName.setAttribute('placeholder', 'Z-');
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "Z-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = ('Z-2');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "Z-xx-xxx",
+          });
+        };
       };
       break;
     case 'SUP':
-      if (autoFill.checked) { applName.value = 'U-2'; }
       applName.setAttribute('placeholder', 'U-');
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "U-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'U-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "U-xx-xxx",
+          });
+        };
       };
       break;
     case 'BZA':
-      if (autoFill.checked) { applName.value = 'V-2'; }
       applName.setAttribute('placeholder', 'V-');
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "V-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'V-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "V-xx-xxx",
+          });
+        };
       };
       break;
     case 'Text Amendment':
-      if (autoFill.checked) { applName.value = 'Z-2'; }
       applName.setAttribute('placeholder', 'Z-');
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "Z-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'Z-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "Z-xx-xxx",
+          });
+        };
       };
       break;
     case 'CDP':
-      if (autoFill.checked) { applName.value = 'CDP-2'; }
       applName.setAttribute('placeholder', 'CDP-');
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "CDP-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'CDP-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "CDP-xx-xxx",
+          });
+        };
       };
       break;
     case 'SD':
-      if (autoFill.checked) { applName.value = 'SD-2'; }
       applName.setAttribute('placeholder', 'SD-')
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "SD-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'SD-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "SD-xx-xxx",
+          });
+        };
       };
       disposal.value = 'R&C'
       break;
     case 'LOR':
-      if (autoFill.checked) { applName.value = 'LOR-2'; }
       applName.setAttribute('placeholder', 'LOR-')
-      applName.oninput = (e) => {
-        e.target.value = patternMatch({
-          input: e.target.value,
-          template: "LOR-xx-xxx",
-        });
+      if (autoFill.checked) {
+        applName.value = 'LOR-2';
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "LOR-xx-xxx",
+          });
+        };
       };
       disposal.value = 'R&C'
       break;
     case 'N/A':
+      applName.removeAttribute('placeholder');
       applName.value = '';
       applName.oninput = (e) => {
         e.target.value = patternMatch({
@@ -139,7 +154,16 @@ function preFill() {
           template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         });
       };
+      break;
+    default:
       applName.removeAttribute('placeholder');
+      applName.value = '';
+      applName.oninput = (e) => {
+        e.target.value = patternMatch({
+          input: e.target.value,
+          template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        });
+      };
       break;
   }
 };
