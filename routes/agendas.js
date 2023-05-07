@@ -22,17 +22,20 @@ router.get('/', async (req, res) => {
   res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
     try {
       writeDocx(html, fileName);
+      console.log('write')
     } catch (err) {
       console.log(err);
     } finally {
       res.download(`./${fileName}`, fileName);
+      console.log('download')
     }
   });
 });
 
 async function writeDocx(html, fileName) {
   // remove whitespace from html
-  const fileBuffer = await HTMLtoDOCX(html, null, { margins: "1in" })
+  htmlString = html.toString().replace(/[\s\n]/, '');
+  const fileBuffer = await HTMLtoDOCX(htmlString, null, { margins: ".75in" })
   fs.writeFile('./' + fileName, fileBuffer, (err) => {
     if (err) {
       console.log('Docx file creation failed: ' + err);
