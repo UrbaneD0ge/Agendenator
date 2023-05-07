@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
 });
 
 async function writeDocx(html) {
-  const fileBuffer = await HTMLtoDOCX(html, 'test.docx')
+  const fileBuffer = await HTMLtoDOCX(html, Date.now + 'test.docx')
   //     // TODO: create unique file names
   fs.writeFile('./test.docx', fileBuffer, (err) => {
     if (err) {

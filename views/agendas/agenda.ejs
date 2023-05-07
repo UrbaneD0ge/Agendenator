@@ -74,7 +74,7 @@
             <li>Adjournment</li>
           </ol>
         </div>
-        <div id='bylawsBox'>
+        <div id='bylawsBox' style='border: 1px solid black;'>
           <h4>NPU-<%= NPUs.NPU %>
           </h4>
           <p>NPU-<%= NPUs.NPU %> VOTING RULES per 2022 Bylaws
@@ -111,16 +111,16 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='MOSE' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td><a href='<%= Application.applURL %>'>
+                    <td style="border-bottom: 1px solid black;" valign="top"><a href='<%= Application.applURL %>'>
                         <%= Application.title %>
                       </a></td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -150,19 +150,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='LRB' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td><a href='<%= Application.applURL %>'>
+                    <td style="border-bottom: 1px solid black" valign="top"><a href='<%= Application.applURL %>'>
                         <%= Application.title %>
                       </a></td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.type %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.applicant %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.descr %>
                     </td>
                   </tr>
@@ -195,10 +195,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -240,10 +240,10 @@
                                   , <a href='<%= Application.URL4 %>'>ELEVATIONS</a>
                                   <% } %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -276,10 +276,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -313,10 +313,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -349,10 +349,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -394,10 +394,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
@@ -430,10 +430,10 @@
                       </a><br>
                       <%= Application.descr %>
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.address %> (NPU-<%= Application.NPU %>)
                     </td>
-                    <td>
+                    <td style="border-bottom: 1px solid black" valign="top">
                       <%= Application.date %>
                     </td>
                   </tr>
