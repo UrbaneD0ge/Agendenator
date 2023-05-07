@@ -8,6 +8,7 @@ const HTMLtoDOCX = require('html-to-docx');
 
 // show applications matching request parameters
 router.get('/', async (req, res) => {
+  var fileName = `NPU-${req.query.NPU}_${req.query.month}_agenda.docx`;
   // find where NPU or adjacent matches request parameters and month
   const applications = await Application.find({
     $or: [
@@ -17,29 +18,27 @@ router.get('/', async (req, res) => {
     month: req.query.month
   });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
-  // console.log(applications)
   // render an agenda page with the applications and NPU info
-  // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
   res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
     writeDocx(html);
-    // console.log('We made it to the callback!')
-    res.download('./test.docx');
+    console.log(fileName)
+    // res.download(`./${fileName}`, fileName);
     if (err) {
       console.log(err);
-    } else {
     }
   });
 });
 
-async function writeDocx(html) {
-  const fileBuffer = await HTMLtoDOCX(html, Date.now + 'test.docx')
+async function writeDocx(html, fileName) {
+  const fileBuffer = await HTMLtoDOCX(html)
   //     // TODO: create unique file names
-  fs.writeFile('./test.docx', fileBuffer, (err) => {
+  fs.writeFile('./' + fileName, fileBuffer, (err) => {
     if (err) {
       console.log('Docx file creation failed: ' + err);
       return;
+    } else {
+      console.log(fileName + ' created');
     }
-    console.log('Docx file created');
   });
 };
 
