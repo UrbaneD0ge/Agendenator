@@ -21,22 +21,27 @@ router.get('/', async (req, res) => {
   // render an agenda page with the applications and NPU info
   // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
   res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
-    console.log('We made it to the callback!')
+    writeDocx(html);
+    // console.log('We made it to the callback!')
+    res.download('./test.docx');
     if (err) {
       console.log(err);
     } else {
-      HTMLtoDOCX(html, 'test.docx', (err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('DOCX file created');
-          // TODO: create unique file names
-          res.download('test.docx')
-        }
-      });
     }
   });
 });
+
+async function writeDocx(html) {
+  const fileBuffer = await HTMLtoDOCX(html, 'test.docx')
+  //     // TODO: create unique file names
+  fs.writeFile('./test.docx', fileBuffer, (err) => {
+    if (err) {
+      console.log('Docx file creation failed: ' + err);
+      return;
+    }
+    console.log('Docx file created');
+  });
+};
 
 router.get('/roster', async (req, res) => {
   // find where NPU or adjacent matches request parameters and month
