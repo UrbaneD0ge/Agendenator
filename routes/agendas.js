@@ -20,18 +20,19 @@ router.get('/', async (req, res) => {
   const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
   // render an agenda page with the applications and NPU info
   res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
-    writeDocx(html, fileName);
-    console.log(fileName)
-    res.download(`./${fileName}`, fileName);
-    if (err) {
+    try {
+      writeDocx(html, fileName);
+    } catch (err) {
       console.log(err);
+    } finally {
+      res.download(`./${fileName}`, fileName);
     }
   });
 });
 
 async function writeDocx(html, fileName) {
-  const fileBuffer = await HTMLtoDOCX(html)
-  //     // TODO: create unique file names
+  // remove whitespace from html
+  const fileBuffer = await HTMLtoDOCX(html, null, { margins: "1in" })
   fs.writeFile('./' + fileName, fileBuffer, (err) => {
     if (err) {
       console.log('Docx file creation failed: ' + err);
