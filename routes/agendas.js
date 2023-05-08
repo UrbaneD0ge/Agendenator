@@ -8,6 +8,21 @@ const HTMLtoDOCX = require('html-to-docx');
 
 // show applications matching request parameters
 router.get('/', async (req, res) => {
+  // find where NPU or adjacent matches request parameters and month
+  const applications = await Application.find({
+    $or: [
+      { NPU: req.query.NPU },
+      { adjacent: req.query.NPU }
+    ],
+    month: req.query.month
+  });
+  const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
+  // render an agenda page with the applications and NPU info
+  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req });
+});
+
+// show applications matching request parameters
+router.get('/dl', async (req, res) => {
   var fileName = `NPU-${req.query.NPU}_${req.query.month}_agenda.docx`;
   // find where NPU or adjacent matches request parameters and month
   const applications = await Application.find({
