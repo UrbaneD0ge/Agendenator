@@ -26,22 +26,24 @@ router.get('/', async (req, res) => {
     } catch (err) {
       console.log(err);
     } finally {
-      res.download(`./${fileName}`, fileName);
-      console.log('download')
+
+      // wait for file to be written
+      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 1000);
     }
   });
 });
 
 async function writeDocx(html, fileName) {
   // remove whitespace from html
-  htmlString = html.toString().replace(/[\s\n]/, '');
-  const fileBuffer = await HTMLtoDOCX(htmlString, null, { margins: ".75in" })
+  htmlString = html.toString().replace(/[\s]+/g, ' ');
+  // console.log(htmlString);
+  const fileBuffer = await HTMLtoDOCX(htmlString, null);
   fs.writeFile('./' + fileName, fileBuffer, (err) => {
     if (err) {
       console.log('Docx file creation failed: ' + err);
       return;
     } else {
-      console.log(fileName + ' created');
+      console.log('created');
     }
   });
 };
