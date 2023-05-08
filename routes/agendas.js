@@ -26,9 +26,8 @@ router.get('/', async (req, res) => {
     } catch (err) {
       console.log(err);
     } finally {
-
       // wait for file to be written
-      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 1000);
+      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 3000);
     }
   });
 });
@@ -36,14 +35,26 @@ router.get('/', async (req, res) => {
 async function writeDocx(html, fileName) {
   // remove whitespace from html
   htmlString = html.toString().replace(/[\s]{2,}/g, ' ');
+  // set document options margins to .5 inches
+  const documentOptions = {
+    margins: {
+      top: 720,
+      right: 720,
+      bottom: 720,
+      left: 720,
+      header: 720,
+      footer: 720,
+      gutter: 0
+    }
+  };
   // console.log(htmlString);
-  const fileBuffer = await HTMLtoDOCX(htmlString, null);
+  const fileBuffer = await HTMLtoDOCX(htmlString, null, documentOptions);
   fs.writeFile('./' + fileName, fileBuffer, (err) => {
     if (err) {
       console.log('Docx file creation failed: ' + err);
       return;
     } else {
-      console.log('created');
+      console.log('create');
     }
   });
 };
