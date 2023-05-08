@@ -1,6 +1,6 @@
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
-let suffix = document.getElementById('itmType').value;
+// let suffix = document.getElementById('itmType').value;
 
 // function to store the values of the form in local storage
 function storeForm() {
@@ -42,44 +42,139 @@ function preFill() {
     case 'MOSE':
       applName.setAttribute('placeholder', 'Applicant Name');
       applName.value = ('');
+      applName.setAttribute('type', 'text');
+      applName.oninput = (e) => {
+        e.target.value = patternMatch({
+          input: e.target.value,
+          template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        });
+      };
       break;
     case 'LRB':
       applName.setAttribute('placeholder', 'Applicant Name');
       applName.value = ('');
+      applName.setAttribute('type', 'text');
+      applName.oninput = (e) => {
+        e.target.value = patternMatch({
+          input: e.target.value,
+          template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        });
+      };
       break;
     case 'ZRB':
-      if (autoFill.checked) { applName.value = ('Z-2'); }
       applName.setAttribute('placeholder', 'Z-');
+      if (autoFill.checked) {
+        applName.value = ('Z-2');
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "Z-xx-xxx",
+          });
+        };
+      };
       break;
     case 'SUP':
-      if (autoFill.checked) { applName.value = 'U-2'; }
       applName.setAttribute('placeholder', 'U-');
+      if (autoFill.checked) {
+        applName.value = 'U-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "U-xx-xxx",
+          });
+        };
+      };
       break;
     case 'BZA':
-      if (autoFill.checked) { applName.value = 'V-2'; }
       applName.setAttribute('placeholder', 'V-');
+      if (autoFill.checked) {
+        applName.value = 'V-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "V-xx-xxx",
+          });
+        };
+      };
       break;
     case 'Text Amendment':
-      if (autoFill.checked) { applName.value = 'Z-2'; }
       applName.setAttribute('placeholder', 'Z-');
+      if (autoFill.checked) {
+        applName.value = 'Z-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "Z-xx-xxx",
+          });
+        };
+      };
       break;
     case 'CDP':
-      if (autoFill.checked) { applName.value = 'CDP-2'; }
       applName.setAttribute('placeholder', 'CDP-');
+      if (autoFill.checked) {
+        applName.value = 'CDP-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "CDP-xx-xxx",
+          });
+        };
+      };
       break;
     case 'SD':
-      if (autoFill.checked) { applName.value = 'SD-2'; }
       applName.setAttribute('placeholder', 'SD-')
+      if (autoFill.checked) {
+        applName.value = 'SD-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "SD-xx-xxx",
+          });
+        };
+      };
       disposal.value = 'R&C'
       break;
     case 'LOR':
-      if (autoFill.checked) { applName.value = 'LOR-2'; }
       applName.setAttribute('placeholder', 'LOR-')
+      if (autoFill.checked) {
+        applName.value = 'LOR-2';
+        applName.setAttribute('type', 'tel');
+        applName.oninput = (e) => {
+          e.target.value = patternMatch({
+            input: e.target.value,
+            template: "LOR-xx-xxx",
+          });
+        };
+      };
       disposal.value = 'R&C'
       break;
     case 'N/A':
-      applName.value = '';
       applName.removeAttribute('placeholder');
+      applName.value = '';
+      applName.setAttribute('type', 'text');
+      applName.oninput = (e) => {
+        e.target.value = patternMatch({
+          input: e.target.value,
+          template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        });
+      };
+      break;
+    default:
+      applName.removeAttribute('placeholder');
+      applName.value = '';
+      applName.setAttribute('type', 'text');
+      applName.oninput = (e) => {
+        e.target.value = patternMatch({
+          input: e.target.value,
+          template: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        });
+      };
       break;
   }
 };
@@ -304,3 +399,41 @@ window.addEventListener('afterprint', () => {
   let notes = document.getElementById('pNotes').textContent;
   document.querySelector('#pNotes').outerHTML = `<textarea id="pNotes" class="form-control" placeholder="Enter any notes here...">${notes}</textarea>`;
 });
+
+// auto-format application numbers
+function patternMatch({
+  input,
+  template
+}) {
+  try {
+
+    let j = 0;
+    let plaintext = "";
+    let countj = 0;
+    while (j < template.length) {
+
+      if (countj > input.length - 1) {
+        template = template.substring(0, j);
+        break;
+      }
+
+      if (template[j] == input[j]) {
+        j++;
+        countj++;
+        continue;
+      }
+
+      if (template[j] == "x") {
+        template = template.substring(0, j) + input[countj] + template.substring(j + 1);
+        plaintext = plaintext + input[countj];
+        countj++;
+      }
+      j++;
+    }
+
+    return template
+
+  } catch {
+    return ""
+  }
+};
