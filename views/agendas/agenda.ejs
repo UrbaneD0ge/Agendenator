@@ -6,7 +6,8 @@
 </head>
 
 <body>
-  <article style="background-color: whitesmoke;width: 8.5in;margin: 50px auto;padding: 20px;border: 1px solid black;"
+  <article
+    style="background-color: whitesmoke;width: 8.5in;margin: 50px auto;padding: 20px;border: .25pt solid black;border-collapse: collapse;"
     id="article">
     <div style="width: 8.5in;">
       <div style="width: 8in">
@@ -49,15 +50,15 @@
                 </a>
           </p>
         </div>
-        <div>
-          <p style="font-size: 25pt;font-weight: bold;font-family: 'Tungsten-SemiBold';">AGENDA</p>
+        <div style="font-size: 25pt;font-weight: bold;font-family: 'Century Gothic', CenturyGothic;">
+          <p>AGENDA</p>
           <ol>
             <li>Invocation</li>
             <li>Approval of Minutes</li>
             <li>Public Comment</li>
             <li>Presentations</li>
+            <!-- create li for each Application where type = 'N/A' -->
             <ul>
-              <!-- create li for each Application where type = 'N/A' -->
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='Presentation' ) { %>
                   <li>
@@ -72,7 +73,8 @@
             <li>Adjournment</li>
           </ol>
         </div>
-        <div id="bylawsBox" style="border: 1px solid #333333; margin: 30px;display: block;">
+        <br>
+        <div id="bylawsBox" style="border: 1pt solid #333333; margin: 30px;display: block;">
           <p
             style="text-align: center;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-size: 12pt;margin-bottom: 0;">
             NPU-<%= NPUs.NPU %>
@@ -99,23 +101,22 @@
             application and the NPU’s recommendations, along with Staff recommendations, are then considered by the
             appropriate board, association, commission, or office.</p>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .5pt solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;border-collapse: collapse;">
             <thead>
               <tr style="background-color: #eee8aa;">
-                <th colspan="4"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                <th colspan="4" style="text-align: center;font-family: Arial;size: 10pt; font-weight: bold;"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/mayor-s-office/executive-offices/office-of-special-events">Special
                     Event Applications (MOSE)</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Event
+                <th style="text-align: center;font-family: Arial;size: 10pt;">Event
                   Name</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Event
+                <th style="text-align: center;font-family: Arial;size: 10pt;">Event
                   Organizer</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Event
+                <th style="text-align: center;font-family: Arial;size: 10pt;">Event
                   Location</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Event
+                <th style="text-align: center;font-family: Arial;size: 10pt;">Event
                   Date</th>
               </tr>
             </thead>
@@ -124,23 +125,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='MOSE' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                    <td style="border-bottom: .25pt solid black;text-align: center;font-family: Arial;size: 10pt;"
                       valign="top"><a href="<%= Application.applURL %>">
-                        <%= Application.title %>
+                        <%= Application.title.trim() %>
                       </a></td>
-                    <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                    <td style="border-bottom: .25pt solid black;text-align: center;font-family: Arial;size: 10pt;"
                       valign="top">
                       <%= Application.descr %>
                     </td>
-                    <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                    <td style="border-bottom: .25pt solid black;text-align: center;font-family: Arial;size: 10pt;"
                       valign="top">
                       <%= Application.address %>
                     </td>
-                    <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                    <td style="border-bottom: .25pt solid black;text-align: center;font-family: Arial;size: 10pt;"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -152,25 +149,27 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="5"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantapd.org/business/license-review-board">Alcohol License Applications
                     (LRB)</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Name
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
+                  Name
                   of Business</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">Type
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
+                  Type
                   of Business</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Applicant</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Request</th>
               </tr>
             </thead>
@@ -180,27 +179,27 @@
                 <% if ( Application.type==='LRB' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top"><a href="<%= Application.applURL %>">
                         <%= Application.title %>
                       </a></td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.type %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.applicant %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.descr %>
                     </td>
@@ -212,21 +211,21 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/board-of-zoning-adjustment-bza"
                     board of zoning adjustment applications (bza)>Board of Zoning Adjustment Applications (BZA)</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -235,19 +234,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='BZA' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
-                      </a><br>
+                      </a>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -259,21 +258,21 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/zoning-review-board-zrb">Zoning
                     Review Board Applications (ZRB)</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -282,7 +281,7 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='ZRB' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
@@ -298,12 +297,12 @@
                                   <% } %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -315,21 +314,21 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/zoning-review-board-zrb"
                     noopener noreferrer>Text Amendments - Zoning Ordinance</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -338,19 +337,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='Text Amendment' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -362,22 +361,22 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/2016-comprehensive-development-plan-cdp"
                     noopener noreferrer>Land Use Amendments -
                     Comprehensive Development Plan</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -386,19 +385,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='CDP' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -410,20 +409,20 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial" href="http://citycouncil.atlantaga.gov/">Proposed
                     Legislation - Atlanta City Council</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -432,19 +431,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='Legislation' && Application.NPU==NPUs.NPU ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -470,20 +469,20 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: rgb(200, 200, 200) !important;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Subdivision Review Committee Applications (SD)
                 </th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -492,19 +491,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='SD' ) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -516,21 +515,21 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: rgb(200, 200, 200) !important;">
                 <th colspan="3"
-                  style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"><a
+                  style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"><a
                     style="color:initial; text-decoration:initial"
                     href="https://www.atlantaga.gov/government/departments/city-planning/office-of-zoning-development/zoning/board-of-zoning-adjustment-bza"
                     board of zoning adjustment applications (bza)>Board of Zoning Adjustment Applications (BZA)</a></th>
               </tr>
               <tr style="font-size: 10pt;height: .2in;">
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Application</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Property Address</th>
-                <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                <th style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                   Public Hearing</th>
               </tr>
             </thead>
@@ -539,19 +538,19 @@
               <% applications.forEach(Application=> { %>
                 <% if ( Application.type==='BZA' && Application.adjacent.includes(NPUs.NPU)) { %>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <a href="<%= Application.applURL %> ">
                         <%= Application.title %>
                       </a><br>
                       <%= Application.descr %>
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.address %> (NPU-<%= Application.NPU %>)
                     </td>
                     <td
-                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);"
+                      style="border-bottom: 1px solid black;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);"
                       valign="top">
                       <%= Application.date %>
                     </td>
@@ -575,17 +574,18 @@
             <% if ( Application.type==='Notice' && (Application.NPU===NPUs.NPU ||
               Application.adjacent.includes(NPUs.NPU))) { %>
               <table
-                style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
+                style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);width: 100%;">
                 <thead>
                   <tr style="background-color: rgb(200, 200, 200) !important;">
-                    <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <th
+                      style="text-align: center;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <%= Application.title %>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                    <td style="text-align: left;font-family: Arial;size: 10pt;border: .25pt solid rgb(105, 105, 105);">
                       <%= Application.descr %>
                     </td>
                   </tr>

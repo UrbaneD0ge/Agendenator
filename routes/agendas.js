@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
       console.log(err);
     } finally {
       // wait for file to be written
-      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 3000);
+      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 5000);
     }
   });
 });
