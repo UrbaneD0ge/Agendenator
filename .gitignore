@@ -111,3 +111,4 @@ dist
 /build
 build.js
 build.js.map
+*.docx

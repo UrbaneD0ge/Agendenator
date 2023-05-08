@@ -18,10 +18,11 @@ const port = process.env.PORT || 3000;
 
 // get callback uri from environment
 function getCallbackURI() {
+  let callbackURI;
   if (process.env.NODE_ENV === 'production') {
-    var callbackURI = 'https://agendenator.onrender.com'
+    callbackURI = 'https://agendenator.onrender.com'
   } else {
-    var callbackURI = `http://localhost:${port}`
+    callbackURI = `http://localhost:${port}`
   };
   return callbackURI;
 };

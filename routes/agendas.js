@@ -3,9 +3,12 @@ const express = require('express');
 const router = express.Router();
 const Application = require('../models/applications');
 const NPU = require('../models/NPUs');
+const fs = require('fs');
+const HTMLtoDOCX = require('html-to-docx');
 
 // show applications matching request parameters
 router.get('/', async (req, res) => {
+  var fileName = `NPU-${req.query.NPU}_${req.query.month}_agenda.docx`;
   // find where NPU or adjacent matches request parameters and month
   const applications = await Application.find({
     $or: [
@@ -15,11 +18,35 @@ router.get('/', async (req, res) => {
     month: req.query.month
   });
   const NPUs = await NPU.findOne({ NPU: req.query.NPU, req: req });
-  // console.log(applications)
   // render an agenda page with the applications and NPU info
-  // res.render(`agendas/agemplates/${req.query.NPU}`, { applications: applications, NPUs: NPUs });
-  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req })
+  res.render('agendas/agenda', { applications: applications, NPUs: NPUs, req: req }, function (err, html) {
+    try {
+      writeDocx(html, fileName);
+      console.log('write')
+    } catch (err) {
+      console.log(err);
+    } finally {
+
+      // wait for file to be written
+      setTimeout(function () { res.download(`./${fileName}`, fileName); console.log('download') }, 1000);
+    }
+  });
 });
+
+async function writeDocx(html, fileName) {
+  // remove whitespace from html
+  htmlString = html.toString().replace(/[\s]{2,}/g, ' ');
+  // console.log(htmlString);
+  const fileBuffer = await HTMLtoDOCX(htmlString, null);
+  fs.writeFile('./' + fileName, fileBuffer, (err) => {
+    if (err) {
+      console.log('Docx file creation failed: ' + err);
+      return;
+    } else {
+      console.log('created');
+    }
+  });
+};
 
 router.get('/roster', async (req, res) => {
   // find where NPU or adjacent matches request parameters and month
