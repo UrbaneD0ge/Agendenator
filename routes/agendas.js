@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 async function writeDocx(html, fileName) {
   // remove whitespace from html
-  htmlString = html.toString().replace(/[\s]+/g, ' ');
+  htmlString = html.toString().replace(/[\s]{2,}/g, ' ');
   // console.log(htmlString);
   const fileBuffer = await HTMLtoDOCX(htmlString, null);
   fs.writeFile('./' + fileName, fileBuffer, (err) => {

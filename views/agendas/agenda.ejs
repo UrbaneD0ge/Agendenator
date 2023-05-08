@@ -23,40 +23,30 @@
           <p
             style="text-align: center;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-size: 12pt;margin-bottom: 0;">
             Register in advance by clicking <a href="<%=NPUs.ZoomURL %>" noopener>here</a>
+            <br>
+            Meeting ID: <%= NPUs.ZoomID %> Password: <%= NPUs.ZoomPW %><br> Dial-in: +1 686 123 4567
           </p>
-
-          <p
-            style="text-align: center;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-size: 12pt;margin-bottom: 0;">
-            Meeting ID: <%= NPUs.ZoomID %> Password: <%= NPUs.ZoomPW %><br> Dial-in: +1 686 123 4567</p>
           <br>
           <p
-            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;line-height: .8 !important;">
+            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;">
             <strong>CONTACT INFORMATION</strong>
-          </p>
-          <p
-            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;line-height: .8 !important;">
+            <br>
             <%= NPUs.chair %> , <strong>Chair</strong> - <a href="mailto:<%= NPUs.chairE %>"
                 style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">
                 <%= NPUs.chairE %>
               </a>
-          </p>
-          <p
-            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;line-height: .8 !important;">
-            Simit Dunlap, <strong>Vice Chair</strong> - <a href="mailto:simit@atlantaga.gov"
-              style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">simit@atlantaga.gov</a>
-          </p>
-          <p
-            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;line-height: .8 !important;">
-            Leah LaRue, <strong>City of Atlanta, Director</strong> - 404.330.6070 or <a
-              href="mailto:llarue@atlantaga.gov"
-              style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">llarue@atlantaga.gov</a>
-          </p>
-          <p
-            style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;text-align: left;font-size: 10.5pt;line-height: .8 !important;">
-            <%= NPUs.planner %>, <strong>Planner</strong> - <a href="mailto:<%= NPUs.plannerE %>"
-                style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">
-                <%= NPUs.plannerE %>
-              </a>
+              <br>
+              Simit Dunlap, <strong>Vice Chair</strong> - <a href="mailto:simit@atlantaga.gov"
+                style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">simit@atlantaga.gov</a>
+              <br>
+              Leah LaRue, <strong>City of Atlanta, Director</strong> - 404.330.6070 or <a
+                href="mailto:llarue@atlantaga.gov"
+                style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">llarue@atlantaga.gov</a>
+              <br>
+              <%= NPUs.planner %>, <strong>Planner</strong> - <a href="mailto:<%= NPUs.plannerE %>"
+                  style="text-align: left;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;color: black;text-decoration: underline;">
+                  <%= NPUs.plannerE %>
+                </a>
           </p>
         </div>
         <div>
@@ -82,7 +72,7 @@
             <li>Adjournment</li>
           </ol>
         </div>
-        <table id="bylawsBox" style="border: 1px solid #333333; margin: 30px;display: block !important;">
+        <div id="bylawsBox" style="border: 1px solid #333333; margin: 30px;display: block;">
           <p
             style="text-align: center;font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;font-size: 12pt;margin-bottom: 0;">
             NPU-<%= NPUs.NPU %>
@@ -97,7 +87,7 @@
                   member
                   may petition for membership (Article III).
           </p>
-        </table>
+        </div>
         <div class="page-break" style="page-break-after: always;"></div>
         <div id="mattersForVoting">
           <p
@@ -109,7 +99,7 @@
             application and the NPU’s recommendations, along with Staff recommendations, are then considered by the
             appropriate board, association, commission, or office.</p>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: .5pt solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: #eee8aa;">
                 <th colspan="4"
@@ -162,7 +152,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="5"
@@ -222,7 +212,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
@@ -269,7 +259,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
@@ -325,7 +315,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
@@ -372,7 +362,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
@@ -420,7 +410,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: palegoldenrod;">
                 <th colspan="3"
@@ -480,7 +470,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: rgb(200, 200, 200) !important;">
                 <th colspan="3"
@@ -526,7 +516,7 @@
         </div>
         <div>
           <table
-            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+            style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
             <thead>
               <tr style="background-color: rgb(200, 200, 200) !important;">
                 <th colspan="3"
@@ -585,7 +575,7 @@
             <% if ( Application.type==='Notice' && (Application.NPU===NPUs.NPU ||
               Application.adjacent.includes(NPUs.NPU))) { %>
               <table
-                style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
+                style="margin: 0 auto 25px auto;break-inside: avoid;text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);width: 100%;">
                 <thead>
                   <tr style="background-color: rgb(200, 200, 200) !important;">
                     <th style="text-align: center;font-family: Arial;size: 10pt;border: 1px solid rgb(105, 105, 105);">
