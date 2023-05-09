@@ -50,6 +50,9 @@ router.get('/dl', async (req, res) => {
 async function writeDocx(html, fileName) {
   // remove whitespace from html
   htmlString = html.toString().replace(/[\s]{2,}/g, ' ');
+  // remove head and header sections
+  htmlString = htmlString.replace(/<link>[\s\S]*<\/link>/g, '');
+  htmlString = htmlString.replace(/<header>[\s\S]*<\/header>/g, '');
   // set document options margins to .5 inches
   const documentOptions = {
     margins: {
