@@ -37,13 +37,17 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride('_method'));
 app.use(cookieSession({
   secret: cookie_secret,
-  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  maxAge: 24 * 60 * 60 * 1000 * 7, // 7 days
   keys: [cookie_secret]
 }));
 
 app.get('/', async (req, res) => {
   res.render('index', { req: req });
   // console.log(req.session);
+});
+
+app.get('/403', async (req, res) => {
+  res.render('403');
 });
 
 app.get('/logout', (req, res) => {
@@ -84,8 +88,6 @@ async function getAccessToken(code) {
   }).then((data) => {
     return data;
   });
-  // console.log(body);
-  // console.log('getAccessTokenResults', JSON.stringify(res));
   return res.access_token;
 };
 
@@ -98,7 +100,6 @@ async function getGoogleUser(access_token) {
   }).catch((err) => {
     console.log('getGoogleUser', err);
   });
-  // console.log('getGoogleUser results:', res);
   return res;
 };
 
@@ -106,6 +107,15 @@ app.get('/login/google/callback', async (req, res) => {
   const code = req.query.code;
   const token = await getAccessToken(code);
   const googleUserData = await getGoogleUser(token);
+  if (googleUserData.email !== 'kipdunlapcoa@gmail.com') {
+    console.log(googleUserData.email + ' attempted to log in');
+    res.clearCookie('session');
+    res.clearCookie('session.sig');
+    req.session = null;
+    req.cookies = null;
+    res.status(403).render('403');
+    return;
+  }
   if (googleUserData) {
     req.session.user = googleUserData.id;
     req.session.email = googleUserData.email;
