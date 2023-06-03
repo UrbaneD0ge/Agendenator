@@ -3,10 +3,6 @@
 
 
     <h1><a class='navbar-brand' href='/'>AGENDENATOR</a></h1>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse justify-content-around" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto m-2">
         <li class="nav-item m-1">
@@ -83,29 +79,44 @@
             <button type="submit" formaction="/agenda" class='btn btn-sm btn-success'>Agenda</button>
             <button type="submit" formaction="/agenda/dl" class='btn btn-sm btn-dark'>Download</button>
       </form>
+    </div>
+    <div class='navbar-nav m-2'>
       <ul class="navbar-nav m-2">
         <% if (req.session.image) { %>
           <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
+          <dialog id='userInfo'>
+            <p>You are logged in as <%= req.session.email %>.</p>
+            <button class="btn btn-sm btn-dark">
+              <a class='btn-dark' href="/logout">Log Out</a>
+            </button>
+            <button onclick='closeModal()' class="btn btn-sm btn-outline-dark" autofocus>Close</button>
+          </dialog>
           <% } %>
-            <% if (req.session.user) { %>
+            <% if (!req.session.user) { %>
               <li class="nav-item m-1">
-                <a class='btn btn-sm btn-dark' href="/logout">Log Out</a>
+                <a class='btn btn-sm btn-outline-dark' href="/login/google">Log In</a>
               </li>
-              <% } else { %>
-                <li class="nav-item m-1">
-                  <a class='btn btn-sm btn-outline-dark' href="/login/google">Log In</a>
-                </li>
-                <% } %>
+              <% } %>
       </ul>
-      <script>
-        if (document.getElementById('profileImg')) {
-          document.getElementById('profileImg').addEventListener('click', () => {
-            alert('You are logged in as <%= req.session.user %>.'
-              + '\nYour email is <%= req.session.email %>.'
-              + '\nYour image is <%= req.session.image %>.')
-          })
-        };
-      </script>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
+    <script>
+      let dialog = document.getElementById('userInfo')
+      if (document.getElementById('profileImg')) {
+        document.getElementById('profileImg').addEventListener('click', () => {
+          // alert('You are logged in as <%= req.session.user %>.'
+          //   + '\nYour email is <%= req.session.email %>.'
+          //   + '\nYour image is <%= req.session.image %>.')
+          dialog.showModal()
+        })
+      };
+
+      closeModal = () => {
+        dialog.close()
+      }
+    </script>
   </div>
 </nav>

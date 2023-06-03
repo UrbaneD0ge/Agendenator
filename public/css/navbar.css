@@ -10,6 +10,10 @@
 }
 
 /* NavBar */
+dialog {
+  border-radius: 10px;
+}
+
 nav {
   filter: drop-shadow(0px 6px 5px #5f5f5f);
   font-family: 'GT-Eesti-Regular', sans-serif;
@@ -24,8 +28,8 @@ nav h1 {
 }
 
 #profileImg {
-  width: 40px;
-  clip-path: circle(40% at 50% 50%);
+  width: 30px;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .navbar-brand {
