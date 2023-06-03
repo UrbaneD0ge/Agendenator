@@ -100,6 +100,8 @@ table, th, td {
 
 thead > tr:first-child {
   background-color: palegoldenrod;
+  position: sticky;
+  top: 56px;
 }
 
 .rc > tr:first-child {
