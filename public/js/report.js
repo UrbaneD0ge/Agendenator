@@ -1,6 +1,7 @@
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
-// let suffix = document.getElementById('itmType').value;
+let modal = document.getElementById('dialog');
+let message = document.getElementById('message');
 
 // function to store the values of the form in local storage
 function storeForm() {
@@ -183,14 +184,15 @@ function preFill() {
 submit.addEventListener('click', (e) => {
   e.preventDefault();
 
-  // // Add Item form
+  // Add Item form
   let itmType = document.querySelector('#itmType').selectedOptions[0].value;
   let applName = document.querySelector('#applName').value.trim();
   let disposal = document.querySelector('#disposal').value || '';
   let comments = document.querySelector('#conditions').value.trim() || '';
 
   if (itmType === 'Type' || applName === '') {
-    alert('Please enter an item type and applicant name');
+    message.innerText = 'Please enter an item type and applicant name';
+    modal.showModal();
     return;
   }
 
@@ -363,7 +365,8 @@ document.querySelector('#print').addEventListener('click', () => {
   let dispCell = document.querySelectorAll('.disp');
   // if datepicker is empty, return
   if (field.value === '') {
-    alert('Please select a date');
+    message.innerText = 'Please select a date';
+    modal.showModal();
     return;
   }
   // if any dispCell is "PENDING", cancel print and highlight cell
@@ -377,7 +380,8 @@ document.querySelector('#print').addEventListener('click', () => {
   });
   // check if any disp cell contains "PENDING", if so, cancel printing
   if (document.querySelectorAll('.highlight').length > 0) {
-    alert('Please select a disposition for all items');
+    message.innerText = 'Please select a disposition for all items';
+    modal.showModal();
     return;
   } else {
     window.print();
