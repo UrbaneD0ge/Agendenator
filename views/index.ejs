@@ -24,7 +24,36 @@
     <%- include('_nav') %>
   </header>
   <div class='container tablePage'>
+    <!-- survey123 iFrame -->
+    <style>
+      .embed-container {
+        position: relative;
+        height: 100%;
+        padding-bottom: 660px;
+        max-width: 100%;
+      }
 
+      .embed-container iframe,
+      .embed-container object,
+      .embed-container iframe {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        height: 560px;
+      }
+
+      small {
+        position: absolute;
+        z-index: 40;
+        bottom: 0;
+        margin-bottom: -15px;
+      }
+    </style>
+    <div class="embed-container"><iframe name="survey123webform" width="400" height="400" frameborder="0"
+        marginheight="0" marginwidth="0" title="2023 Attendance"
+        src="//survey123.arcgis.com/share/5de8d9fd105f443b8f30cc6601bd0ab5?hide=navbar,footer,theme"
+        allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div>
+    <script>var survey123webform = document.getElementsByName('survey123webform')[0]; window.addEventListener("message", e => { if (e.data) { var t = JSON.parse(e.data);["survey123:webform:formLoaded", "survey123:onFormLoaded"].includes(t.event) && t.contentHeight && (survey123webform.parentNode.style.height = t.contentHeight + "px") && (survey123webform.parentNode.style["padding-bottom"] = "unset") } });</script>
     <!-- gCal iFrame -->
     <div class='container'>
       <div class='calendar'>
