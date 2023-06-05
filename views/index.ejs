@@ -37,9 +37,9 @@
       .embed-container object,
       .embed-container iframe {
         position: absolute;
-        top: 10%;
+        top: 6%;
         left: 0;
-        height: 560px;
+        /* height: 560px; */
       }
 
       small {
@@ -49,20 +49,24 @@
         margin-bottom: -15px;
       }
     </style>
-    <div class="embed-container"><iframe name="survey123webform" width="400" height="400" frameborder="0"
-        marginheight="0" marginwidth="0" title="2023 Attendance"
+    <div class="embed-container container calendar">
+      <iframe name="survey123webform" width="auto" height="560" frameborder="0" marginheight="0" marginwidth="0"
+        title="2023 Attendance"
         src="//survey123.arcgis.com/share/5de8d9fd105f443b8f30cc6601bd0ab5?hide=navbar,footer,theme"
-        allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div>
+        allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com">
+      </iframe>
+    </div>
     <script>var survey123webform = document.getElementsByName('survey123webform')[0]; window.addEventListener("message", e => { if (e.data) { var t = JSON.parse(e.data);["survey123:webform:formLoaded", "survey123:onFormLoaded"].includes(t.event) && t.contentHeight && (survey123webform.parentNode.style.height = t.contentHeight + "px") && (survey123webform.parentNode.style["padding-bottom"] = "unset") } });</script>
+
     <!-- gCal iFrame -->
     <div class='container'>
       <div class='calendar'>
         <iframe class='container'
           src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=1&showNav=1&showDate=1&showTabs=0&showCalendars=0&title=City%20of%20Atlanta%20NPU%20Meetings&showPrint=0&src=bzZtY3RoaHBoanU0OGlrc2hlOTVudWptdThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688"
-          style="border:solid 2px #777" height="600" frameborder="0" scrolling="no"></iframe>
+          style="border:solid 2px #777" height="600" frameborder="0" scrolling="no">
+        </iframe>
       </div>
     </div>
-  </div>
   </div>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
