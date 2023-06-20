@@ -54,8 +54,8 @@ Access Code: 856 7471 3054#`
         chair = `Brinkley Dickerson`
         chairHon = `Mr. Dickerson`
         chairE = `wbdnatl@gmail.com`
-        planner = `Joel Carnow`
-        plannerE = `jdcarnow@atlantaga.gov`
+        planner = `William Vining`
+        plannerE = `wivining@atlantaga.gov`
         note = ''
         zMail = 'npuatlanta@atlantaga.gov'
         zCred = 'Npuatlanta2020!'
@@ -155,8 +155,8 @@ Access Code: 935 8093 0222#`
         chair = `Andrew Anderson`
         chairHon = `Mr. Anderson`
         chairE = `andrewnanderson2012@icloud.com`
-        planner = `Francis Rozier`
-        plannerE = `franrozier@atlantaga.gov`
+        planner = `Daniel Vasquez`
+        plannerE = `dvasquez@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -241,8 +241,8 @@ Access Code: 961 2883 9632#`
         chair = `Shade'Y. Jones`
         chairHon = `Ms. Jones`
         chairE = `chair@npulatlanta.org`
-        planner = `Lenise Lyons`
-        plannerE = `llyons@atlantaga.gov`
+        planner = `TBD`
+        plannerE = `TBD`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -319,11 +319,11 @@ Dial In: +1 646 558 8656
 Access Code: 985 5727 1692#`
         zURL = `https://us06web.zoom.us/meeting/register/tJwocu6qqTosE9bW-XHCnSGMWaOAnKCKqrkS`
         time = `6:30PM`
-        chair = `Donald Jones`
-        chairHon = `Mr. Jones`
-        chairE = `donaldbrooksjones@gmail.com`
-        planner = `Inyo Cue`
-        plannerE = `icue@atlantaga.gov`
+        chair = `Darrell Groves`
+        chairHon = `Mr. Groves`
+        chairE = `grovesdarrell@outlook.com`
+        planner = `Francis Rozier`
+        plannerE = `franrozier@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom3@atlantaga.gov'
         zCred = 'Wehostmeetings3'
@@ -359,10 +359,10 @@ VICARS Community Center
         chair = `Nick Hess`
         chairHon = `Mr. Hess`
         chairE = `chair@npu-s.org`
-        planner = `Chris McIntosh`
-        plannerE = `cmintosh@atlantaga.gov`
+        planner = `Carlos Garcia`
+        plannerE = `cmgarcia@atlantaga.gov`
         note = ''
-        zMail = 'npuzoomroom7@cityofatlanta.onmicrosoft.com'
+        zMail = 'npuzoomroom7@atlantaga.gov'
         zCred = 'Wehostmeetings7'
         break;
       case 'T':
@@ -405,8 +405,8 @@ Access Code: 992 1132 0112#`
         chair = `Stephanie Flowers`
         chairHon = `Ms. Flowers`
         chairE = `stephanieflowers@bellsouth.net`
-        planner = `Joel Carnow`
-        plannerE = `jdcarnow@atlantaga.gov`
+        planner = `Nirav Gandhi`
+        plannerE = `ngandhi@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom4@atlantaga.gov'
         zCred = 'Wehostmeetings44'
@@ -421,8 +421,8 @@ Access Code: 916 2580 5725#`
         chair = `Kevin Friend`
         chairHon = `Mr. Friend`
         chairE = `friend.npuw.chair@gmail.com;`
-        planner = `Daniel Vasquez`
-        plannerE = `dvasquez@atlantaga.gov`
+        planner = `Tamaria Letang`
+        plannerE = `tletang@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom4@atlantaga.gov'
         zCred = 'Wehostmeetings44'
@@ -437,8 +437,8 @@ Access Code: 940 6017 9815#`
         chair = `Sagirah Jones`
         chairHon = `Ms. Jones`
         chairE = `chair@npu-x.com`
-        planner = `Francis Rozier`
-        plannerE = `franrozier@atlantaga.gov`
+        planner = `Inyo Cue`
+        plannerE = `icue@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom3@atlantaga.gov'
         zCred = 'Wehostmeetings3'
