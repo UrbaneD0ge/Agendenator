@@ -7,6 +7,7 @@ const NPUrouter = require('./routes/NPUs');
 const methodOverride = require('method-override');
 const cookieSession = require('cookie-session');
 const docusign = require('docusign-esign');
+const path = require('path');
 
 require('dotenv').config()
 
@@ -43,7 +44,25 @@ app.use(cookieSession({
 }));
 
 app.get('/ds/callback', async (req, res) => {
-  res.send('Callback');
+  // get code from redirect uri
+  const code = req.query.code;
+
+  // get user info from access token
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Bearer " + code);
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  let user = fetch("https://account-d.docusign.com/oauth/userinfo", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+  res.send(user);
 });
 
 
