@@ -42,6 +42,11 @@ app.use(cookieSession({
   keys: [cookie_secret]
 }));
 
+app.get('/ds/callback', async (req, res) => {
+  res.send('Callback');
+});
+
+
 app.get('/', async (req, res) => {
   res.render('index', { req: req });
   // console.log(req.session);
