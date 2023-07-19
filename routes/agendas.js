@@ -77,6 +77,10 @@ async function writeDocx(html, fileName) {
   });
 };
 
+// router.get('/docuLogin', async (req, res) => {
+
+// });
+
 router.get('/roster', async (req, res) => {
   // find where NPU or adjacent matches request parameters and month
   const applications = await Application.find({

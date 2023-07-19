@@ -46,23 +46,47 @@ app.use(cookieSession({
 app.get('/ds/callback', async (req, res) => {
   // get code from redirect uri
   const code = req.query.code;
+  // console.log(code);
+  let authCode = process.env.DS_INTEGRATION_KEY + ':' + process.env.DS_SECRET_KEY;
+  authCode = Buffer.from(authCode).toString('base64');
 
   // get user info from access token
   var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer " + code);
+  myHeaders.append("Authorization", "Basic " + authCode);
+
+  var urlencoded = new URLSearchParams();
+  urlencoded.append("grant_type", "authorization_code");
+  urlencoded.append("code", code);
 
   var requestOptions = {
-    method: 'GET',
+    method: 'POST',
     headers: myHeaders,
+    body: urlencoded,
     redirect: 'follow'
   };
 
-  let user = fetch("https://account-d.docusign.com/oauth/userinfo", requestOptions)
+  let token = fetch("https://account-d.docusign.com/oauth/token", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => JSON.parse(result))
     .catch(error => console.log('error', error));
 
-  res.send(user);
+  // save token to session
+  req.session.access_token = token.access_token;
+  req.session.refresh_token = token.refresh_token;
+  req.session.token_type = token.token_type;
+  req.session.expires_in = token.expires_in;
+  req.session.id_token = token.id_token;
+  req.session.scope = token.scope;
+  req.session.token_type = token.token_type;
+  req.session.expires_in = token.expires_in;
+  req.session.id_token = token.id_token;
+  req.session.scope = token.scope;
+  req.session.token_type = token.token_type;
+  req.session.expires_in = token.expires_in;
+  req.session.id_token = token.id_token;
+  req.session.scope = token.scope;
+
+  res.status(200).send('success, you may close this window');
 });
 
 
