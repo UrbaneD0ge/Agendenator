@@ -170,11 +170,13 @@
     <div class='d-flex justify-content-around'>
       <!-- <button id='save' class='m-3 flex-grow-1'>Save</button> -->
       <button id='print' class='m-5 flex-grow-1'>Print</button>
-      <a target='_blank' rel='noopener noreferrer'
-        href="http://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=3b7cec5e-e9c3-417c-80bc-348743e8db81&redirect_uri=http://localhost:3000/ds/callback">
-        <button id='docusign' class='m-5 flex-grow-1 btn-outline-primary'>
-          Login to DocuSign</button>
-      </a>
+      <% if (!req.session.isPopulated) { %>
+        <a target='_blank' rel='noopener noreferrer'
+          href="http://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=3b7cec5e-e9c3-417c-80bc-348743e8db81&redirect_uri=http://localhost:3000/ds/callback">
+          <button id='docusign' class='m-5 flex-grow-1 btn-outline-primary'>
+            Login to DocuSign</button>
+        </a>
+      <% } %>
     </div>
     <div id='signature' class='noBreak' style='display: none;'>
       <div class='row'>

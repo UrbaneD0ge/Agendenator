@@ -71,22 +71,22 @@ app.get('/ds/callback', async (req, res) => {
     .catch(error => console.log('error', error));
 
   // save token to session
-  req.session.access_token = token.access_token;
-  req.session.refresh_token = token.refresh_token;
-  req.session.token_type = token.token_type;
-  req.session.expires_in = token.expires_in;
-  req.session.id_token = token.id_token;
-  req.session.scope = token.scope;
-  req.session.token_type = token.token_type;
-  req.session.expires_in = token.expires_in;
-  req.session.id_token = token.id_token;
-  req.session.scope = token.scope;
-  req.session.token_type = token.token_type;
-  req.session.expires_in = token.expires_in;
-  req.session.id_token = token.id_token;
-  req.session.scope = token.scope;
+  req.session.DS_access_token = token.access_token;
+  req.session.DS_refresh_token = token.refresh_token;
+  req.session.DS_token_type = token.token_type;
+  req.session.DS_expires_in = token.expires_in;
+  req.session.DS_id_token = token.id_token;
+  req.session.DS_scope = token.scope;
+  req.session.DS_token_type = token.token_type;
+  req.session.DS_expires_in = token.expires_in;
+  req.session.DS_id_token = token.id_token;
+  req.session.DS_scope = token.scope;
+  req.session.DS_token_type = token.token_type;
+  req.session.DS_expires_in = token.expires_in;
+  req.session.DS_id_token = token.id_token;
+  req.session.DS_scope = token.scope;
 
-  res.status(200).send('success, you may close this window');
+  res.render('200');
 });
 
 
