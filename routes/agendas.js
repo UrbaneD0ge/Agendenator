@@ -95,6 +95,7 @@ router.get('/roster', async (req, res) => {
   res.render('agendas/roster', { applications: applications, NPUs: NPUs, req: req });
 });
 
+// Voting Report Page
 router.get('/report', async (req, res) => {
   // authenticate user
   if (req.session.isPopulated) {

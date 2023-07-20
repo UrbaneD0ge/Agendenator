@@ -19,7 +19,7 @@ function storeForm() {
   };
   // save data to local storage
   localStorage.setItem('data', JSON.stringify(data));
-  console.log(data);
+  // console.log(data);
 }
 
 // on load, check if there is data in local storage and if so, pre-fill the form
@@ -280,9 +280,9 @@ document.querySelector('#table').addEventListener('click', (e) => {
     e.target.firstChild.focus();
   }
   // on blur, change selected value to td text
-  e.target.addEventListener('blur', (e) => {
+  e.target.addEventListener('focusout', (e) => {
     if (e.target.tagName === 'SELECT') {
-      e.target.parentElement.classList.remove('highlight');
+      e.target.parentElement?.classList.remove('highlight');
       e.target.parentElement.innerText = e.target.value;
     }
   });
@@ -359,7 +359,30 @@ window.addEventListener('beforeprint', () => {
   if (document.querySelector('#demo') === !null) {
     document.getElementById('demo').style.display = 'none';
   };
+
+  // Get HTML of current page for signing
+  let html = document.querySelector('html');
+  console.log(html);
+
+
 });
+
+// Make Docusign Envelope
+function makeEnvelope(args) {
+  // Create the envelope definition
+  let envelopeDefinition = new DocuSign.EnvelopeDefinition();
+
+  // Set the envelope subject
+  envelopeDefinition.setSubject('Planner’s Voting Report');
+
+  // Set the envelope recipients
+  envelopeDefinition.setRecipients([{
+    email: args.email,
+    name: document.getElementById('chair').value
+  }]);
+
+  // Set the envelope sender
+}
 
 // on print button click, print page
 document.querySelector('#print').addEventListener('click', () => {
@@ -396,6 +419,7 @@ window.addEventListener('afterprint', () => {
   document.getElementById('report').style.display = 'block';
   document.getElementById('instructions').style.display = 'block';
   document.getElementById('print').style.display = 'block';
+  document.getElementById('docusign').style.display = 'block';
   document.getElementById('report').style.display = 'block';
   document.querySelectorAll('.btn-close').forEach(btn => {
     btn.style.display = 'inline';
