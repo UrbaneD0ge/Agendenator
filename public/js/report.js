@@ -343,6 +343,7 @@ window.addEventListener('beforeprint', () => {
   // Hide instructions, print btn, and delete item buttons for printing
   document.getElementById('instructions').style.display = 'none';
   document.getElementById('print').style.display = 'none';
+  document.getElementById('docusign').style.display = 'none';
   document.getElementById('report').style.display = 'none';
   document.getElementById('signature').style.display = 'block';
   document.querySelectorAll('.btn-close').forEach(btn => {
@@ -441,3 +442,7 @@ function patternMatch({
     return ""
   }
 };
+
+// Place user agent information into "UA" span element
+let ua = navigator.userAgent;
+document.querySelector('#UA').innerText = `User Agent: ${ua}`;
