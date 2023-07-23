@@ -83,9 +83,9 @@ tr :first-child {
   text-align: left;
 }
 
-td > button {
-  margin-right: 2vw;
-}
+/* td > button {
+  margin-right: 1vw;
+} */
 
 tbody > tr :nth-child(2) {
   width: 50%;
