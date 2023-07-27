@@ -290,8 +290,8 @@ Access Code: 812 4045 1335#`
         chair = `Jeanne Tropper`
         chairHon = `Ms. Tropper`
         chairE = `chair@atlantanpuo.org`
-        planner = `Racquel Jackson`
-        plannerE = `rtjackson@AtlantaGa.gov`
+        planner = `TBD`
+        plannerE = `TBD`
         note = ''
         zMail = 'npuzoomroom5@atlantaga.gov'
         zCred = 'Wehostmeetings5'
@@ -338,8 +338,8 @@ Access Code: 886 2169 6544#`
         chair = `Donovan A. Dodds`
         chairHon = `Mr. Dodds`
         chairE = `npur.exc@gmail.com`
-        planner = `Tony McNeal`
-        plannerE = `mmcneal@atlantaga.gov`
+        planner = `Carolina Rodriguez`
+        plannerE = `crodriguez@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -456,7 +456,7 @@ Access Code:  885 5312 4257#`
         chairE = `secretarynpuy@gmail.com`
         planner = `Elizabeth Clappin`
         plannerE = `eaclappin@atlantaga.gov`
-        note = 'NPU-Y Will meet full-virtual during the months of February and March of 2023.'
+        note = ''
         zMail = 'npuzoomroom5@atlantaga.gov'
         zCred = 'Wehostmeetings5'
         break;
@@ -517,7 +517,7 @@ Access Code: 929 8209 4616#`
   };
   if ($('#final')[0].checked) {
     $('#textZone').append('<div class="y-2 calendar col-12"><h2><a href="mailto:NPU-' + title + '?subject=' + month + ' Final meeting agenda&cc=dvasquez@atlantaga.gov; kdunlap@atlantaga.gov; snjenkins@atlantaga.gov&body=Good day ' + meeting.chairHon + ' and NPU-' + title + ',%0D%0DPlease see the attached Final version of the NPU-' + title + ' ' + month + ' meeting agenda.%0D%0DEffective January 1st, 2023, Daniel will be taking over the agenda-creation process.%0D%0DThank you,">FINAL</a></h2>'
-      + '<p onclick="copy(this)"><strong>' + month + ' Final meeting agenda</strong><br>Good day ' + meeting.chairHon + ' and NPU-' + title + ',<br><br>Please see the attached Final version of the NPU-' + title + ' ' + month + ' meeting agenda.<br><br><strong>Effective January 1st, 2023, Daniel will be taking over the agenda-creation process.</strong><br><br>Thank you,</p></div>')
+      + '<p onclick="copy(this)"><strong>' + month + ' Final meeting agenda</strong><br>Good day ' + meeting.chairHon + ' and NPU-' + title + ',<br><br>Please see the attached Final version of the NPU-' + title + ' ' + month + ' meeting agenda.<br><br>Thank you,</p></div>')
     // console.log('Final');
   };
   if ($('#distro')[0].checked) {
@@ -547,7 +547,7 @@ Access Code: 929 8209 4616#`
     // console.log('ZoomCreds');
   }
   if ($('#attendance')[0].checked) {
-    $('#textZone').append('<div class="y-2 calendar col-12"><h2><a href="mailto:' + title + ' chair;' + (title === 'W' ? ' Leslie Ramirez <leslie@houseoframirez.com>' : '') + '?subject=NPU-' + title + ' ' + month + ' GB Attendance&cc= kdunlap@atlantaga.gov; dvasquez@atlantaga.gov;&body=Good day ' + meeting.chairHon + ',%0D%0DPlease see the attached NPU-' + title + ' ' + month + ' GB attendance report for your records.%0D%0DThank you,">Attendance</a></h2>'
+    $('#textZone').append('<div class="y-2 calendar col-12"><h2><a href="mailto:' + title + ' chair;' + '?subject=NPU-' + title + ' ' + month + ' GB Attendance&cc= kdunlap@atlantaga.gov; dvasquez@atlantaga.gov;&body=Good day ' + meeting.chairHon + ',%0D%0DPlease see the attached NPU-' + title + ' ' + month + ' GB attendance report for your records.%0D%0DThank you,">Attendance</a></h2>'
       + '<p onclick="copy(this)"><strong>NPU-' + title + ' ' + month + ' GB Attendance</strong><br>Good day ' + meeting.chairHon + ',<br><br>Please see the attached NPU-' + title + ' ' + month + ' GB attendance report for your records.<br><br>Thank you,</p></div>')
   }
 });
