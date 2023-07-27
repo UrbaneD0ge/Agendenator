@@ -28,6 +28,11 @@ select, input, button, textarea {
   border-radius: 5px;
 }
 
+.draggable.dragging {
+  opacity: .5;
+  cursor: move;
+}
+
 .highlight {
   background-color: #ff424281;
   padding: 1rem;

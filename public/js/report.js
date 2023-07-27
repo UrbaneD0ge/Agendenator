@@ -217,8 +217,10 @@ submit.addEventListener('click', (e) => {
   commentsCell.textContent = comments;
   commentsCell.classList.add('comments');
 
-  // wrap each new item in a <tbody>
+  // wrap each new item in a <tbody> that is draggable
   let tbody = document.createElement('tbody');
+  tbody.setAttribute('draggable', 'true');
+  tbody.setAttribute('class', 'draggable');
   tbody.append(row);
 
   // append new tbody to table
@@ -441,3 +443,43 @@ function patternMatch({
     return ""
   }
 };
+
+// make tbody rows draggable
+const draggables = document.querySelectorAll('.draggable');
+const container = document.getElementById('table');
+
+draggables.forEach(draggable => {
+  draggable.addEventListener('dragstart', () => {
+    draggable.classList.add('dragging');
+  });
+
+  draggable.addEventListener('dragend', () => {
+    draggable.classList.remove('dragging');
+  });
+});
+
+container.addEventListener('dragover', e => {
+  e.preventDefault();
+  const afterElement = getDragAfterElement(container, e.clientY);
+  // console.log(afterElement)
+  const draggable = document.querySelector('.dragging')
+  if (afterElement == null) {
+    container.appendChild(draggable);
+  } else {
+    container.insertBefore(draggable, afterElement);
+  }
+})
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+
+  return draggableElements.reduce((closest, child) => {
+    const box = child.getBoundingClientRect()
+    const offset = y - box.top - box.height / 2
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child }
+    } else {
+      return closest
+    }
+  }, { offset: Number.NEGATIVE_INFINITY }).element
+}
