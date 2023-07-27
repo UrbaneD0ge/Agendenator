@@ -16,6 +16,8 @@ const cookie_secret = process.env.cookie_secret
 
 const port = process.env.PORT || 3000;
 
+const authorizedUsers = process.env.authorizedUsers
+
 // get callback uri from environment
 function getCallbackURI() {
   let callbackURI;
@@ -107,7 +109,7 @@ app.get('/login/google/callback', async (req, res) => {
   const code = req.query.code;
   const token = await getAccessToken(code);
   const googleUserData = await getGoogleUser(token);
-  if (googleUserData.email !== 'kipdunlapcoa@gmail.com') {
+  if (!authorizedUsers.includes(googleUserData.email)) {
     console.log(googleUserData.email + ' attempted to log in');
     res.clearCookie('session');
     res.clearCookie('session.sig');
