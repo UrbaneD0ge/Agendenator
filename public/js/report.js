@@ -284,7 +284,7 @@ document.querySelector('#table').addEventListener('click', (e) => {
   // on blur, change selected value to td text
   e.target.addEventListener('focusout', (e) => {
     if (e.target.tagName === 'SELECT') {
-      e.target.parentElement.classList.remove('highlight');
+      e.target.parentElement?.classList.remove('highlight');
       e.target.parentElement.innerText = e.target.value;
     }
   });
