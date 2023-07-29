@@ -204,8 +204,10 @@ submit.addEventListener('click', (e) => {
   let applNameCell = document.createElement('td');
   let disposalCell = document.createElement('td');
   let commentsCell = document.createElement('td');
+  let moveHandle = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grip-vertical" viewBox="0 0 16 16"><path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>';
   // add text to cells
   itmTypeCell.innerText = itmType;
+  itmTypeCell.innerHTML += (moveHandle);
   itmTypeCell.prepend(deleteButton);
   deleteButton.setAttribute('type', 'button');
   deleteButton.setAttribute('class', 'btn-close my-1');
@@ -464,9 +466,9 @@ container.addEventListener('dragover', e => {
   // console.log(afterElement)
   const draggable = document.querySelector('.dragging')
   if (afterElement == null) {
-    container.appendChild(draggable);
+    container?.appendChild(draggable);
   } else {
-    container.insertBefore(draggable, afterElement);
+    container?.insertBefore(draggable, afterElement);
   }
 })
 

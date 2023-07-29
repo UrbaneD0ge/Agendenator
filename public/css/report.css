@@ -28,9 +28,13 @@ select, input, button, textarea {
   border-radius: 5px;
 }
 
+.bi {
+  cursor: grab;
+}
+
 .draggable.dragging {
   opacity: .5;
-  cursor: move;
+  cursor: grabbing;
 }
 
 .highlight {
@@ -92,9 +96,9 @@ td > button {
   margin-right: 2vw;
 }
 
-tbody > tr :nth-child(2) {
+/* tbody > tr :nth-child(2) {
   width: 50%;
-}
+} */
 
 tr > td:nth-child(3) {
   text-align: end;
