@@ -27,7 +27,7 @@
 
   <body class='container'>
     <!-- modal -->
-    <dialog class='text-center' id='dialog' style='border-radius: 10px;'>
+    <dialog class='text-center' id='modal' style='border-radius: 10px;'>
       <span id='message'></span>
       <br>
       <button class='btn btn-outline' onclick=modal.close()>OK</button>
@@ -63,6 +63,7 @@
             <option value="Y">Y</option>
             <option value="Z">Z</option>
           </select>
+          <button id='clear' class='mb-1' type='reset'>Clear Items</button>
           <br>
           <label class='pHead' for="chair">Chair:</label>
           <input class='pHead' type="text" name="chair" id="chair">
