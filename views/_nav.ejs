@@ -82,21 +82,25 @@
     </div>
     <div class='navbar-nav m-2'>
       <ul class="navbar-nav m-2">
-        <% if (req.session.image) { %>
-          <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
-          <dialog id='userInfo'>
-            <p>You are logged in as <%= req.session.email %>.</p>
-            <button class="btn btn-sm btn-dark">
-              <a class='btn-dark' href="/logout">Log Out</a>
-            </button>
-            <button onclick='closeModal()' class="btn btn-sm btn-outline-dark" autofocus>Close</button>
-          </dialog>
+        <% if (!req.session.DS_access_token) { %>
+          <div class='btn-outline-primary m-2'>DS</div>
           <% } %>
-            <% if (!req.session.user) { %>
-              <li class="nav-item m-1">
-                <a class='btn btn-sm btn-outline-dark' href="/login/google">Log In</a>
-              </li>
+
+            <% if (req.session.image) { %>
+              <img id="profileImg" src="<%= req.session.image %>" alt="profile icon" sizes='30w'>
+              <dialog id='userInfo'>
+                <p>You are logged in as <%= req.session.email %>.</p>
+                <button class="btn btn-sm btn-dark">
+                  <a class='btn-dark' href="/logout">Log Out</a>
+                </button>
+                <button onclick='closeModal()' class="btn btn-sm btn-outline-dark" autofocus>Close</button>
+              </dialog>
               <% } %>
+                <% if (!req.session.user) { %>
+                  <li class="nav-item m-1">
+                    <a class='btn btn-sm btn-outline-dark' href="/login/google">Log In</a>
+                  </li>
+                  <% } %>
       </ul>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
