@@ -444,7 +444,7 @@ Access Code: 940 6017 9815#`
         zCred = 'Wehostmeetings3'
         break;
       case 'Y':
-        isHybrid = true;
+        isHybrid = false;
         meet = `Online:
 Meeting ID:  885 5312 4257
 Dial In: +1 646 558 8656
