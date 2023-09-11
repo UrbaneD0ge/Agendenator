@@ -46,10 +46,10 @@ $('#submit').on('click', function OnClickEvent(event) {
     switch (meetDetailProto) {
       case 'A':
         isHybrid = false;
-        meet = `Meeting ID: 856 7471 3054
+        meet = `Meeting ID: 842 6707 3478
 Dial In: +1 646 558 8656
-Access Code: 856 7471 3054#`
-        zURL = `https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
+Access Code: 842 6707 3478#`
+        zURL = `https://us06web.zoom.us/meeting/register/tZAvce6oqTguHdzWCdDiyT-STa6XehkFeH9W`
         time = `7:00PM`
         chair = `Brinkley Dickerson`
         chairHon = `Mr. Dickerson`
@@ -57,8 +57,8 @@ Access Code: 856 7471 3054#`
         planner = `William Vining`
         plannerE = `wivining@atlantaga.gov`
         note = ''
-        zMail = 'npuatlanta@atlantaga.gov'
-        zCred = 'Npuatlanta2020!'
+        zMail = 'npuzoomroom1@atlantaga.gov'
+        zCred = 'Wehostmeetings1'
         break;
       case 'B':
         isHybrid = false;
@@ -123,8 +123,8 @@ Dial-In: +1 929-436-2866`
         chair = `Courtney Smith`
         chairHon = `Ms. Smith`
         chairE = `chair@npueatlanta.org`
-        planner = `Nate Hoelzel`
-        plannerE = `nhoelzel@atlantaga.gov`
+        planner = `Katherine Hernandez`
+        plannerE = `khernandez@atlantaga.gov`
         note = ''
         zMail = '-'
         zCred = '-'
@@ -241,8 +241,8 @@ Access Code: 961 2883 9632#`
         chair = `Shade'Y. Jones`
         chairHon = `Ms. Jones`
         chairE = `chair@npulatlanta.org`
-        planner = `TBD`
-        plannerE = `TBD`
+        planner = `Daniel Vasquez`
+        plannerE = `dvasquez@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -274,8 +274,8 @@ Password: euclid`
         chair = `Amy Stout`
         chairHon = `Ms. Stout`
         chairE = `npunchair@gmail.com`
-        planner = `Daniel Vasquez`
-        plannerE = `dvasquez@atlantaga.gov`
+        planner = `Tamaria Letang`
+        plannerE = `tletang@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom2@atlantaga.gov'
         zCred = 'Wehostmeetings2'
@@ -290,8 +290,8 @@ Access Code: 812 4045 1335#`
         chair = `Jeanne Tropper`
         chairHon = `Ms. Tropper`
         chairE = `chair@atlantanpuo.org`
-        planner = `TBD`
-        plannerE = `TBD`
+        planner = `Selena Xayavong`
+        plannerE = `sxayavong@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom5@atlantaga.gov'
         zCred = 'Wehostmeetings5'
@@ -329,10 +329,14 @@ Access Code: 985 5727 1692#`
         zCred = 'Wehostmeetings3'
         break;
       case 'R':
-        isHybrid = false;
+        isHybrid = true;
         meet = `Meeting ID: 886 2169 6544
 Dial In: +1 646 558 8656
-Access Code: 886 2169 6544#`
+Access Code: 886 2169 6544#
+
+And in person:
+1620 Delowe Dr. SW,
+Atlanta, 30311`
         zURL = `https://us06web.zoom.us/meeting/register/tZwrdeiupz0vHtCSIPdEIa-N6avVbaNnGXlb`
         time = `7:00PM`
         chair = `Donovan A. Dodds`
@@ -421,8 +425,8 @@ Access Code: 916 2580 5725#`
         chair = `Kevin Friend`
         chairHon = `Mr. Friend`
         chairE = `friend.npuw.chair@gmail.com;`
-        planner = `Tamaria Letang`
-        plannerE = `tletang@atlantaga.gov`
+        planner = `Steven Aceto`
+        plannerE = `saceto@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom4@atlantaga.gov'
         zCred = 'Wehostmeetings44'
@@ -476,23 +480,6 @@ Access Code: 929 8209 4616#`
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
         break;
-      //             case 'APAB':
-      //                 isHybrid = false;
-      //                 meet = `Meeting ID: 947 9575 5692
-      // Dial In: +1 646-558-8656
-      // Access Code: 947 9575 5692#`
-      //                 zURL = `https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
-      //                 time = `10:00AM`
-      //                 chair = `Anne E. Phillips`
-      //                 chairHon = `Ms. Phillips`
-      //                 chairE = `anne.phillips@bellsouth.net`
-      //                 planner = `Samantha Terry`
-      //                 plannerE = `snterry@atlantaga.gov`
-      //                 note = ''
-      //                 break;
-      // default:
-      //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
-      //     break;
     }
     let HybStatus = '';
 
