@@ -81,6 +81,7 @@ function saveAndRedirect(path) {
     NPU.ZoomPW = req.body.ZoomPW
     NPU.ZoomURL = req.body.ZoomURL
     NPU.bylawsURL = req.body.bylawsURL
+    NPU.location = req.body.location
     try {
       NPU = await NPU.save()
       res.redirect(`NPUs`)

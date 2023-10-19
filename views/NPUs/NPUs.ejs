@@ -23,15 +23,14 @@
     <%- include('../_nav') %>
   </header>
   <br>
-  <div>
+  <div class='d-flex flex-column'>
+    <a class='btn btn-sm btn-success m-3' href="/NPUs/new">Add NPU</a>
     <table>
       <thead>
         <tr>
           <th>NPU</th>
           <th>Chair</th>
-          <th>Chair Email</th>
           <th>Planner</th>
-          <th>Planner Email</th>
           <th>Meeting Info</th>
           <th>Zoom ID</th>
           <th>Zoom PW</th>
@@ -45,17 +44,13 @@
           <td class='NPU'>
             <%= NPU.NPU %>
           </td>
-          <td>
-            <%= NPU.chair %>
+          <td><a href="mailto:<%= NPU.chairE %>">
+              <%= NPU.chair %>
+            </a>
           </td>
-          <td>
-            <%= NPU.chairE %>
-          </td>
-          <td>
-            <%= NPU.planner %>
-          </td>
-          <td>
-            <%= NPU.plannerE %>
+          <td><a href="mailto:<%= NPU.plannerE %>">
+              <%= NPU.planner %>
+            </a>
           </td>
           <td>
             <%= NPU.meeting %>

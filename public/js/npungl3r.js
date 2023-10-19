@@ -46,10 +46,10 @@ $('#submit').on('click', function OnClickEvent(event) {
     switch (meetDetailProto) {
       case 'A':
         isHybrid = false;
-        meet = `Meeting ID: 856 7471 3054
+        meet = `Meeting ID: 842 6707 3478
 Dial In: +1 646 558 8656
-Access Code: 856 7471 3054#`
-        zURL = `https://atlantaga-gov.zoom.us/meeting/register/tZErcO2vrzgqH9ArhFC4ZPNWdLs4yiiBa749`
+Access Code: 842 6707 3478#`
+        zURL = `https://us06web.zoom.us/meeting/register/tZAvce6oqTguHdzWCdDiyT-STa6XehkFeH9W`
         time = `7:00PM`
         chair = `Brinkley Dickerson`
         chairHon = `Mr. Dickerson`
@@ -57,8 +57,8 @@ Access Code: 856 7471 3054#`
         planner = `William Vining`
         plannerE = `wivining@atlantaga.gov`
         note = ''
-        zMail = 'npuatlanta@atlantaga.gov'
-        zCred = 'Npuatlanta2020!'
+        zMail = 'npuzoomroom1@atlantaga.gov'
+        zCred = 'Wehostmeetings1'
         break;
       case 'B':
         isHybrid = false;
@@ -329,10 +329,14 @@ Access Code: 985 5727 1692#`
         zCred = 'Wehostmeetings3'
         break;
       case 'R':
-        isHybrid = false;
+        isHybrid = true;
         meet = `Meeting ID: 886 2169 6544
 Dial In: +1 646 558 8656
-Access Code: 886 2169 6544#`
+Access Code: 886 2169 6544#
+
+And in person:
+1620 Delowe Dr. SW,
+Atlanta, 30311`
         zURL = `https://us06web.zoom.us/meeting/register/tZwrdeiupz0vHtCSIPdEIa-N6avVbaNnGXlb`
         time = `7:00PM`
         chair = `Donovan A. Dodds`
@@ -444,7 +448,7 @@ Access Code: 940 6017 9815#`
         zCred = 'Wehostmeetings3'
         break;
       case 'Y':
-        isHybrid = true;
+        isHybrid = false;
         meet = `Online:
 Meeting ID:  885 5312 4257
 Dial In: +1 646 558 8656
@@ -476,23 +480,6 @@ Access Code: 929 8209 4616#`
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
         break;
-      //             case 'APAB':
-      //                 isHybrid = false;
-      //                 meet = `Meeting ID: 947 9575 5692
-      // Dial In: +1 646-558-8656
-      // Access Code: 947 9575 5692#`
-      //                 zURL = `https://us06web.zoom.us/meeting/register/tJAqfuyvqz4sE9aRG-HDEoLldjZtzVXF4uuK`
-      //                 time = `10:00AM`
-      //                 chair = `Anne E. Phillips`
-      //                 chairHon = `Ms. Phillips`
-      //                 chairE = `anne.phillips@bellsouth.net`
-      //                 planner = `Samantha Terry`
-      //                 plannerE = `snterry@atlantaga.gov`
-      //                 note = ''
-      //                 break;
-      // default:
-      //     console.log(`Please select one of the 25 NPUs A-Z or APAB.`)
-      //     break;
     }
     let HybStatus = '';
 

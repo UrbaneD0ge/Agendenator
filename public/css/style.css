@@ -101,7 +101,8 @@ table, th, td {
 thead > tr:first-child {
   background-color: palegoldenrod;
   position: sticky;
-  top: 56px;
+  top: 10svh;
+  z-index: 1030;
 }
 
 .rc > tr:first-child {
