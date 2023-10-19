@@ -123,8 +123,8 @@ Dial-In: +1 929-436-2866`
         chair = `Courtney Smith`
         chairHon = `Ms. Smith`
         chairE = `chair@npueatlanta.org`
-        planner = `Nate Hoelzel`
-        plannerE = `nhoelzel@atlantaga.gov`
+        planner = `Katherine Hernandez`
+        plannerE = `khernandez@atlantaga.gov`
         note = ''
         zMail = '-'
         zCred = '-'
@@ -155,8 +155,8 @@ Access Code: 935 8093 0222#`
         chair = `Andrew Anderson`
         chairHon = `Mr. Anderson`
         chairE = `andrewnanderson2012@icloud.com`
-        planner = `Daniel Vasquez`
-        plannerE = `dvasquez@atlantaga.gov`
+        planner = `Louisa Tovar`
+        plannerE = `ltovar@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -171,8 +171,8 @@ Access Code: 976 5253 7837#`
         chair = `R.R. Harris`
         chairHon = `Ms. Harris`
         chairE = `harrischairnpuh@gmail.com`
-        planner = `Susan Coleman`
-        plannerE = `sucoleman@atlantaga.gov`
+        planner = `Aaron Beattie`
+        plannerE = `abeattie@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -241,8 +241,8 @@ Access Code: 961 2883 9632#`
         chair = `Shade'Y. Jones`
         chairHon = `Ms. Jones`
         chairE = `chair@npulatlanta.org`
-        planner = `TBD`
-        plannerE = `TBD`
+        planner = `Daniel Vasquez`
+        plannerE = `dvasquez@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -274,8 +274,8 @@ Password: euclid`
         chair = `Amy Stout`
         chairHon = `Ms. Stout`
         chairE = `npunchair@gmail.com`
-        planner = `Daniel Vasquez`
-        plannerE = `dvasquez@atlantaga.gov`
+        planner = `Tamaria Letang`
+        plannerE = `tletang@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom2@atlantaga.gov'
         zCred = 'Wehostmeetings2'
@@ -290,8 +290,8 @@ Access Code: 812 4045 1335#`
         chair = `Jeanne Tropper`
         chairHon = `Ms. Tropper`
         chairE = `chair@atlantanpuo.org`
-        planner = `TBD`
-        plannerE = `TBD`
+        planner = `Selena Xayavong`
+        plannerE = `sxayavong@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom5@atlantaga.gov'
         zCred = 'Wehostmeetings5'
@@ -421,8 +421,8 @@ Access Code: 916 2580 5725#`
         chair = `Kevin Friend`
         chairHon = `Mr. Friend`
         chairE = `friend.npuw.chair@gmail.com;`
-        planner = `Tamaria Letang`
-        plannerE = `tletang@atlantaga.gov`
+        planner = `Steven Aceto`
+        plannerE = `saceto@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom4@atlantaga.gov'
         zCred = 'Wehostmeetings44'
