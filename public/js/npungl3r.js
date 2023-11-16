@@ -422,9 +422,9 @@ Dial In: +1 646 558 8656
 Access Code: 916 2580 5725#`
         zURL = `https://us06web.zoom.us/meeting/register/tJUrdeygrj4tGNFBx8eTSLrBvv1Zy4uPsqgD`
         time = `7:00PM`
-        chair = `Kevin Friend`
-        chairHon = `Mr. Friend`
-        chairE = `friend.npuw.chair@gmail.com;`
+        chair = `Skyler Hassan`
+        chairHon = `Mr. Hassan`
+        chairE = `npu.w.atl@gmail.com`
         planner = `Steven Aceto`
         plannerE = `saceto@atlantaga.gov`
         note = ''
