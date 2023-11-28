@@ -83,6 +83,7 @@ function saveAndRedirect(path) {
     NPU.bylawsURL = req.body.bylawsURL
     NPU.location = req.body.location
     NPU.nhoods = req.body.nhoods
+    NPU.isHybrid = req.body.isHybrid
     try {
       NPU = await NPU.save()
       res.redirect(`NPUs`)
@@ -97,9 +98,20 @@ function putUpdate(path) {
   return async (req, res) => {
     let NPU = req.NPU
     //  assign fields to application and save
-    for (keys in req.body) {
-      NPU[keys] = req.body[keys];
-    }
+    NPU.NPU = req.body.NPU
+    NPU.chair = req.body.chair
+    NPU.chairE = req.body.chairE
+    NPU.planner = req.body.planner
+    NPU.plannerE = req.body.plannerE
+    NPU.meeting = req.body.meeting
+    NPU.ZoomID = req.body.ZoomID
+    NPU.ZoomPW = req.body.ZoomPW
+    NPU.ZoomURL = req.body.ZoomURL
+    NPU.bylawsURL = req.body.bylawsURL
+    NPU.location = req.body.location
+    NPU.nhoods = req.body.nhoods
+    NPU.isHybrid = req.body.isHybrid == 'on' ? true : false
+    console.log(NPU.isHybrid)
     try {
       // console.dir(req);
       // console.dir(application);

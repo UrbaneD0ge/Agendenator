@@ -13,7 +13,8 @@ const NPUSchema = new mongoose.Schema({
   bylawsURL: String,
   isHybrid: Boolean,
   location: String,
-  nhoods: Array
+  nhoods: Array,
+  isHybrid: Boolean
 });
 
 module.exports = mongoose.model("NPU", NPUSchema);
