@@ -101,9 +101,19 @@
           <input type="text" name="bylawsURL" id="bylawsURL" class='form-control' value='<%= NPU.bylawsURL  %> '>
         </div>
         <div class="row">
+          <div class="col-1">
+            <label for="isHybrid">Hybrid?</label>
+            <input type="checkbox" name="isHybrid" id="isHybrid" checked='<%=NPU.isHybrid %>'>
+          </div>
           <div class="col">
             <label for="location">Location</label>
-            <input type="text" name="location" id="location" class='form-control' value='<%= NPU.location  %>'>
+            <input type="text" name="location" id="location" class='form-control' value='<%= NPU.location %>'>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="nhoods">Neighborhoods</label>
+            <input type="textarea" name="nhoods" id="nhoods" class='form-control' value='<%= NPU.nhoods.join(' ,') %>'>
           </div>
         </div>
       </div>
@@ -121,6 +131,7 @@
         selectNPU[i].selected = true;
       }
     }
+
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
