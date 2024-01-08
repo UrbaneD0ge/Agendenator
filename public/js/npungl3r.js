@@ -54,8 +54,8 @@ Access Code: 842 6707 3478#`
         chair = `Brinkley Dickerson`
         chairHon = `Mr. Dickerson`
         chairE = `wbdnatl@gmail.com`
-        planner = `William Vining`
-        plannerE = `wivining@atlantaga.gov`
+        planner = `Redowan Kabir Kaushik`
+        plannerE = `dcp-rkkaushik@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
@@ -105,7 +105,7 @@ Agape Center
 Atlanta, GA 30318`
         zURL = `https://us06web.zoom.us/meeting/register/tJEucu2upzgvGNRkuGmiYcE2akuYMkFc1av-`
         time = `7:30PM`
-        chair = `Jim Martin`
+        chair = `James "Jim" Martin`
         chairHon = `Mr. Martin`
         chairE = `james.martin@me.gatech.edu`
         planner = `Nate Hoelzel`
@@ -152,9 +152,9 @@ Dial In: +1 646-558-8656
 Access Code: 935 8093 0222#`
         zURL = `https://us06web.zoom.us/meeting/register/tJcof-mhrTsoGNbC6XrB8Sr6HKX7E8hPLfjH`
         time = `7:00PM`
-        chair = `Andrew Anderson`
-        chairHon = `Mr. Anderson`
-        chairE = `andrewnanderson2012@icloud.com`
+        chair = `Torrey Sumlin`
+        chairHon = `Mr. Sumlin`
+        chairE = `npugatlantachair@gmail.com`
         planner = `Louisa Tovar`
         plannerE = `ltovar@atlantaga.gov`
         note = ''
@@ -168,9 +168,9 @@ Dial In: +1 646-558-8656
 Access Code: 976 5253 7837#`
         zURL = `https://us06web.zoom.us/meeting/register/tJMrcuutrTwiGdOe_aqA5xK3pYN0ZJ96KFdO`
         time = `7:00PM`
-        chair = `R.R. Harris`
-        chairHon = `Ms. Harris`
-        chairE = `harrischairnpuh@gmail.com`
+        chair = `Khalifa Lee`
+        chairHon = `Mr. Lee`
+        chairE = `npuhwestatlanta@gmail.com`
         planner = `Aaron Beattie`
         plannerE = `abeattie@atlantaga.gov`
         note = ''
@@ -222,7 +222,7 @@ Bistro Room
 1300 Joseph E. Boone Blvd NW, 30314`
         zURL = `https://us06web.zoom.us/meeting/register/tJ0pfuuuqjosG9SFlf4neD6B5HLB18AX5zGe`
         time = `6:30PM`
-        chair = `Jasmine Hope`
+        chair = `Dr. Jasmine Hope`
         chairHon = `Dr. Hope`
         chairE = `npukatlanta@gmail.com`
         planner = `Tshaka Warren`
@@ -238,7 +238,7 @@ Dial In: +1 646 558 8656
 Access Code: 961 2883 9632#`
         zURL = `https://us06web.zoom.us/meeting/register/tJIsdeGgrTIsGda9TZkaUfsNakMmS0zxpVe4`
         time = `6:30PM`
-        chair = `Shade'Y. Jones`
+        chair = `Yvonne "Shadé" Jones`
         chairHon = `Ms. Jones`
         chairE = `chair@npulatlanta.org`
         planner = `Daniel Vasquez`
@@ -287,8 +287,8 @@ Dial In: +1 646 558 8656
 Access Code: 812 4045 1335#`
         zURL = `https://us06web.zoom.us/meeting/register/tZUvc-msqzopGdHkG2UKue12pd08rkIAkpc_`
         time = `6:30PM`
-        chair = `Jeanne Tropper`
-        chairHon = `Ms. Tropper`
+        chair = `Joe Schleupner`
+        chairHon = `Mr. Schleupner`
         chairE = `chair@atlantanpuo.org`
         planner = `Selena Xayavong`
         plannerE = `sxayavong@atlantaga.gov`
@@ -306,8 +306,8 @@ Access Code: 940 8702 7097#`
         chair = `Reginald Rushin`
         chairHon = `Mr. Rushin`
         chairE = `Rushinr58@gmail.com`
-        planner = `Nicole Mitchell`
-        plannerE = `nymitchell@atlantaga.gov`
+        planner = `Kamilah Bakari`
+        plannerE = `kbakari@AtlantaGa.Gov`
         note = ''
         zMail = 'npuzoomroom5@atlantaga.gov'
         zCred = 'Wehostmeetings5'
@@ -319,9 +319,9 @@ Dial In: +1 646 558 8656
 Access Code: 985 5727 1692#`
         zURL = `https://us06web.zoom.us/meeting/register/tJwocu6qqTosE9bW-XHCnSGMWaOAnKCKqrkS`
         time = `6:30PM`
-        chair = `Darrell Groves`
-        chairHon = `Mr. Groves`
-        chairE = `grovesdarrell@outlook.com`
+        chair = `David Getachew-Smith`
+        chairHon = `Mr. Getachew-Smith`
+        chairE = `davget_smith@hotmail.com`
         planner = `Francis Rozier`
         plannerE = `franrozier@atlantaga.gov`
         note = ''
@@ -339,8 +339,8 @@ And in person:
 Atlanta, 30311`
         zURL = `https://us06web.zoom.us/meeting/register/tZwrdeiupz0vHtCSIPdEIa-N6avVbaNnGXlb`
         time = `7:00PM`
-        chair = `Donovan A. Dodds`
-        chairHon = `Mr. Dodds`
+        chair = `Rita Harden`
+        chairHon = `Ms. Harden`
         chairE = `npur.exc@gmail.com`
         planner = `Carolina Rodriguez`
         plannerE = `crodriguez@atlantaga.gov`
@@ -360,8 +360,8 @@ VICARS Community Center
 838 Cascade Ave SW, 30311`
         zURL = `https://us06web.zoom.us/meeting/register/tJ0udeCgqT8pEtycXQZ9s7Tk4_0J_73DZmQD`
         time = `7:00PM`
-        chair = `Nick Hess`
-        chairHon = `Mr. Hess`
+        chair = `Kyle Lamont`
+        chairHon = `Mr. Lamont`
         chairE = `chair@npu-s.org`
         planner = `Carlos Garcia`
         plannerE = `cmgarcia@atlantaga.gov`
@@ -422,7 +422,7 @@ Dial In: +1 646 558 8656
 Access Code: 916 2580 5725#`
         zURL = `https://us06web.zoom.us/meeting/register/tJUrdeygrj4tGNFBx8eTSLrBvv1Zy4uPsqgD`
         time = `7:00PM`
-        chair = `Skyler Hassan`
+        chair = `Sky Hassan`
         chairHon = `Mr. Hassan`
         chairE = `npu.w.atl@gmail.com`
         planner = `Steven Aceto`
@@ -438,8 +438,8 @@ Dial In: +1 646 558 8656
 Access Code: 940 6017 9815#`
         zURL = `https://us06web.zoom.us/meeting/register/tJAtcempqTIiG9Gd_h-5Tcordb6gJXHz14r1`
         time = `7:00PM`
-        chair = `Sagirah Jones`
-        chairHon = `Ms. Jones`
+        chair = `Zachary Adriaenssens`
+        chairHon = `Mr. Adriaenssens`
         chairE = `chair@npu-x.com`
         planner = `Inyo Cue`
         plannerE = `icue@atlantaga.gov`

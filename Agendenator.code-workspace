@@ -10,15 +10,18 @@
       "agemplates",
       "AGENDENATOR",
       "appl",
+      "Bakari",
       "Clappin",
       "countj",
       "Delowe",
       "descr",
       "Dodds",
       "draggables",
+      "Getachew",
       "Gober",
       "Hoelzel",
       "Inyo",
+      "Kamilah",
       "Lavandier",
       "Letang",
       "MOSE",
@@ -41,6 +44,9 @@
       "activityBar.background": "#c1b401",
       "titleBar.activeBackground": "#c1b401",
       "titleBar.activeForeground": "#FFFBFC"
-    }
+    },
+    "cSpell.ignoreWords": [
+      "Shadé"
+    ]
   }
 }
