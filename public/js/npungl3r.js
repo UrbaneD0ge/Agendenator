@@ -55,7 +55,7 @@ Access Code: 842 6707 3478#`
         chairHon = `Mr. Dickerson`
         chairE = `wbdnatl@gmail.com`
         planner = `Redowan Kabir Kaushik`
-        plannerE = `dcp-rkkaushik@atlantaga.gov`
+        plannerE = `rkkaushik@atlantaga.gov`
         note = ''
         zMail = 'npuzoomroom1@atlantaga.gov'
         zCred = 'Wehostmeetings1'
