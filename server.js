@@ -146,3 +146,38 @@ app.use('/agenda', agendaRouter);
 app.use('/show', applicationRouter);
 app.use('/NPUs', NPUrouter);
 app.use('/applications', applicationRouter);
+
+
+// // docx
+// const doc = new docx.Document({
+//   creator: "Prepared by Kipling Dunlap for the Department of City Planning, City of Atlanta",
+//   title: "NPU Agenda",
+//   description: "NPU Agenda",
+//   styles: {
+//     paragraphStyles: [
+//       {
+//         id: "Heading1",
+//         name: "Heading 1",
+//         basedOn: "Normal",
+//         next: "Normal",
+//         quickFormat: true,
+//         run: {
+//           size: 28,
+//           bold: true,
+//         },
+//         paragraph: {
+//           spacing: {
+//             after: 120,
+//           },
+//         },
+//       },
+//       {
+//         id: "Heading2",
+//         name: "Heading 2",
+//         basedOn: "Normal",
+//         next: "Normal",
+
+//       }
+//     ]
+//   }
+// });
